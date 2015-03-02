@@ -1,0 +1,26 @@
+//
+//  PrefixHeader.pch
+//  DigitalSchool
+//
+//  Created by 刘军林 on 15/1/16.
+//  Copyright (c) 2015年 刘军林. All rights reserved.
+//
+
+#import <Availability.h>
+
+#ifndef __IPHONE_5_0
+#warning "This project uses features only available in iOS SDK 5.0 and later."
+#endif
+
+#ifdef __OBJC__
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+
+#import "MLoginViewController.h"
+
+#import "Macro.h"
+#import "UIColor+Hex.h"
+#import "MTool.h"
+#import "Toast+UIView.h"
+#import "SVProgressHUD.h"
+#endif
