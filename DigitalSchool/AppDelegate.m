@@ -21,7 +21,7 @@
     
     [[UINavigationBar appearance]setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
     
-    NSLog(@"%@",[BLTool getKeyCode:@""]);
+//    NSLog(@"%@",[BLTool getKeyCode:@""]);
     
     [@"aa" stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     //    [[UINavigationBar appearance] setBackgroundColor:[UIColor redColor]];
