@@ -13,13 +13,13 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [[UITabBar appearance]setTintColor:[UIColor colorWithHexString:MNavBarBarkGroundColor alpha:1]];
-    
-    [[UINavigationBar appearance]setBarTintColor:[UIColor colorWithHexString:MTitleColor alpha:1]];
-    
-    [[UINavigationBar appearance]setTintColor:[UIColor whiteColor]];
-    
-    [[UINavigationBar appearance]setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
+//    [[UITabBar appearance]setTintColor:[UIColor colorWithHexString:MNavBarBarkGroundColor alpha:1]];
+//    
+//    [[UINavigationBar appearance]setBarTintColor:[UIColor colorWithHexString:MTitleColor alpha:1]];
+//    
+//    [[UINavigationBar appearance]setTintColor:[UIColor whiteColor]];
+//    
+//    [[UINavigationBar appearance]setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
     
 //    NSLog(@"%@",[BLTool getKeyCode:@""]);
     
