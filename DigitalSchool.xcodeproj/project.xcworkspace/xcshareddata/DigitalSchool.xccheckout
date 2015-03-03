@@ -10,58 +10,31 @@
 	<string>DigitalSchool</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>edd5a264-2d39-324a-9f8e-05cd702c0b86++9111</key>
-		<string>http://langxia6231614.xicp.net/svn/DigitalSchool/ios/trunk</string>
-		<key>edd5a264-2d39-324a-9f8e-05cd702c0b86++9261</key>
-		<string>http://langxia6231614.xicp.net/svn/DigitalSchool</string>
+		<key>D54697526D8DD652527242B5308ABD5BDA80BB28</key>
+		<string>https://github.com/liu785625446/DigitalSchool-Git.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>DigitalSchool/DigitalSchool.xcodeproj</string>
+	<string>DigitalSchool.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>edd5a264-2d39-324a-9f8e-05cd702c0b86++9111</key>
-		<string>../../..</string>
-		<key>edd5a264-2d39-324a-9f8e-05cd702c0b86++9261</key>
-		<string>../../../../../../DigitalSchool</string>
-	</dict>
-	<key>IDESourceControlProjectRepositoryRootDictionary</key>
-	<dict>
-		<key>edd5a264-2d39-324a-9f8e-05cd702c0b86++9111</key>
-		<string>http://langxia6231614.xicp.net/svn/DigitalSchool</string>
-		<key>edd5a264-2d39-324a-9f8e-05cd702c0b86++9261</key>
-		<string>http://langxia6231614.xicp.net/svn/DigitalSchool</string>
+		<key>D54697526D8DD652527242B5308ABD5BDA80BB28</key>
+		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>http://langxia6231614.xicp.net/svn/DigitalSchool/ios/trunk/DigitalSchool/DigitalSchool.xcodeproj</string>
+	<string>https://github.com/liu785625446/DigitalSchool-Git.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>edd5a264-2d39-324a-9f8e-05cd702c0b86++9111</string>
+	<string>D54697526D8DD652527242B5308ABD5BDA80BB28</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
-			<string>public.vcs.subversion</string>
-			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>edd5a264-2d39-324a-9f8e-05cd702c0b86++9111</string>
-			<key>IDESourceControlWCCName</key>
-			<string>DigitalSchool</string>
-		</dict>
-		<dict>
-			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
-			<string>public.vcs.subversion</string>
-			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>edd5a264-2d39-324a-9f8e-05cd702c0b86++9261</string>
-			<key>IDESourceControlWCCName</key>
-			<string>DigitalSchool</string>
-		</dict>
-		<dict>
-			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>edd5a264-2d39-324a-9f8e-05cd702c0b86++9261</string>
+			<string>D54697526D8DD652527242B5308ABD5BDA80BB28</string>
 			<key>IDESourceControlWCCName</key>
-			<string>DigitalSchool</string>
+			<string>DigitalSchool-Git</string>
 		</dict>
 	</array>
 </dict>
