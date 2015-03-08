@@ -28,6 +28,12 @@
 		0A57571A1AAC28BD00B78A3B /* libUMOpus.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A5757061AAC28BD00B78A3B /* libUMOpus.a */; };
 		0A57571C1AAC29E500B78A3B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A57571B1AAC29E500B78A3B /* AVFoundation.framework */; };
 		0A57571F1AAC398100B78A3B /* PLUserProcess.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A57571E1AAC398100B78A3B /* PLUserProcess.m */; };
+		0A5757231AAC874600B78A3B /* QRadioButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A5757221AAC874600B78A3B /* QRadioButton.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		0A5757281AAC876800B78A3B /* check_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A5757241AAC876800B78A3B /* check_icon.png */; };
+		0A5757291AAC876800B78A3B /* check_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A5757251AAC876800B78A3B /* check_icon@2x.png */; };
+		0A57572A1AAC876800B78A3B /* uncheck_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A5757261AAC876800B78A3B /* uncheck_icon.png */; };
+		0A57572B1AAC876800B78A3B /* uncheck_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A5757271AAC876800B78A3B /* uncheck_icon@2x.png */; };
+		0A57572E1AAC888500B78A3B /* MRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A57572D1AAC888500B78A3B /* MRegisterViewController.m */; };
 		0A974D361A77B964002498B5 /* PLBaseProcess.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A974D351A77B964002498B5 /* PLBaseProcess.m */; };
 		0A974D391A77B978002498B5 /* PLCourseProcess.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A974D381A77B978002498B5 /* PLCourseProcess.m */; };
 		0A9A569B1A6FE2AF00DA8122 /* MyMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9A569A1A6FE2AF00DA8122 /* MyMessageCell.m */; };
@@ -283,6 +289,14 @@
 		0A57571B1AAC29E500B78A3B /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		0A57571D1AAC398100B78A3B /* PLUserProcess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLUserProcess.h; sourceTree = "<group>"; };
 		0A57571E1AAC398100B78A3B /* PLUserProcess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLUserProcess.m; sourceTree = "<group>"; };
+		0A5757211AAC874600B78A3B /* QRadioButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRadioButton.h; sourceTree = "<group>"; };
+		0A5757221AAC874600B78A3B /* QRadioButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRadioButton.m; sourceTree = "<group>"; };
+		0A5757241AAC876800B78A3B /* check_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = check_icon.png; sourceTree = "<group>"; };
+		0A5757251AAC876800B78A3B /* check_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "check_icon@2x.png"; sourceTree = "<group>"; };
+		0A5757261AAC876800B78A3B /* uncheck_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = uncheck_icon.png; sourceTree = "<group>"; };
+		0A5757271AAC876800B78A3B /* uncheck_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "uncheck_icon@2x.png"; sourceTree = "<group>"; };
+		0A57572C1AAC888500B78A3B /* MRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRegisterViewController.h; sourceTree = "<group>"; };
+		0A57572D1AAC888500B78A3B /* MRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRegisterViewController.m; sourceTree = "<group>"; };
 		0A974D341A77B964002498B5 /* PLBaseProcess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLBaseProcess.h; sourceTree = "<group>"; };
 		0A974D351A77B964002498B5 /* PLBaseProcess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLBaseProcess.m; sourceTree = "<group>"; };
 		0A974D371A77B978002498B5 /* PLCourseProcess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLCourseProcess.h; sourceTree = "<group>"; };
@@ -708,6 +722,19 @@
 			path = UMOpus;
 			sourceTree = "<group>";
 		};
+		0A5757201AAC872B00B78A3B /* QRadioButton */ = {
+			isa = PBXGroup;
+			children = (
+				0A5757241AAC876800B78A3B /* check_icon.png */,
+				0A5757251AAC876800B78A3B /* check_icon@2x.png */,
+				0A5757261AAC876800B78A3B /* uncheck_icon.png */,
+				0A5757271AAC876800B78A3B /* uncheck_icon@2x.png */,
+				0A5757211AAC874600B78A3B /* QRadioButton.h */,
+				0A5757221AAC874600B78A3B /* QRadioButton.m */,
+			);
+			path = QRadioButton;
+			sourceTree = "<group>";
+		};
 		0A9A56A11A6FE59500DA8122 /* PlayVideoView */ = {
 			isa = PBXGroup;
 			children = (
@@ -1084,6 +1111,7 @@
 		0AB31DB41A68D8B800B87850 /* Capability */ = {
 			isa = PBXGroup;
 			children = (
+				0A5757201AAC872B00B78A3B /* QRadioButton */,
 				0A5756E91AAC1FC500B78A3B /* Umeng */,
 				0AEA907B1A83698400C699ED /* UIKeyBorad */,
 				0AB31DB51A68D8B800B87850 /* FMDB */,
@@ -1253,6 +1281,8 @@
 			children = (
 				0AEA90761A8361CC00C699ED /* MLoginViewController.h */,
 				0AEA90771A8361CC00C699ED /* MLoginViewController.m */,
+				0A57572C1AAC888500B78A3B /* MRegisterViewController.h */,
+				0A57572D1AAC888500B78A3B /* MRegisterViewController.m */,
 			);
 			name = LoginVC;
 			sourceTree = "<group>";
@@ -1461,6 +1491,7 @@
 				0AEA90871A836D6400C699ED /* Main.storyboard in Resources */,
 				CC5A94E81A6E8BC5008197BC /* BtnBottomPressed1@2x.png in Resources */,
 				0A9A575E1A7025B800DA8122 /* moviePlayButton.png in Resources */,
+				0A57572A1AAC876800B78A3B /* uncheck_icon.png in Resources */,
 				0A9A575D1A7025B800DA8122 /* moviePauseButton.png in Resources */,
 				0A57570E1AAC28BD00B78A3B /* microphone@2x.png in Resources */,
 				0A9A57571A7020F400DA8122 /* MDiscussNotesCell.xib in Resources */,
@@ -1489,6 +1520,7 @@
 				CC5A94E41A6E8BC5008197BC /* BtnBottomNormal3@2x.png in Resources */,
 				0A9A57271A70026300DA8122 /* ActivitiesInfoCase.png in Resources */,
 				CC3DACF61A68E91800C9139C /* MCellbackGround@2x.png in Resources */,
+				0A5757291AAC876800B78A3B /* check_icon@2x.png in Resources */,
 				0AEA90741A835F7C00C699ED /* password.png in Resources */,
 				0AEA90701A835E0800C699ED /* registerBut_select.png in Resources */,
 				CC3DACFA1A68E91800C9139C /* MNavItemSearch@2x.png in Resources */,
@@ -1517,6 +1549,7 @@
 				CC5A94E51A6E8BC5008197BC /* BtnBottomNormal4@2x.png in Resources */,
 				CC3DACF91A68E91800C9139C /* MNavItemScreenHighlight@2x.png in Resources */,
 				0AEA90631A835A4800C699ED /* banner.png in Resources */,
+				0A5757281AAC876800B78A3B /* check_icon.png in Resources */,
 				CCCF51F11A77B00500A4654F /* 1.png in Resources */,
 				0AB31DFB1A68D8B800B87850 /* DBConfig.plist in Resources */,
 				0AA3E4CA1A8A5E58004D86BE /* MCourseDefalut.png in Resources */,
@@ -1525,6 +1558,7 @@
 				0A9A575F1A7025B800DA8122 /* movieSliderImg.png in Resources */,
 				0A9A574D1A7010B500DA8122 /* MyRootEdit.png in Resources */,
 				0AB31DE31A68D8B800B87850 /* TabbarCourse@2x.png in Resources */,
+				0A57572B1AAC876800B78A3B /* uncheck_icon@2x.png in Resources */,
 				0A9A572F1A70026300DA8122 /* ActivitiesInfoTips.png in Resources */,
 				0AC66AFD1A9EB414000F6C0D /* icon@3x.png in Resources */,
 				CC5A94E61A6E8BC5008197BC /* BtnBottomNormal5@2x.png in Resources */,
@@ -1593,8 +1627,10 @@
 				0AB31DFA1A68D8B800B87850 /* BaseBL.m in Sources */,
 				0AB31E021A68D8B800B87850 /* PLCourseDownload.m in Sources */,
 				0AE430401A68D47B00CECD12 /* AppDelegate.m in Sources */,
+				0A57572E1AAC888500B78A3B /* MRegisterViewController.m in Sources */,
 				0AB31E0B1A68D8B800B87850 /* FMResultSet.m in Sources */,
 				0AB31DF71A68D8B800B87850 /* MenuHrizontalView.m in Sources */,
+				0A5757231AAC874600B78A3B /* QRadioButton.m in Sources */,
 				0AEA905D1A8351A700C699ED /* ActivityDiscussCell.m in Sources */,
 				CC3DAD061A68EBEB00C9139C /* MTool.m in Sources */,
 				0AB31E041A68D8B800B87850 /* PLNotes.m in Sources */,

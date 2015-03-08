@@ -40,6 +40,16 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+-(IBAction)loginAction:(id)sender
+{
+    
+}
+
+-(IBAction)registerAction:(id)sender
+{
+    [self performSegueWithIdentifier:@"RegisterIdentifier" sender:nil];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

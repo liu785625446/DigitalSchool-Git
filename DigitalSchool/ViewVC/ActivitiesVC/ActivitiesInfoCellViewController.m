@@ -67,9 +67,9 @@
 
 -(void) commentActivityAction:(id)sender
 {
-//    [self checkUserLogin];
+    [self checkUserLogin];
 
-    [self performSegueWithIdentifier:@"commentActivity" sender:nil];
+//    [self performSegueWithIdentifier:@"commentActivity" sender:nil];
 }
 
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

@@ -187,29 +187,29 @@ int main(int argc, char * argv[]) {
 //    }];
     
     PLUserProcess *userProcess = [[PLUserProcess alloc] init];
-//    [userProcess rigesterUserName:@"12345123" didPassword:@"12345123" didNickName:@"abef" didUserType:@"0" didSuccess:^(NSMutableArray *array) {
+    [userProcess rigesterUserName:@"ios123" didPassword:@"ios123" didNickName:@"ios测试" didUserType:@"1" didSuccess:^(NSMutableArray *array) {
+        
+    } didFail:^(NSString *error) {
+        
+    }];
+    
+//    [userProcess loginUserName:@"123456" didPassword:@"123456" didSuccess:^(NSMutableArray *array) {
 //        
 //    } didFail:^(NSString *error) {
 //        
 //    }];
-    
-    [userProcess loginUserName:@"123456" didPassword:@"123456" didSuccess:^(NSMutableArray *array) {
-        
-    } didFail:^(NSString *error) {
-        
-    }];
-    
-    [userProcess modifyNickName:@"update" didUserId:@"402880e64bf71785014bf88229490000" didSuccess:^(NSMutableArray *array) {
-        
-    } didFail:^(NSString *error) {
-        
-    }];
-    
-    [userProcess modifyPassword:@"402880e64bf71785014bf88229490000" didOldPassword:@"123456" didNewPassword:@"654321" didSuccess:^(NSMutableArray *array) {
-        
-    } didFail:^(NSString *error) {
-        
-    }];
+//    
+//    [userProcess modifyNickName:@"update" didUserId:@"402880e64bf71785014bf88229490000" didSuccess:^(NSMutableArray *array) {
+//        
+//    } didFail:^(NSString *error) {
+//        
+//    }];
+//    
+//    [userProcess modifyPassword:@"402880e64bf71785014bf88229490000" didOldPassword:@"123456" didNewPassword:@"654321" didSuccess:^(NSMutableArray *array) {
+//        
+//    } didFail:^(NSString *error) {
+//        
+//    }];
     
     @autoreleasepool {
         return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
