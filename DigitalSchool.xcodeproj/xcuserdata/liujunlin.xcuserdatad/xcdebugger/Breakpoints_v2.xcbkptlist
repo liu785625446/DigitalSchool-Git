@@ -35,7 +35,7 @@
                   symbolName = "__main_block_invoke_3"
                   moduleName = "DigitalSchool"
                   urlString = "file:///Users/liujunlin/Desktop/DigitalSchool-Git/DigitalSchool/main.m"
-                  timestampString = "447497895.191286"
+                  timestampString = "447499754.365344"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "198"
@@ -49,7 +49,7 @@
                   symbolName = "__main_block_invoke_4"
                   moduleName = "DigitalSchool"
                   urlString = "file:///Users/liujunlin/Desktop/DigitalSchool-Git/DigitalSchool/main.m"
-                  timestampString = "447497895.191443"
+                  timestampString = "447499754.365559"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "198"
@@ -73,6 +73,36 @@
             endingLineNumber = "54"
             landmarkName = "-modifyNickName:didUserId:didSuccess:didFail:"
             landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__61-[PLUserProcess modifyNickName:didUserId:didSuccess:didFail:]_block_invoke"
+                  moduleName = "DigitalSchool"
+                  urlString = "file:///Users/liujunlin/Desktop/DigitalSchool-Git/DigitalSchool/PLModel/PLDao/PLUserProcess.m"
+                  timestampString = "447499754.366546"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "55"
+                  endingLineNumber = "55"
+                  offsetFromSymbolStart = "38">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__61-[PLUserProcess modifyNickName:didUserId:didSuccess:didFail:]_block_invoke_2"
+                  moduleName = "DigitalSchool"
+                  urlString = "file:///Users/liujunlin/Desktop/DigitalSchool-Git/DigitalSchool/PLModel/PLDao/PLUserProcess.m"
+                  timestampString = "447499754.366738"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "55"
+                  endingLineNumber = "55"
+                  offsetFromSymbolStart = "34">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -89,6 +119,128 @@
             endingLineNumber = "69"
             landmarkName = "-modifyPassword:didOldPassword:didNewPassword:didSuccess:didFail:"
             landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__81-[PLUserProcess modifyPassword:didOldPassword:didNewPassword:didSuccess:didFail:]_block_invoke"
+                  moduleName = "DigitalSchool"
+                  urlString = "file:///Users/liujunlin/Desktop/DigitalSchool-Git/DigitalSchool/PLModel/PLDao/PLUserProcess.m"
+                  timestampString = "447499754.367431"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "70"
+                  endingLineNumber = "70"
+                  offsetFromSymbolStart = "38">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__81-[PLUserProcess modifyPassword:didOldPassword:didNewPassword:didSuccess:didFail:]_block_invoke_2"
+                  moduleName = "DigitalSchool"
+                  urlString = "file:///Users/liujunlin/Desktop/DigitalSchool-Git/DigitalSchool/PLModel/PLDao/PLUserProcess.m"
+                  timestampString = "447499754.367612"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "70"
+                  endingLineNumber = "70"
+                  offsetFromSymbolStart = "34">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DigitalSchool/main.m"
+            timestampString = "447499734.592101"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "203"
+            endingLineNumber = "203"
+            landmarkName = "main()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__main_block_invoke_5"
+                  moduleName = "DigitalSchool"
+                  urlString = "file:///Users/liujunlin/Desktop/DigitalSchool-Git/DigitalSchool/main.m"
+                  timestampString = "447499754.368191"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "204"
+                  endingLineNumber = "204"
+                  offsetFromSymbolStart = "38">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__main_block_invoke_6"
+                  moduleName = "DigitalSchool"
+                  urlString = "file:///Users/liujunlin/Desktop/DigitalSchool-Git/DigitalSchool/main.m"
+                  timestampString = "447499754.3684"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "204"
+                  endingLineNumber = "204"
+                  offsetFromSymbolStart = "34">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DigitalSchool/main.m"
+            timestampString = "447499736.640719"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "209"
+            endingLineNumber = "209"
+            landmarkName = "main()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__main_block_invoke_7"
+                  moduleName = "DigitalSchool"
+                  urlString = "file:///Users/liujunlin/Desktop/DigitalSchool-Git/DigitalSchool/main.m"
+                  timestampString = "447499754.36915"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "210"
+                  endingLineNumber = "210"
+                  offsetFromSymbolStart = "38">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__main_block_invoke_8"
+                  moduleName = "DigitalSchool"
+                  urlString = "file:///Users/liujunlin/Desktop/DigitalSchool-Git/DigitalSchool/main.m"
+                  timestampString = "447499754.369309"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "210"
+                  endingLineNumber = "210"
+                  offsetFromSymbolStart = "34">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

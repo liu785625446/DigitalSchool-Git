@@ -14,4 +14,8 @@
 
 -(void) loginUserName:(NSString *)userName didPassword:(NSString *)pwd didSuccess:(CallBackBlockSuccess)success didFail:(CallBackBlockFail)fail;
 
+-(void) modifyNickName:(NSString *)nickName didUserId:(NSString *)userId didSuccess:(CallBackBlockSuccess)success didFail:(CallBackBlockFail)fail;
+
+-(void) modifyPassword:(NSString *)userId didOldPassword:(NSString *)oldPwd didNewPassword:(NSString *)newPwd didSuccess:(CallBackBlockSuccess)success didFail:(CallBackBlockFail)fail;
+
 @end

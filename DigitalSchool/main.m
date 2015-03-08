@@ -199,6 +199,18 @@ int main(int argc, char * argv[]) {
         
     }];
     
+    [userProcess modifyNickName:@"update" didUserId:@"402880e64bf71785014bf88229490000" didSuccess:^(NSMutableArray *array) {
+        
+    } didFail:^(NSString *error) {
+        
+    }];
+    
+    [userProcess modifyPassword:@"402880e64bf71785014bf88229490000" didOldPassword:@"123456" didNewPassword:@"654321" didSuccess:^(NSMutableArray *array) {
+        
+    } didFail:^(NSString *error) {
+        
+    }];
+    
     @autoreleasepool {
         return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
     }
