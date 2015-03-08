@@ -86,8 +86,12 @@
     }
     
     if ([key isEqualToString:@"teacher"]) {
-        NSDictionary *dic = (NSDictionary *)value;
-        [self.courseTeacher setValuesForKeysWithDictionary:dic];
+        
+        if ([value isKindOfClass:[NSDictionary class]]) {
+            NSDictionary *dic = (NSDictionary *)value;
+            [self.courseTeacher setValuesForKeysWithDictionary:dic];
+        }
+        
     }
 }
 

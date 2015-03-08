@@ -17,6 +17,11 @@ typedef enum{
     
 }MPlayVideoType;
 
+#define MCOURSE_MAIN @"课程首页"
+#define MACTIVITY @"活动"
+#define MPLAY @"直播"
+#define MMY @"我的"
+
 #define KDeviceVersion   [[[UIDevice currentDevice]systemVersion]floatValue]
 #define kMainWindowBouns [[UIScreen mainScreen] bounds]
 

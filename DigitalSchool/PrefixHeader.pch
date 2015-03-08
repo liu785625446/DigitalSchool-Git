@@ -17,6 +17,7 @@
 #import <Foundation/Foundation.h>
 
 #import "MLoginViewController.h"
+#import "MobClick.h"
 
 #import "Macro.h"
 #import "UIColor+Hex.h"

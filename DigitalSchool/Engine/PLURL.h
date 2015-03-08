@@ -11,7 +11,9 @@
 
 //#define ALL_URL @"123.57.49.133"
 
-#define ALL_URL @"127.0.0.1"
+#define ALL_URL @"hnay20.vicp.cc"
+
+//#define ALL_URL @"127.0.0.1"
 
 #define COURSE_MAIN(url) [NSString stringWithFormat:@"/DSApp/course/main/%@.json",url]
 
@@ -69,6 +71,18 @@
 
 #define CHAPTER_VOLUMES(url) [NSString stringWithFormat:@"/DSApp/course/volumes/%@.json",url]
 
+#define USER_REGISTER [NSString stringWithFormat:@"/DSApp/register.json"]
+
+#define USER_LOGIN [NSString stringWithFormat:@"/DSApp/app-login.json"]
+
+#define USER_MODIFY [NSString stringWithFormat:@"/DSApp/modify.json"]
+
+#define USER_MODIFY_PASSWORD [NSString stringWithFormat:@"/DSApp/modify-password.json"]
+
+#define USER_UPLOAD_IMG [NSString stringWithFormat:@"/DSApp/upload-img.json"]
+
 #define REQUEST_ERROR @"请求失败"
+
+
 
 #endif

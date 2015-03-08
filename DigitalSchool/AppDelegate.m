@@ -8,11 +8,21 @@
 
 #import "AppDelegate.h"
 #import "BLTool.h"
+#import "UMFeedback.h"
+
+#define UMENT_APPKEY @"54fbf719fd98c5ba19000928"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [MobClick startWithAppkey:UMENT_APPKEY reportPolicy:BATCH channelId:@""];
+    [UMFeedback setAppkey:UMENT_APPKEY];
+    [MobClick checkUpdate];
+    
+    NSString *version = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBoundleShortVersionString"];
+    [MobClick setAppVersion:version];
+    
     [[UITabBar appearance]setTintColor:[UIColor colorWithHexString:MNavBarBarkGroundColor alpha:1]];
     
     [[UINavigationBar appearance]setBarTintColor:[UIColor colorWithHexString:MTitleColor alpha:1]];

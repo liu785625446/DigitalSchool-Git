@@ -14,6 +14,7 @@
 #import "PLDiscussProcess.h"
 #import "PLCourseProcess.h"
 #import "PLNotesProcess.h"
+#import "PLUserProcess.h"
 
 int main(int argc, char * argv[]) {
     
@@ -184,6 +185,19 @@ int main(int argc, char * argv[]) {
 //    } didFail:^(NSString *error) {
 //        
 //    }];
+    
+    PLUserProcess *userProcess = [[PLUserProcess alloc] init];
+//    [userProcess rigesterUserName:@"12345123" didPassword:@"12345123" didNickName:@"abef" didUserType:@"0" didSuccess:^(NSMutableArray *array) {
+//        
+//    } didFail:^(NSString *error) {
+//        
+//    }];
+    
+    [userProcess loginUserName:@"123456" didPassword:@"123456" didSuccess:^(NSMutableArray *array) {
+        
+    } didFail:^(NSString *error) {
+        
+    }];
     
     @autoreleasepool {
         return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));

@@ -10,6 +10,7 @@
 #import "ActivitiesMessageCell.h"
 #import "MyMessageCell.h"
 #import "MCollectListViewController.h"
+#import "UMFeedback.h"
 
 @interface MyMessageViewController ()
 
@@ -106,7 +107,10 @@
 {
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     [cell setSelected:NO animated:YES];
-    if (indexPath.section == 2) {
+    
+    if (indexPath.section == 1) {
+        [self presentModalViewController:[UMFeedback feedbackModalViewController] animated:YES];
+    }else if (indexPath.section == 2) {
         [self performSegueWithIdentifier:@"OfflineCache" sender:nil];
     }else if (indexPath.section == 3){
         [self performSegueWithIdentifier:@"CollectIdentifier" sender:@"0"];

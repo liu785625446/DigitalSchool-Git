@@ -51,7 +51,7 @@
     }
     
     if ([key isEqualToString:@"img"]) {
-        self.userImg = [NSString stringWithFormat:@"%@%@%@",@"http://",ALL_URL, value];
+//        self.userImg = [NSString stringWithFormat:@"%@%@%@",@"http://",ALL_URL, value];
     }
     
     if ([key isEqualToString:@"nickName"]) {
