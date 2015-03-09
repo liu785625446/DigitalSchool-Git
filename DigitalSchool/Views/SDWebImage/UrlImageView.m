@@ -60,7 +60,7 @@
 
 -(UIImage*) getDefaultImage
 {
-    return nil;
+    return [UIImage imageNamed:@"MCourseDefalut.png"];
 	
 }
 

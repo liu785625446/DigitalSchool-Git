@@ -43,11 +43,11 @@
     
     for (int i=0; i<adcolumns.count; i++)
     {
-        UrlImageView *imageView = [[UrlImageView alloc]initWithImage:[UIImage imageNamed:@"MAdcolumnView.png"]];
+        UrlImageView *imageView = [[UrlImageView alloc]initWithImage:[UIImage imageNamed:@"MCourseDefalut.png"]];
         imageView.frame = CGRectMake(i*self.frame.size.width, 0, self.frame.size.width, self.frame.size.height);
         PLRecommendCourse *course = [adcolumns objectAtIndex:i];
         [imageView setImageWithURL:[NSURL URLWithString:course.recommendImg]
-                  placeholderImage:[UIImage imageNamed:@"MAdcolumnView.png"]];
+                  placeholderImage:[UIImage imageNamed:@"MCourseDefalut.png"]];
         
         [_scrollView addSubview:imageView];
     }

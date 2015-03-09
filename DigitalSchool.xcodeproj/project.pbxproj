@@ -183,6 +183,8 @@
 		810600201A8209E000407681 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 8106001E1A8209DF00407681 /* SVProgressHUD.m */; };
 		8184D1A91A81A8D4008C5D80 /* PLActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 8184D1A81A81A8D4008C5D80 /* PLActivity.m */; };
 		818DE8E81A80BF0E009383D2 /* MCommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 818DE8E71A80BF0E009383D2 /* MCommentViewController.m */; };
+		8B5B740B1AAD721100ADB3DE /* NSDateExtra.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B5B740A1AAD721100ADB3DE /* NSDateExtra.m */; };
+		8B5B740F1AAD8C0700ADB3DE /* MNavigationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B5B740E1AAD8C0700ADB3DE /* MNavigationVC.m */; };
 		CC01D1A41A6FF52F008EAE05 /* ActivitiesMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CC01D19F1A6FF52F008EAE05 /* ActivitiesMessageCell.m */; };
 		CC01D1A61A6FF52F008EAE05 /* SystemSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC01D1A31A6FF52F008EAE05 /* SystemSettingsViewController.m */; };
 		CC3DACEB1A68E88300C9139C /* MAdcolumnView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC3DACEA1A68E88300C9139C /* MAdcolumnView.m */; };
@@ -524,6 +526,10 @@
 		8184D1A81A81A8D4008C5D80 /* PLActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLActivity.m; sourceTree = "<group>"; };
 		818DE8E61A80BF0E009383D2 /* MCommentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCommentViewController.h; sourceTree = "<group>"; };
 		818DE8E71A80BF0E009383D2 /* MCommentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCommentViewController.m; sourceTree = "<group>"; };
+		8B5B74091AAD721100ADB3DE /* NSDateExtra.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSDateExtra.h; sourceTree = "<group>"; };
+		8B5B740A1AAD721100ADB3DE /* NSDateExtra.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDateExtra.m; sourceTree = "<group>"; };
+		8B5B740D1AAD8C0700ADB3DE /* MNavigationVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNavigationVC.h; sourceTree = "<group>"; };
+		8B5B740E1AAD8C0700ADB3DE /* MNavigationVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNavigationVC.m; sourceTree = "<group>"; };
 		CC01D19E1A6FF52F008EAE05 /* ActivitiesMessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivitiesMessageCell.h; sourceTree = "<group>"; };
 		CC01D19F1A6FF52F008EAE05 /* ActivitiesMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivitiesMessageCell.m; sourceTree = "<group>"; };
 		CC01D1A21A6FF52F008EAE05 /* SystemSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SystemSettingsViewController.h; sourceTree = "<group>"; };
@@ -801,6 +807,8 @@
 			children = (
 				0AB31D5A1A68D8B800B87850 /* UIColor+Hex.h */,
 				0AB31D5B1A68D8B800B87850 /* UIColor+Hex.m */,
+				8B5B74091AAD721100ADB3DE /* NSDateExtra.h */,
+				8B5B740A1AAD721100ADB3DE /* NSDateExtra.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -921,6 +929,7 @@
 		0AB31D781A68D8B800B87850 /* ViewVC */ = {
 			isa = PBXGroup;
 			children = (
+				8B5B740C1AAD8B8500ADB3DE /* NavigationVC */,
 				0AEA905E1A8359E200C699ED /* LoginVC */,
 				0AB31D831A68D8B800B87850 /* CourseVC */,
 				0AB31D791A68D8B800B87850 /* ActivitiesVC */,
@@ -1336,6 +1345,15 @@
 			path = SVProgressHUD;
 			sourceTree = "<group>";
 		};
+		8B5B740C1AAD8B8500ADB3DE /* NavigationVC */ = {
+			isa = PBXGroup;
+			children = (
+				8B5B740D1AAD8C0700ADB3DE /* MNavigationVC.h */,
+				8B5B740E1AAD8C0700ADB3DE /* MNavigationVC.m */,
+			);
+			path = NavigationVC;
+			sourceTree = "<group>";
+		};
 		CCCF51E61A77B00500A4654F /* AnimationIndicator */ = {
 			isa = PBXGroup;
 			children = (
@@ -1441,7 +1459,7 @@
 				TargetAttributes = {
 					0AE430361A68D47B00CECD12 = {
 						CreatedOnToolsVersion = 6.1;
-						DevelopmentTeam = FSL3FCUGV3;
+						DevelopmentTeam = LZV72Z98L3;
 					};
 					0AE4304F1A68D47B00CECD12 = {
 						CreatedOnToolsVersion = 6.1;
@@ -1654,6 +1672,7 @@
 				0AEA90801A83698400C699ED /* UIKeyboardView.m in Sources */,
 				CCCF52251A79009800A4654F /* MJRefreshConst.m in Sources */,
 				CC77433C1A7FA89C009DA7C4 /* PLDiscuss.m in Sources */,
+				8B5B740F1AAD8C0700ADB3DE /* MNavigationVC.m in Sources */,
 				0AE12E041A8AEEBC00D10389 /* MCollectListViewController.m in Sources */,
 				CCCF51F71A77B00500A4654F /* YYAnimationIndicator.m in Sources */,
 				8184D1A91A81A8D4008C5D80 /* PLActivity.m in Sources */,
@@ -1683,6 +1702,7 @@
 				0A9A56BA1A6FE5CB00DA8122 /* MCourseCell.m in Sources */,
 				0AEA90811A83698400C699ED /* UIKeyboardViewController.m in Sources */,
 				CC77433E1A7FA89C009DA7C4 /* PLLookCourse.m in Sources */,
+				8B5B740B1AAD721100ADB3DE /* NSDateExtra.m in Sources */,
 				CC3DAD031A68EB5D00C9139C /* MScreeningMenu.m in Sources */,
 				0A9A574B1A70078A00DA8122 /* MUploadWorksViewController.m in Sources */,
 				0A9A57481A70077B00DA8122 /* ActivitiesInfoViewController.m in Sources */,

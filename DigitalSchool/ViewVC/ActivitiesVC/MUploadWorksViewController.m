@@ -74,7 +74,7 @@
                  {
                      dispatch_async(dispatch_get_main_queue(), ^{
                          
-                         if (picker.sourceType == UIImagePickerControllerSourceTypeSavedPhotosAlbum)
+                         if (picker.sourceType != UIImagePickerControllerSourceTypeSavedPhotosAlbum)
                          {
                              NSLog(@"asset = %@,image = %@ ,NSURL = %@",asset,image,object);
                              //照片选取

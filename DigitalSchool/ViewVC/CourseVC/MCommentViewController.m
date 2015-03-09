@@ -10,6 +10,8 @@
 #import "PLDiscussProcess.h"
 #import "PLNotesProcess.h"
 
+#import "PLDiscuss.h"
+
 
 @interface MCommentViewController ()
 
@@ -67,7 +69,7 @@
         [SVProgressHUD showWithStatus:@"正在发送中..."
                              maskType:SVProgressHUDMaskTypeBlack];
         
-        if ([self.title isEqualToString:@"发评论"])
+        if ([self.title isEqualToString:MCommentTitle])
         {
             
             if (self.playVideoType == MPlayVideoTypeCourse)
@@ -78,10 +80,16 @@
                                               didContent:self.comment.text
                                               didSuccess:^(NSMutableArray *array)
                  {
-                     [self commentSuccess:@"评论成功"];
+                     PLDiscuss *discuss = [[PLDiscuss alloc]init];
+                     discuss.discussContent = self.comment.text;
+                     discuss.discussId = self.courseId;
+                     discuss.discussCreateTime = [NSDateExtra getDatetringWithDate:[NSDate date]
+                                                                    withDateFormat:@"YYYY-MM-dd"];
+                     discuss.pluser = [[PLUser alloc]init];
+                     [self commentSuccess:@"讨论成功" object:discuss];
                      
                  } didFail:^(NSString *error) {
-                     [self commentFail:@"评论失败"];
+                     [self commentFail:@"讨论失败"];
                  }];
                 
             }else if(self.playVideoType == MPlayVideoTypeWorks)
@@ -92,11 +100,11 @@
                                              didContent:self.comment.text
                                              didSuccess:^(NSMutableArray *array)
                 {
-                    [self commentSuccess:@"评论成功"];
+                    [self commentSuccess:@"讨论成功" object:nil];
                     
                 } didFail:^(NSString *error) {
                     
-                    [self commentFail:@"评论失败"];
+                    [self commentFail:@"讨论失败"];
                 }];
                 
             }else
@@ -107,15 +115,15 @@
                                                  didContent:self.comment.text
                                                  didSuccess:^(NSMutableArray *array)
                 {
-                    [self commentSuccess:@"评论成功"];
+                    [self commentSuccess:@"讨论成功" object:nil];
                     
                 } didFail:^(NSString *error) {
                     
-                    [self commentFail:@"评论失败"];
+                    [self commentFail:@"讨论失败"];
                 }];
             }
             
-        }else if([self.title isEqualToString:@"记笔记"])
+        }else if([self.title isEqualToString:MNoteTitle])
         {//发表笔记
             
             [self.notesProcess noteWrite:@"1"
@@ -124,7 +132,7 @@
                               didSuccess:^(NSMutableArray *array)
             {
                 
-                [self commentSuccess:@"记笔记成功"];
+                [self commentSuccess:@"记笔记成功" object:nil];
                 
             } didFail:^(NSString *error) {
                 
@@ -143,11 +151,11 @@
                                        didSuccess:^(NSMutableArray *array)
                  {
                      
-                     [self commentSuccess:@"回复评论成功"];
+                     [self commentSuccess:@"回复讨论成功" object:nil];
                      
                  } didFail:^(NSString *error) {
                      
-                     [self commentFail:@"回复评论失败"];
+                     [self commentFail:@"回复讨论失败"];
                  }];
                 
             }else
@@ -158,11 +166,11 @@
                                      didContent:self.comment.text
                                      didSuccess:^(NSMutableArray *array) {
                                          
-                     [self commentSuccess:@"回复评论成功"];
+                    [self commentSuccess:@"回复讨论成功" object:nil];
                     
                 } didFail:^(NSString *error) {
                     
-                    [self commentFail:@"回复评论失败"];
+                    [self commentFail:@"回复讨论失败"];
                     
                 }];
             }
@@ -178,13 +186,17 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-#pragma mark- 操作(评论，记笔记，回复评论)成功
--(void)commentSuccess:(NSString*)messge
+#pragma mark- 操作(评论，记笔记，回复讨论)成功
+-(void)commentSuccess:(NSString*)messge object:(id)object
 {
     [SVProgressHUD dismissWithSuccess:messge];
+    if (self.delegate && [self.delegate respondsToSelector:@selector(didCommentSuccess:title:)])
+    {
+        [self.delegate didCommentSuccess:object title:self.title];
+    }
     [self dismissViewControllerAnimated:YES completion:nil];
 }
-#pragma mark- 操作(评论，记笔记，回复评论)失败
+#pragma mark- 操作(评论，记笔记，回复讨论)失败
 -(void)commentFail:(NSString*)messge
 {
     [SVProgressHUD dismissWithError:messge];

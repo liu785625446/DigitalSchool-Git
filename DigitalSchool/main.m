@@ -19,7 +19,7 @@
 int main(int argc, char * argv[]) {
     
     //课程
-    PLCourseProcess *courseProcess = [[PLCourseProcess alloc] init];
+//    PLCourseProcess *courseProcess = [[PLCourseProcess alloc] init];
 //    [courseProcess getCourseMainImg:^(NSMutableArray *array) {
 //        
 //    } didFail:^(NSString *error) {
@@ -139,12 +139,12 @@ int main(int argc, char * argv[]) {
 
     
     //章节
-    PLChapterProcess *chapter = [[PLChapterProcess alloc] init];
-    [chapter getChapterCorrelationListdGradeId:@"6" didCatalogId:@"2" didVolumes:@"1" didSuccess:^(NSMutableArray *array) {
-        
-    } didFail:^(NSString *error) {
-        
-    }];
+//    PLChapterProcess *chapter = [[PLChapterProcess alloc] init];
+//    [chapter getChapterCorrelationListdGradeId:@"6" didCatalogId:@"2" didVolumes:@"1" didSuccess:^(NSMutableArray *array) {
+//        
+//    } didFail:^(NSString *error) {
+//        
+//    }];
     
     //作品
 //    PLWorkProcess *works = [[PLWorkProcess alloc] init];
@@ -186,12 +186,12 @@ int main(int argc, char * argv[]) {
 //        
 //    }];
     
-    PLUserProcess *userProcess = [[PLUserProcess alloc] init];
-    [userProcess rigesterUserName:@"ios123" didPassword:@"ios123" didNickName:@"ios测试" didUserType:@"1" didSuccess:^(NSMutableArray *array) {
-        
-    } didFail:^(NSString *error) {
-        
-    }];
+//    PLUserProcess *userProcess = [[PLUserProcess alloc] init];
+//    [userProcess rigesterUserName:@"ios123" didPassword:@"ios123" didNickName:@"ios测试" didUserType:@"1" didSuccess:^(NSMutableArray *array) {
+//        
+//    } didFail:^(NSString *error) {
+//        
+//    }];
     
 //    [userProcess loginUserName:@"123456" didPassword:@"123456" didSuccess:^(NSMutableArray *array) {
 //        

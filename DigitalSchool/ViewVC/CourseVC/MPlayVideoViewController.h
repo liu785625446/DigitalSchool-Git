@@ -10,7 +10,10 @@
 #import "DSMoviePlayerController.h"
 #import "PLCourse.h"
 #import "PLWorks.h"
-@interface MPlayVideoViewController : MBaseViewController<DSMoviePlayerDelegate>
+
+#import "MCommentViewController.h"
+
+@interface MPlayVideoViewController : MBaseViewController<DSMoviePlayerDelegate,MCommentDelegate>
 {
     NSInteger currentIndex;
     NSMutableArray *datas;

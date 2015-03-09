@@ -23,14 +23,12 @@
 #import "PLDiscuss.h"
 #import "PLNotes.h"
 
-#import "MCommentViewController.h"
-
 
 #define MDiscussButtonTag 99 //讨论回复按钮tag
 #define MNotesButtonTag 100 //笔记赞按钮tag
 
-
 #define MPlayPageSize 10
+
 
 @interface MPlayVideoViewController ()
 <UITableViewDataSource,UITableViewDelegate,
@@ -312,7 +310,7 @@ MBottomViewDelegate,MMenuViewDelegate,MDiscussNotesCellDelegate>
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:Identifier];
         cell.selectionStyle = UITableViewCellSelectionStyleBlue;
     }
-    cell.textLabel.text = [NSString stringWithFormat:@"第%d章节",indexPath.row];
+    cell.textLabel.text = [NSString stringWithFormat:@"第%d章节",indexPath.row+1];
     return cell;
 }
 #pragma mark- 初始化讨论和笔记Cell
@@ -481,50 +479,64 @@ MBottomViewDelegate,MMenuViewDelegate,MDiscussNotesCellDelegate>
 #pragma mark- MBottomViewDelegate
 -(void)didButtonIndex:(NSInteger)index
 {
-    if (index == 0)
-    {//返回
-        [self dismissViewControllerAnimated:NO completion:nil];
-        self.statusBarHidden = NO;
-        [self setNeedsStatusBarAppearanceUpdate];
-        
-    }else if (index == 1)
-    {//评论
-        
-        [self performSegueWithIdentifier:@"CommentIdentifier" sender:@"发评论"];
-        
-    }else if (index ==2)
-    {//笔记
-        [self performSegueWithIdentifier:@"CommentIdentifier" sender:@"记笔记"];
-        
-    }else if (index == 3)
-    {//缓存
-        
-        
-    }else if (index == 4)
-    {//分享
-        
-        
-    }else if (index == 5)
-    {//收藏
-        NSString *_id = @"";
-        if (self.mPlayVideoType == MPlayVideoTypeCourse) {
-            PLCourse *course = self.objectModel;
-            _id = course.courseId;
-        }else
+    
+    switch (index)
+    {
+        case 0:
         {
-            PLWorks *works = self.objectModel;
-            _id =works.workId;
+            //返回
+            [self dismissViewControllerAnimated:NO completion:nil];
+            self.statusBarHidden = NO;
+            [self setNeedsStatusBarAppearanceUpdate];
         }
-        
-        [self.courseProcess attentionCourse:_id
-                                    didUser:@"0"
-                                 didSuccess:^(NSMutableArray *array)
+            break;
+        case 1:
         {
-            [self shoMakeToast:@"收藏成功!"];
+            //讨论
+            [self performSegueWithIdentifier:@"CommentIdentifier" sender:MCommentTitle];
             
-        } didFail:^(NSString *error) {
-            [self shoMakeToast:error];
-        }];
+        }
+            break;
+        case 2:
+        {
+            //笔记
+            [self performSegueWithIdentifier:@"CommentIdentifier" sender:MNoteTitle];
+        }
+            break;
+        case 3:
+        {
+            //缓存
+        }
+            break;
+        case 4:
+        {
+            //分享
+        }
+            break;
+        case 5:
+        {
+            //收藏
+            NSString *_id = @"";
+            if (self.mPlayVideoType == MPlayVideoTypeCourse) {
+                PLCourse *course = self.objectModel;
+                _id = course.courseId;
+            }else
+            {
+                PLWorks *works = self.objectModel;
+                _id =works.workId;
+            }
+            
+            [self.courseProcess attentionCourse:_id
+                                        didUser:@"0"
+                                     didSuccess:^(NSMutableArray *array)
+             {
+                 [self shoMakeToast:@"收藏成功!"];
+                 
+             } didFail:^(NSString *error) {
+                 [self shoMakeToast:error];
+             }];
+        }
+            break;
     }
 }
 
@@ -579,6 +591,37 @@ MBottomViewDelegate,MMenuViewDelegate,MDiscussNotesCellDelegate>
     {//章节
         
         [self getCorrelationList:menuItemTag courseId:_id];
+    }
+}
+
+#pragma mark- MCommentDelegate
+-(void)didCommentSuccess:(id)object title:(NSString *)title
+{
+    if (object != nil)
+    {
+        if ([title isEqualToString:MCommentTitle])
+        {
+            //发讨论
+//            if (self.mPlayVideoType == MPlayVideoTypeCourse)
+//            {
+//                //课程
+//                NSMutableArray *array = [datas objectAtIndex:1];
+//                [array insertObject:object atIndex:0];
+//                
+//            }else if (self.mPlayVideoType == MPlayVideoTypeWorks)
+//            {
+//                //作品
+//            }
+            
+            NSMutableArray *array = [datas objectAtIndex:1];
+            [array insertObject:object atIndex:0];
+            [self.menuView reloadTableView:1];
+            
+        }else if ([title isEqualToString:MNoteTitle])
+        {
+            //记笔记
+            
+        }
     }
 }
 
@@ -751,6 +794,7 @@ MBottomViewDelegate,MMenuViewDelegate,MDiscussNotesCellDelegate>
         {
             correlationCurrentPage +=1;
         }
+        
     }else
     {
         if (mArray.count<=0)
@@ -782,7 +826,7 @@ MBottomViewDelegate,MMenuViewDelegate,MDiscussNotesCellDelegate>
     if (button.tag == MDiscussButtonTag)//讨论回复
     {
         
-       NSDictionary *dic =  @{@"title": @"回复评论",@"row":[NSString stringWithFormat:@"%d",row]};
+       NSDictionary *dic =  @{@"title": MReplyCommentTitle,@"row":[NSString stringWithFormat:@"%d",row]};
        [self performSegueWithIdentifier:@"CommentIdentifier" sender:dic];
         
     }else//笔记赞
@@ -811,6 +855,7 @@ MBottomViewDelegate,MMenuViewDelegate,MDiscussNotesCellDelegate>
         UINavigationController *commentN = segue.destinationViewController;
         MCommentViewController *comment =(MCommentViewController *)commentN.visibleViewController;
         comment.playVideoType = self.mPlayVideoType;
+        comment.delegate = self;
         
         if ([sender isKindOfClass:[NSDictionary class]])
         {

@@ -23,7 +23,8 @@
 -(void) setActivity:(PLActivity *)activity
 {
     _activity = activity;
-    [self.imageview setImageWithURL:[NSURL URLWithString:_activity.activityImg] placeholderImage:[UIImage imageNamed:@"MCourseDefalut.png"]];
+    [self.imageview setImageWithURL:[NSURL URLWithString:_activity.activityImg]
+                   placeholderImage:[UIImage imageNamed:@"MCourseDefalut.png"]];
 }
 
 @end
