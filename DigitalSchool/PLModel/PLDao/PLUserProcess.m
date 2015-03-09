@@ -21,6 +21,7 @@
     [dic setObject:nickName forKey:@"nickName"];
     [dic setObject:userType forKey:@"type"];
     [dic setObject:code forKey:@"code"];
+    
     [PLInterface startRequest:ALL_URL didUrl:USER_REGISTER didParam:dic didSuccess:^(id result) {
         [self dataFormatPost:result didSuccess:success didFail:fail];
     } didFail:^(NSString *error) {
@@ -37,9 +38,9 @@
     [dic setObject:pwd forKey:@"password"];
     [dic setObject:code forKey:@"code"];
     [PLInterface startRequest:ALL_URL didUrl:USER_LOGIN didParam:dic didSuccess:^(id result) {
-        
+        [self dataFormatPost:result didSuccess:success didFail:fail];
     } didFail:^(NSString *error) {
-        
+        fail(REQUEST_ERROR);
     }];
 }
 
@@ -51,9 +52,9 @@
     [dic setObject:userId forKey:@"id"];
     [dic setObject:code forKey:@"code"];
     [PLInterface startRequest:ALL_URL didUrl:USER_MODIFY didParam:dic didSuccess:^(id result) {
-        
+        [self dataFormatPost:result didSuccess:success didFail:fail];
     } didFail:^(NSString *error) {
-        
+        fail(REQUEST_ERROR);
     }];
 }
 
@@ -72,9 +73,19 @@
     }];
 }
 
--(void) uploadHeadImg:(NSString *)userId didHeadImg:(NSString *)headImg didSuccess:(CallBackBlockSuccess)success didFail:(CallBackBlockFail)fail
+-(void) uploadHeadImg:(NSString *)userId didHeadImg:(NSData *)headImg didSuccess:(CallBackBlockSuccess)success didFail:(CallBackBlockFail)fail
 {
+    NSString *code = [BLTool getKeyCode:userId];
+    NSMutableDictionary *dic = [[NSMutableDictionary alloc] initWithCapacity:0];
+    [dic setObject:userId forKey:@"id"];
+    [dic setObject:headImg forKey:@"file"];
+    [dic setObject:code forKey:@"code"];
     
+    [PLInterface startRequest:ALL_URL didUrl:USER_UPLOAD_IMG didParam:dic didSuccess:^(id result) {
+        
+    } didFail:^(NSString *error) {
+        
+    }];
 }
 
 @end

@@ -38,7 +38,14 @@
 {
     if ([dic isKindOfClass:[NSDictionary class]]) {
         if ([[dic objectForKey:@"ret"] isEqualToNumber:[NSNumber numberWithInt:0]]) {
-            success(nil);
+            id data = [dic objectForKey:@"data"];
+            if (data) {
+                NSMutableArray *array = [[NSMutableArray alloc] initWithObjects:data, nil];
+                success(array);
+            }else{
+                success(nil);
+            }
+            
         }else if ([[dic objectForKey:@"ret"] isEqualToNumber:[NSNumber numberWithInt:4]])
         {
             fail(@"已关注");

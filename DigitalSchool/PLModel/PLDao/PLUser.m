@@ -51,7 +51,7 @@
     }
     
     if ([key isEqualToString:@"img"]) {
-//        self.userImg = [NSString stringWithFormat:@"%@%@%@",@"http://",ALL_URL, value];
+        self.userImg = [NSString stringWithFormat:@"%@%@%@",@"http://",ALL_URL, value];
     }
     
     if ([key isEqualToString:@"nickName"]) {
@@ -73,11 +73,46 @@
     if ([key isEqualToString:@"username"]) {
         self.userName = value;
     }
+    
+    if ([key isEqualToString:@"type"]) {
+        self.userType = value;
+    }
+}
+
+-(id) initWithCoder:(NSCoder *)aDecoder
+{
+    if (self = [super init]) {
+        self.userId = [aDecoder decodeObjectForKey:@"userId"];
+        self.userAge = [aDecoder decodeObjectForKey:@"userAge"];
+        self.userCreateTime = [aDecoder decodeObjectForKey:@"createTime"];
+        self.userImg = [aDecoder decodeObjectForKey:@"userImg"];
+        self.userNickName = [aDecoder decodeObjectForKey:@"userNickName"];
+        self.userSafeQuestion = [aDecoder decodeObjectForKey:@"userSafeQuestion"];
+        self.userStatus = [aDecoder decodeObjectForKey:@"userStatus"];
+        self.userUpdateTime = [aDecoder decodeObjectForKey:@"userUpdateTime"];
+        self.userName = [aDecoder decodeObjectForKey:@"userName"];
+        self.userType = [aDecoder decodeObjectForKey:@"userType"];
+    }
+    return self;
+}
+
+-(void) encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder encodeObject:self.userId forKey:@"userId"];
+    [aCoder encodeObject:self.userAge forKey:@"userAge"];
+    [aCoder encodeObject:self.userCreateTime forKey:@"createTime"];
+    [aCoder encodeObject:self.userImg forKey:@"userImg"];
+    [aCoder encodeObject:self.userNickName forKey:@"userNickName"];
+    [aCoder encodeObject:self.userSafeQuestion forKey:@"userSafeQuestion"];
+    [aCoder encodeObject:self.userStatus forKey:@"userStatus"];
+    [aCoder encodeObject:self.userUpdateTime forKey:@"userUpdateTime"];
+    [aCoder encodeObject:self.userName forKey:@"userName"];
+    [aCoder encodeObject:self.userType forKey:@"userType"];
 }
 
 -(NSString *) description
 {
-    return [NSString stringWithFormat:@"\n User { \n userAge:%@ \n userCreateTime:%@ \n userId:%@ \n userImg:%@ \n userNickName:%@ \n userSafeQuestion:%@ \n userStatus:%@ \n userUpdateTime:%@ \n userName:%@\n} \n",self.userAge, self.userCreateTime, self.userId, self.userImg, self.userNickName, self.userSafeQuestion, self.userStatus, self.userUpdateTime, self.userName];
+    return [NSString stringWithFormat:@"\n User { \n userAge:%@ \n userCreateTime:%@ \n userId:%@ \n userImg:%@ \n userNickName:%@ \n userSafeQuestion:%@ \n userStatus:%@ \n userUpdateTime:%@ \n userName:%@\n userType:%@\n} \n",self.userAge, self.userCreateTime, self.userId, self.userImg, self.userNickName, self.userSafeQuestion, self.userStatus, self.userUpdateTime, self.userName, self.userType];
 }
 
 @end

@@ -8,6 +8,7 @@
 
 #import "MBaseViewController.h"
 #import "UIKeyboardViewController.h"
+#import "PLUserProcess.h"
 
 @class MBaseViewController;
 
@@ -18,10 +19,14 @@
 @property (nonatomic, assign) IBOutlet UIButton *loginBut;
 @property (nonatomic, assign) IBOutlet UIButton *registerBut;
 @property (nonatomic, assign) IBOutlet UIButton *visitorsBut;
-
 @property (nonatomic, assign) IBOutlet UIButton *rememberBut;
 
+@property (nonatomic, assign) IBOutlet UITextField *userNameText;
+@property (nonatomic, assign) IBOutlet UITextField *pwdText;
+
 @property (nonatomic, strong) UIKeyboardViewController *keyboard;
+
+@property (nonatomic, strong) PLUserProcess *userProcess;
 
 -(IBAction)visitorsActoin:(id)sender;
 

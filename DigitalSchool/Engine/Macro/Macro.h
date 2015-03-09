@@ -22,6 +22,8 @@ typedef enum{
 #define MPLAY @"直播"
 #define MMY @"我的"
 
+#define CURRENT_USER @"current_user"
+
 #define KDeviceVersion   [[[UIDevice currentDevice]systemVersion]floatValue]
 #define kMainWindowBouns [[UIScreen mainScreen] bounds]
 

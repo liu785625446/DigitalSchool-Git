@@ -16,17 +16,155 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DigitalSchool/PLModel/PLDao/PLUserProcess.m"
-            timestampString = "447512230.481715"
+            timestampString = "447580559.026677"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "25"
-            endingLineNumber = "25"
-            landmarkName = "-rigesterUserName:didPassword:didNickName:didUserType:didSuccess:didFail:"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
+            landmarkName = "-uploadHeadImg:didHeadImg:didSuccess:didFail:"
             landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__61-[PLUserProcess uploadHeadImg:didHeadImg:didSuccess:didFail:]_block_invoke"
+                  moduleName = "DigitalSchool"
+                  urlString = "file:///Users/liujunlin/Desktop/DigitalSchool-2/DigitalSchool/PLModel/PLDao/PLUserProcess.m"
+                  timestampString = "447586254.486715"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "86"
+                  endingLineNumber = "86"
+                  offsetFromSymbolStart = "38">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__61-[PLUserProcess uploadHeadImg:didHeadImg:didSuccess:didFail:]_block_invoke_2"
+                  moduleName = "DigitalSchool"
+                  urlString = "file:///Users/liujunlin/Desktop/DigitalSchool-2/DigitalSchool/PLModel/PLDao/PLUserProcess.m"
+                  timestampString = "447586254.486848"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "86"
+                  endingLineNumber = "86"
+                  offsetFromSymbolStart = "34">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DigitalSchool/PLModel/PLDao/PLUserProcess.m"
+            timestampString = "447580695.005718"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "79"
+            endingLineNumber = "79"
+            landmarkName = "-uploadHeadImg:didHeadImg:didSuccess:didFail:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DigitalSchool/PLModel/PLDao/PLUserProcess.m"
+            timestampString = "447585855.485825"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "70"
+            endingLineNumber = "70"
+            landmarkName = "-modifyPassword:didOldPassword:didNewPassword:didSuccess:didFail:"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__81-[PLUserProcess modifyPassword:didOldPassword:didNewPassword:didSuccess:didFail:]_block_invoke"
+                  moduleName = "DigitalSchool"
+                  urlString = "file:///Users/liujunlin/Desktop/DigitalSchool-2/DigitalSchool/PLModel/PLDao/PLUserProcess.m"
+                  timestampString = "447586254.572786"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "71"
+                  endingLineNumber = "71"
+                  offsetFromSymbolStart = "38">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__81-[PLUserProcess modifyPassword:didOldPassword:didNewPassword:didSuccess:didFail:]_block_invoke_2"
+                  moduleName = "DigitalSchool"
+                  urlString = "file:///Users/liujunlin/Desktop/DigitalSchool-2/DigitalSchool/PLModel/PLDao/PLUserProcess.m"
+                  timestampString = "447586254.572921"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "71"
+                  endingLineNumber = "71"
+                  offsetFromSymbolStart = "34">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DigitalSchool/ViewVC/MyMessageVC/MUpdatePwdTableViewController.m"
+            timestampString = "447586024.43269"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "86"
+            endingLineNumber = "86"
+            landmarkName = "-updatePwdAction:"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__49-[MUpdatePwdTableViewController updatePwdAction:]_block_invoke"
+                  moduleName = "DigitalSchool"
+                  urlString = "file:///Users/liujunlin/Desktop/DigitalSchool-2/DigitalSchool/ViewVC/MyMessageVC/MUpdatePwdTableViewController.m"
+                  timestampString = "447586254.607198"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "87"
+                  endingLineNumber = "87"
+                  offsetFromSymbolStart = "38">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__49-[MUpdatePwdTableViewController updatePwdAction:]_block_invoke_2"
+                  moduleName = "DigitalSchool"
+                  urlString = "file:///Users/liujunlin/Desktop/DigitalSchool-2/DigitalSchool/ViewVC/MyMessageVC/MUpdatePwdTableViewController.m"
+                  timestampString = "447586254.607406"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "87"
+                  endingLineNumber = "87"
+                  offsetFromSymbolStart = "34">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

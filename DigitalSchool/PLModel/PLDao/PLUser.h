@@ -10,7 +10,7 @@
 
 //用户表
 
-@interface PLUser : PLBaseData
+@interface PLUser : PLBaseData <NSCoding>
 
 @property (nonatomic, strong) NSString *userAge;
 @property (nonatomic, strong) NSString *userCreateTime;
@@ -21,5 +21,6 @@
 @property (nonatomic, strong) NSString *userStatus;
 @property (nonatomic, strong) NSString *userUpdateTime;
 @property (nonatomic, strong) NSString *userName;
+@property (nonatomic, strong) NSString *userType;
 
 @end

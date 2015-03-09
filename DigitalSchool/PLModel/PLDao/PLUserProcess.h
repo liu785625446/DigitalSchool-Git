@@ -18,4 +18,6 @@
 
 -(void) modifyPassword:(NSString *)userId didOldPassword:(NSString *)oldPwd didNewPassword:(NSString *)newPwd didSuccess:(CallBackBlockSuccess)success didFail:(CallBackBlockFail)fail;
 
+-(void) uploadHeadImg:(NSString *)userId didHeadImg:(NSData *)headImg didSuccess:(CallBackBlockSuccess)success didFail:(CallBackBlockFail)fail;
+
 @end

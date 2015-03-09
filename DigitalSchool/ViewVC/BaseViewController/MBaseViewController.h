@@ -13,6 +13,12 @@
     
 }
 #pragma mark- Action
+
+-(void) showMyHUD:(NSString *)msg;
+-(void) showFailHUD:(NSString *)msg;
+-(void) showSuccessHUD:(NSString *)msg;
+-(void) hideMyHUD;
+
 -(void)ScreenAction:(id)item;
 -(void)timeAction:(id)item;
 -(void)seachAction:(id)item;

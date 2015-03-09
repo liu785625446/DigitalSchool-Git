@@ -8,12 +8,19 @@
 
 #import "MBaseTableViewController.h"
 
+@class PLUser;
+
 @interface MyMessageViewController : MBaseTableViewController
 
 @property (nonatomic, strong) IBOutlet NSLayoutConstraint *top;
 
+@property (nonatomic, assign) IBOutlet UIImageView *userImg;
+@property (nonatomic, assign) IBOutlet UILabel *userName;
+
 @property (nonatomic, strong) NSArray *titleArray;
 @property (nonatomic, strong) NSArray *imageArray;
+
+@property (nonatomic, strong) PLUser *current_user;
 
 -(IBAction)settingsAction:(id)sender;
 

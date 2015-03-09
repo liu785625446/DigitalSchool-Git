@@ -38,12 +38,12 @@ static NSMutableDictionary *_groupRadioDic = nil;
 
 -(void) setGroupId:(NSString *)groupId
 {
-    [self setImage:[UIImage imageNamed:@"uncheck_icon.png"] forState:UIControlStateNormal];
-    [self setImage:[UIImage imageNamed:@"check_icon.png"] forState:UIControlStateSelected];
     _groupId = [groupId copy];
     [self addToGroup];
     
     self.exclusiveTouch = YES;
+    [self setImage:[UIImage imageNamed:@"uncheck_icon.png"] forState:UIControlStateNormal];
+    [self setImage:[UIImage imageNamed:@"check_icon.png"] forState:UIControlStateSelected];
     [self addTarget:self action:@selector(radioBtnChecked) forControlEvents:UIControlEventTouchUpInside];
 
 

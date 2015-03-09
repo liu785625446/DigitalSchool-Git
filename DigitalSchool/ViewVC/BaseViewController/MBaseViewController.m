@@ -13,6 +13,8 @@
 
 @end
 
+static BOOL isHUD = NO;
+
 @implementation MBaseViewController
 @synthesize baseRect;
 
@@ -53,6 +55,40 @@
         [self creatNavItem:NO];
     }
 }
+
+-(void) showMyHUD:(NSString *)msg
+{
+    isHUD = YES;
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        sleep(10);
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (isHUD) {
+                [self showFailHUD:@"连接失败!"];
+            }
+        });
+    });
+    [SVProgressHUD showWithStatus:msg maskType:SVProgressHUDMaskTypeBlack];
+}
+
+-(void) showSuccessHUD:(NSString *)msg
+{
+    isHUD = NO;
+    [SVProgressHUD dismissWithSuccess:msg afterDelay:1.0];
+}
+
+-(void) showFailHUD:(NSString *)msg
+{
+    isHUD = NO;
+    [SVProgressHUD dismissWithError:msg afterDelay:1.0];
+}
+
+-(void) hideMyHUD
+{
+    isHUD = NO;
+    [SVProgressHUD dismiss];
+}
+
 
 -(void)creatNavItem:(BOOL)isCreatItem
 {

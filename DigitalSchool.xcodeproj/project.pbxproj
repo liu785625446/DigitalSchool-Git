@@ -160,6 +160,11 @@
 		0AE430481A68D47B00CECD12 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AE430471A68D47B00CECD12 /* Images.xcassets */; };
 		0AE4304B1A68D47B00CECD12 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AE430491A68D47B00CECD12 /* LaunchScreen.xib */; };
 		0AE430571A68D47B00CECD12 /* DigitalSchoolTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AE430561A68D47B00CECD12 /* DigitalSchoolTests.m */; };
+		0AEA30381AAD4C5000CC4DEF /* CustomTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AEA30371AAD4C5000CC4DEF /* CustomTextField.m */; };
+		0AEA303B1AAD735500CC4DEF /* MUserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AEA303A1AAD735500CC4DEF /* MUserInfoViewController.m */; };
+		0AEA303E1AAD78C800CC4DEF /* MUserInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AEA303D1AAD78C800CC4DEF /* MUserInfoCell.m */; };
+		0AEA30441AAD923E00CC4DEF /* MPwdModifyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AEA30431AAD923E00CC4DEF /* MPwdModifyView.m */; };
+		0AEA30471AAD980D00CC4DEF /* MUpdatePwdTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AEA30461AAD980D00CC4DEF /* MUpdatePwdTableViewController.m */; };
 		0AEA904F1A83180700C699ED /* PLActivityProcess.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AEA904E1A83180700C699ED /* PLActivityProcess.m */; };
 		0AEA90531A8318FE00C699ED /* ActivityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AEA90521A8318FE00C699ED /* ActivityCell.m */; };
 		0AEA905A1A83519400C699ED /* ActivityWorksCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AEA90591A83519400C699ED /* ActivityWorksCell.m */; };
@@ -492,6 +497,16 @@
 		0AE430501A68D47B00CECD12 /* DigitalSchoolTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DigitalSchoolTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AE430551A68D47B00CECD12 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0AE430561A68D47B00CECD12 /* DigitalSchoolTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DigitalSchoolTests.m; sourceTree = "<group>"; };
+		0AEA30361AAD4C5000CC4DEF /* CustomTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTextField.h; sourceTree = "<group>"; };
+		0AEA30371AAD4C5000CC4DEF /* CustomTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTextField.m; sourceTree = "<group>"; };
+		0AEA30391AAD735500CC4DEF /* MUserInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUserInfoViewController.h; sourceTree = "<group>"; };
+		0AEA303A1AAD735500CC4DEF /* MUserInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUserInfoViewController.m; sourceTree = "<group>"; };
+		0AEA303C1AAD78C800CC4DEF /* MUserInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUserInfoCell.h; sourceTree = "<group>"; };
+		0AEA303D1AAD78C800CC4DEF /* MUserInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUserInfoCell.m; sourceTree = "<group>"; };
+		0AEA30421AAD923E00CC4DEF /* MPwdModifyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPwdModifyView.h; sourceTree = "<group>"; };
+		0AEA30431AAD923E00CC4DEF /* MPwdModifyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPwdModifyView.m; sourceTree = "<group>"; };
+		0AEA30451AAD980D00CC4DEF /* MUpdatePwdTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUpdatePwdTableViewController.h; sourceTree = "<group>"; };
+		0AEA30461AAD980D00CC4DEF /* MUpdatePwdTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUpdatePwdTableViewController.m; sourceTree = "<group>"; };
 		0AEA904D1A83180700C699ED /* PLActivityProcess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLActivityProcess.h; sourceTree = "<group>"; };
 		0AEA904E1A83180700C699ED /* PLActivityProcess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLActivityProcess.m; sourceTree = "<group>"; };
 		0AEA90511A8318FE00C699ED /* ActivityCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityCell.h; sourceTree = "<group>"; };
@@ -789,6 +804,8 @@
 				CC01D19F1A6FF52F008EAE05 /* ActivitiesMessageCell.m */,
 				0A9A56991A6FE2AF00DA8122 /* MyMessageCell.h */,
 				0A9A569A1A6FE2AF00DA8122 /* MyMessageCell.m */,
+				0AEA303C1AAD78C800CC4DEF /* MUserInfoCell.h */,
+				0AEA303D1AAD78C800CC4DEF /* MUserInfoCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -796,6 +813,8 @@
 		0AB31D581A68D8B800B87850 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				0AEA30361AAD4C5000CC4DEF /* CustomTextField.h */,
+				0AEA30371AAD4C5000CC4DEF /* CustomTextField.m */,
 				0AB31D591A68D8B800B87850 /* Category */,
 				0AB31D5C1A68D8B800B87850 /* Tool */,
 			);
@@ -1007,6 +1026,10 @@
 				CC01D1A31A6FF52F008EAE05 /* SystemSettingsViewController.m */,
 				0AB31D8D1A68D8B800B87850 /* MyMessageViewController.h */,
 				0AB31D8E1A68D8B800B87850 /* MyMessageViewController.m */,
+				0AEA30391AAD735500CC4DEF /* MUserInfoViewController.h */,
+				0AEA303A1AAD735500CC4DEF /* MUserInfoViewController.m */,
+				0AEA30451AAD980D00CC4DEF /* MUpdatePwdTableViewController.h */,
+				0AEA30461AAD980D00CC4DEF /* MUpdatePwdTableViewController.m */,
 				0AE12E021A8AEEBC00D10389 /* MCollectListViewController.h */,
 				0AE12E031A8AEEBC00D10389 /* MCollectListViewController.m */,
 			);
@@ -1120,6 +1143,7 @@
 		0AB31DB41A68D8B800B87850 /* Capability */ = {
 			isa = PBXGroup;
 			children = (
+				0AEA30411AAD922900CC4DEF /* PwdModifyView */,
 				0A5757201AAC872B00B78A3B /* QRadioButton */,
 				0A5756E91AAC1FC500B78A3B /* Umeng */,
 				0AEA907B1A83698400C699ED /* UIKeyBorad */,
@@ -1268,6 +1292,15 @@
 				0AE430551A68D47B00CECD12 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		0AEA30411AAD922900CC4DEF /* PwdModifyView */ = {
+			isa = PBXGroup;
+			children = (
+				0AEA30421AAD923E00CC4DEF /* MPwdModifyView.h */,
+				0AEA30431AAD923E00CC4DEF /* MPwdModifyView.m */,
+			);
+			path = PwdModifyView;
 			sourceTree = "<group>";
 		};
 		0AEA90501A8318E000C699ED /* Views */ = {
@@ -1644,6 +1677,7 @@
 				810600201A8209E000407681 /* SVProgressHUD.m in Sources */,
 				0AB31DFA1A68D8B800B87850 /* BaseBL.m in Sources */,
 				0AB31E021A68D8B800B87850 /* PLCourseDownload.m in Sources */,
+				0AEA30471AAD980D00CC4DEF /* MUpdatePwdTableViewController.m in Sources */,
 				0AE430401A68D47B00CECD12 /* AppDelegate.m in Sources */,
 				0A57572E1AAC888500B78A3B /* MRegisterViewController.m in Sources */,
 				0AB31E0B1A68D8B800B87850 /* FMResultSet.m in Sources */,
@@ -1659,6 +1693,7 @@
 				0AEA90531A8318FE00C699ED /* ActivityCell.m in Sources */,
 				0AB31DED1A68D8B800B87850 /* ActivitiesViewController.m in Sources */,
 				0A9A57471A70077B00DA8122 /* ActivitiesInfoCellViewController.m in Sources */,
+				0AEA30381AAD4C5000CC4DEF /* CustomTextField.m in Sources */,
 				0AB31E0A1A68D8B800B87850 /* FMDatabaseQueue.m in Sources */,
 				CC415CDD1A8A276C00B5205D /* PLRecommendCourse.m in Sources */,
 				0A974D361A77B964002498B5 /* PLBaseProcess.m in Sources */,
@@ -1684,9 +1719,11 @@
 				0AB31E0D1A68D8B800B87850 /* NSData+MKBase64.m in Sources */,
 				0AB31E071A68D8B800B87850 /* FMDatabase.m in Sources */,
 				CCCF51FF1A78FCCF00A4654F /* PLUser.m in Sources */,
+				0AEA30441AAD923E00CC4DEF /* MPwdModifyView.m in Sources */,
 				CCCF52271A79009800A4654F /* MJRefreshHeaderView.m in Sources */,
 				0AB31E151A68D8B800B87850 /* PLMKDownloadOperation.m in Sources */,
 				0AB31DDF1A68D8B800B87850 /* PLInterface.m in Sources */,
+				0AEA303B1AAD735500CC4DEF /* MUserInfoViewController.m in Sources */,
 				0AB31DFF1A68D8B800B87850 /* BLCourseDownloadProcess.m in Sources */,
 				0AB31DEE1A68D8B800B87850 /* CourseDownloadController.m in Sources */,
 				0AB31DF61A68D8B800B87850 /* MCourseDownloadCell.m in Sources */,
@@ -1724,6 +1761,7 @@
 				0AB31E141A68D8B800B87850 /* MKNetworkOperation.m in Sources */,
 				0AB31E081A68D8B800B87850 /* FMDatabaseAdditions.m in Sources */,
 				0AB31E121A68D8B800B87850 /* UIImageView+MKNetworkKitAdditions.m in Sources */,
+				0AEA303E1AAD78C800CC4DEF /* MUserInfoCell.m in Sources */,
 				CC77433D1A7FA89C009DA7C4 /* PLDiscussProcess.m in Sources */,
 				0AE12E0D1A8B286700D10389 /* MWatchRecordCell.m in Sources */,
 				CC415CE01A8A2BA600B5205D /* ActivityInfoCell.m in Sources */,

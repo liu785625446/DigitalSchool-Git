@@ -11,6 +11,8 @@
 #import "MyMessageCell.h"
 #import "MCollectListViewController.h"
 #import "UMFeedback.h"
+#import "PLUser.h"
+#import "MUserInfoViewController.h"
 
 @interface MyMessageViewController ()
 
@@ -21,6 +23,16 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    NSData *data = [userDefaults objectForKey:CURRENT_USER];
+    
+    if (data) {
+        _current_user = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+        _userName.text = _current_user.userName;
+    }else{
+        _current_user = nil;
+    }
     
 }
 
@@ -48,6 +60,15 @@
 {
     [super viewWillDisappear:animated];
     self.navigationController.navigationBarHidden = NO;
+}
+
+-(IBAction)userEditAction:(id)sender
+{
+    if (_current_user) {
+        [self performSegueWithIdentifier:@"userInfoIdentifier" sender:nil];
+    }else{
+        [self checkUserLogin];
+    }
 }
 
 -(IBAction)settingsAction:(id)sender
@@ -131,6 +152,10 @@
         }else if ([code isEqualToString:@"1"]){
             collect.collectType = COLLECT_ACTIVITY;
         }
+    }else if ([segue.identifier isEqualToString:@"userInfoIdentifier"])
+    {
+        MUserInfoViewController *userVC = segue.destinationViewController;
+        userVC.user_info = _current_user;
     }
 }
 

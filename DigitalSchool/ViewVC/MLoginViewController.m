@@ -7,6 +7,7 @@
 //
 
 #import "MLoginViewController.h"
+#import "PLUser.h"
 
 @interface MLoginViewController ()
 
@@ -17,6 +18,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    _userProcess = [[PLUserProcess alloc] init];
     
     _backgroundImg.layer.cornerRadius = 3.0;
     _backgroundImg.layer.borderColor = [[UIColor lightGrayColor] CGColor];
@@ -42,7 +45,43 @@
 
 -(IBAction)loginAction:(id)sender
 {
+    if ([_userNameText.text isEqualToString:@""]) {
+        [self.view makeToast:@"请输入用户名"];
+        return;
+    }
     
+    if ([_pwdText.text isEqualToString:@""]) {
+        [self.view makeToast:@"请输入密码"];
+        return;
+    }
+    
+    if ([_pwdText.text length] < 6) {
+        [self.view makeToast:@"密码输入错误"];
+        return;
+    }
+    
+    [self showMyHUD:@"登入中..."];
+    [_userProcess loginUserName:_userNameText.text
+                    didPassword:_pwdText.text
+                     didSuccess:^(NSMutableArray *array) {
+                         if (array) {
+                             id data = [array objectAtIndex:0];
+                             if ([data isKindOfClass:[NSDictionary class]]) {
+                                 PLUser *user = [[PLUser alloc] init];
+                                 [user setValuesForKeysWithDictionary:data];
+                                 NSUserDefaults *userDeault = [NSUserDefaults standardUserDefaults];
+                                 NSData *userData = [NSKeyedArchiver archivedDataWithRootObject:user];
+                                 [userDeault setObject:userData forKey:CURRENT_USER];
+                                 [userDeault synchronize];
+                                 [self showSuccessHUD:@"登入成功"];
+                                 [self dismissViewControllerAnimated:YES completion:nil];
+                             }else{
+                                 [self showFailHUD:@"登入失败"];
+                             }
+                         }
+    } didFail:^(NSString *error) {
+        [self showFailHUD:error];
+    }];
 }
 
 -(IBAction)registerAction:(id)sender
