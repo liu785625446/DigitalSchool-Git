@@ -75,6 +75,10 @@
             if (self.playVideoType == MPlayVideoTypeCourse)
             {
                 //课程
+                 if (![self checkUserLogin]) {
+                     return;
+                 }
+
                 [self.discussProcess launchCourseDiscuss:self.courseId
                                                didUserId:@"1"
                                               didContent:self.comment.text
@@ -95,6 +99,10 @@
             }else if(self.playVideoType == MPlayVideoTypeWorks)
             {
                 //作品
+                 if (![self checkUserLogin]) {
+                     return;
+                 }
+
                 [self.discussProcess launchWorksDiscuss:self.courseId
                                               didUserId:@"1"
                                              didContent:self.comment.text
@@ -110,6 +118,10 @@
             }else
             {
                 //活动评论
+                 if (![self checkUserLogin]) {
+                     return;
+                 }
+
                 [self.discussProcess commentActivityDiscuss:self.courseId
                                                   didUserId:@"1"
                                                  didContent:self.comment.text
@@ -125,7 +137,9 @@
             
         }else if([self.title isEqualToString:MNoteTitle])
         {//发表笔记
-            
+            if (![self checkUserLogin]) {
+                return;
+            }
             [self.notesProcess noteWrite:@"1"
                              didCourseId:self.courseId
                               didContent:self.comment.text
@@ -145,6 +159,10 @@
             if (self.playVideoType == MPlayVideoTypeCourse)
             {
                 //课程
+                 if (![self checkUserLogin]) {
+                     return;
+                 }
+
                 [self.discussProcess replyDiscuss:@"1"
                                        didDiscuss:self.courseId
                                        didContent:self.comment.text
@@ -161,6 +179,10 @@
             }else
             {
                 //作品
+                 if (![self checkUserLogin]) {
+                     return;
+                 }
+
                 [self.discussProcess replyWorks:@"1"
                                      didDiscuss:self.courseId
                                      didContent:self.comment.text

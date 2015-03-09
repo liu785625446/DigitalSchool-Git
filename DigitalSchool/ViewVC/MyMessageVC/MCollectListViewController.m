@@ -31,6 +31,11 @@
     
     if (_collectType == COLLECT_COURSE) {
         self.title = @"收藏课程";
+        
+        if (![self checkUserLogin]) {
+            return;
+        }
+        
         [courseProcess getAttentionCourse:10 didCurrentPage:1 diduserId:@"1" didSuccess:^(NSMutableArray *array) {
             _collect_list = array;
             [self.baseTableView reloadData];
@@ -39,6 +44,10 @@
         }];
     }else if (_collectType == COLLECT_ACTIVITY) {
         self.title = @"收藏活动";
+        if (![self checkUserLogin]) {
+            return;
+        }
+
         [activityProcess  activityAttentions:10 didCurrentPage:1 didUserId:@"1" didSuccess:^(NSMutableArray *array) {
             _collect_list = array;
             [self.baseTableView reloadData];

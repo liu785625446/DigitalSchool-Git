@@ -35,6 +35,7 @@
 
 -(void) submitWorksLookRecord:(NSString *)workId didUser:(NSString *)userId didSuccess:(CallBackBlockSuccess)success didFail:(CallBackBlockFail)fail
 {
+    userId = [self getUserId];
     NSString *code = [BLTool getKeyCode:[NSString stringWithFormat:@"%@%@%@",workId, userId,@"1"]];
     NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
     [dic setObject:workId forKey:@"courseId"];
@@ -50,6 +51,8 @@
 
 -(void) getWorksLookRecord:(NSString *)userId didSuccess:(CallBackBlockSuccess)success didFail:(CallBackBlockFail)fail
 {
+    userId = [self getUserId];
+
     NSString *code = [BLTool getKeyCode:[NSString stringWithFormat:@"%@%@",userId,@"3"]];
     NSString *url = [NSString stringWithFormat:@"%@/%@/%@",userId,@"3",code];
     [PLInterface startRequest:ALL_URL didUrl:COURSE_GET_WATCH(url) didParam:nil didSuccess:^(id result){    

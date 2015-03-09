@@ -33,6 +33,7 @@
 }
 -(void) launchCourseDiscuss:(NSString *)courseId didUserId:(NSString *)userId didContent:(NSString *)discussContent didSuccess:(CallBackBlockSuccess)success didFail:(CallBackBlockFail)fail
 {
+    userId = [self getUserId];
     NSString *encoderContent = [BLTool getEncoding:discussContent];
     NSString *code = [BLTool getKeyCode:[NSString stringWithFormat:@"%@%@%@%@",courseId, userId, encoderContent,@"1"]];
     NSMutableDictionary *dic = [[NSMutableDictionary alloc] initWithCapacity:0];
@@ -51,6 +52,7 @@
 
 -(void) launchWorksDiscuss:(NSString *)workId didUserId:(NSString *)userId didContent:(NSString *)discussContent didSuccess:(CallBackBlockSuccess)success didFail:(CallBackBlockFail)fail
 {
+    userId = [self getUserId];
     NSString *encoderContent = [BLTool getEncoding:discussContent];
     NSString *code = [BLTool getKeyCode:[NSString stringWithFormat:@"%@%@%@%@",workId, userId, encoderContent,@"3"]];
     NSMutableDictionary *dic = [[NSMutableDictionary alloc] initWithCapacity:0];
@@ -69,6 +71,7 @@
 
 -(void) replyDiscuss:(NSString *)userId didDiscuss:(NSString *)discussId didContent:(NSString *)content didSuccess:(CallBackBlockSuccess)success didFail:(CallBackBlockFail)fail
 {
+    userId = [self getUserId];
     NSString *encoderContent = [BLTool getEncoding:content];
     NSString *code = [BLTool getKeyCode:[NSString stringWithFormat:@"%@%@%@%@",userId, discussId, content,@"1"]];
     NSMutableDictionary *dic = [[NSMutableDictionary alloc] initWithCapacity:0];
@@ -87,6 +90,7 @@
 
 -(void) replyWorks:(NSString *)userId didDiscuss:(NSString *)discussId didContent:(NSString *)content didSuccess:(CallBackBlockSuccess)success didFail:(CallBackBlockFail)fail
 {
+    userId = [self getUserId];
     NSString *encoderContent = [BLTool getEncoding:content];
     NSString *code = [BLTool getKeyCode:[NSString stringWithFormat:@"%@%@%@%@",userId, discussId, content,@"3"]];
     NSMutableDictionary *dic = [[NSMutableDictionary alloc] initWithCapacity:0];
@@ -105,6 +109,7 @@
 
 -(void) commentActivityDiscuss:(NSString *)activityId didUserId:(NSString *)userId didContent:(NSString *)content didSuccess:(CallBackBlockSuccess)success didFail:(CallBackBlockFail)fail
 {
+    userId = [self getUserId];
     NSString *encoderContent = [BLTool getEncoding:content];
     NSString *code = [BLTool getKeyCode:[NSString stringWithFormat:@"%@%@%@",activityId, userId, encoderContent]];
     NSMutableDictionary *dic = [[NSMutableDictionary alloc] initWithCapacity:0];

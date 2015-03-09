@@ -22,7 +22,6 @@
     
     _courseProcess = [[PLCourseProcess alloc] init];
     _workProcess = [[PLWorkProcess alloc] init];
-    
     [_courseProcess getCourseLookRecord:@"1" didSuccess:^(NSMutableArray *array) {
         _watchRecord_list = array;
         [self.baseTableView reloadData];
@@ -44,6 +43,10 @@
     UISegmentedControl *segmented = (UISegmentedControl *)sender;
     _course_works = segmented.selectedSegmentIndex;
     if (_course_works == 0) {
+        if (![self checkUserLogin]) {
+            return;
+        }
+
         [_courseProcess getCourseLookRecord:@"1" didSuccess:^(NSMutableArray *array) {
             _watchRecord_list = array;
             [self.baseTableView reloadData];
@@ -51,6 +54,10 @@
             
         }];
     }else{
+        if (![self checkUserLogin]) {
+            return;
+        }
+
         [_workProcess getWorksLookRecord:@"1" didSuccess:^(NSMutableArray *array) {
             _watchRecord_list = array;
             [self.baseTableView reloadData];

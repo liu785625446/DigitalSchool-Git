@@ -134,6 +134,9 @@
 }
 -(void)timeAction:(id)item
 {
+    if (![self checkUserLogin]) {
+        return;
+    }
     [self performSegueWithIdentifier:@"WatchRecordIdentifier" sender:nil];
 }
 -(void)seachAction:(id)item

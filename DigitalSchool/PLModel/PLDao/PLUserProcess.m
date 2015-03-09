@@ -8,6 +8,7 @@
 
 #import "PLUserProcess.h"
 #import "PLUser.h"
+#import "MKNetworkKit.h"
 
 @implementation PLUserProcess
 
@@ -67,25 +68,33 @@
     [dic setObject:newPwd forKey:@"password"];
     [dic setObject:code forKey:@"code"];
     [PLInterface startRequest:ALL_URL didUrl:USER_MODIFY_PASSWORD didParam:dic didSuccess:^(id result) {
-        
+        [self dataFormatPost:result didSuccess:success didFail:fail];
     } didFail:^(NSString *error) {
-        
+        fail(REQUEST_ERROR);
     }];
 }
 
 -(void) uploadHeadImg:(NSString *)userId didHeadImg:(NSData *)headImg didSuccess:(CallBackBlockSuccess)success didFail:(CallBackBlockFail)fail
 {
-    NSString *code = [BLTool getKeyCode:userId];
+    MKNetworkEngine *engine = [[MKNetworkEngine alloc] initWithHostName:ALL_URL customHeaderFields:nil];
+    
+    NSString *code = [BLTool getKeyCode:[self getUserId]];
     NSMutableDictionary *dic = [[NSMutableDictionary alloc] initWithCapacity:0];
-    [dic setObject:userId forKey:@"id"];
-    [dic setObject:headImg forKey:@"file"];
+    [dic setObject:[self getUserId] forKey:@"id"];
     [dic setObject:code forKey:@"code"];
     
-    [PLInterface startRequest:ALL_URL didUrl:USER_UPLOAD_IMG didParam:dic didSuccess:^(id result) {
-        
-    } didFail:^(NSString *error) {
-        
+    MKNetworkOperation *operation = [engine operationWithPath:USER_UPLOAD_IMG params:dic httpMethod:@"POST"];
+    
+    [operation addData:headImg forKey:@"file" mimeType:@"png" fileName:@"png"];
+    [operation setFreezable:YES];
+    
+    [operation addCompletionHandler:^(MKNetworkOperation *op){
+        id result = [op responseJSON];
+        [self dataFormatPost:result didSuccess:success didFail:fail];
+    }errorHandler:^(MKNetworkOperation *op, NSError *error){
+        fail(REQUEST_ERROR);
     }];
-}
+    
+    [engine enqueueOperation:operation];}
 
 @end

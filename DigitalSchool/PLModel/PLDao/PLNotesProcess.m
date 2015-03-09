@@ -25,6 +25,7 @@
 
 -(void) praiseNotes:(NSString *)noteId didUser:(NSString *)userId didSuccess:(CallBackBlockSuccess)success didFail:(CallBackBlockFail)fail
 {
+    userId = [self getUserId];
     NSString *code = [BLTool getKeyCode:[NSString stringWithFormat:@"%@%@",noteId, userId]];
     NSMutableDictionary *dic = [[NSMutableDictionary alloc] initWithCapacity:0];
     [dic setObject:noteId forKey:@"noteId"];
@@ -40,6 +41,7 @@
 
 -(void) noteWrite:(NSString *)userId didCourseId:(NSString *)courseId didContent:(NSString *)contentId didSuccess:(CallBackBlockSuccess)success didFail:(CallBackBlockFail)fail
 {
+    userId = [self getUserId];
     NSString *encoderContent = [BLTool getEncoding:contentId];
     NSString *code = [BLTool getKeyCode:[NSString stringWithFormat:@"%@%@%@",userId, courseId, encoderContent]];
     NSMutableDictionary *dic = [[NSMutableDictionary alloc] initWithCapacity:0];

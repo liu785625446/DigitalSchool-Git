@@ -82,10 +82,12 @@ static BOOL isHud1 = NO;
         return;
     }
     
+    [self showMyHUD:@"修改中..."];
     [_userProcess modifyPassword:_current_user.userId didOldPassword:_pwd1.text didNewPassword:_pwd2.text didSuccess:^(NSMutableArray *array) {
-        
+        [self showSuccessHUD:@"修改成功"];
+        [self.navigationController popViewControllerAnimated:YES];
     } didFail:^(NSString *error) {
-        
+        [self showFailHUD:error];
     }];
 }
 

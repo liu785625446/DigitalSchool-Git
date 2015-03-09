@@ -23,17 +23,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    NSData *data = [userDefaults objectForKey:CURRENT_USER];
-    
-    if (data) {
-        _current_user = [NSKeyedUnarchiver unarchiveObjectWithData:data];
-        _userName.text = _current_user.userName;
-    }else{
-        _current_user = nil;
-    }
-    
 }
 
 - (void)didReceiveMemoryWarning
@@ -44,6 +33,25 @@
 {
     [super viewWillAppear:animated];
 
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    NSData *data = [userDefaults objectForKey:CURRENT_USER];
+    
+    if (data) {
+        _current_user = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+        _userName.text = _current_user.userName;
+        [_userImg setImageWithURL:[NSURL URLWithString:_current_user.userImg] placeholderImage:[UIImage imageNamed:@"ActivitiesInfoHead1.png"]];
+        _userImg.layer.masksToBounds = YES;
+        _userImg.layer.cornerRadius = _userImg.frame.size.width/2;
+//        BOOL isOpen = [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:_current_user.userImg]];
+//        if (isOpen) {
+//            [_userImg setImage:[UIImage imageWithData:[[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:_current_user.userImg]]]];
+//        }
+    }else{
+        _userName.text = @"点击登入";
+        _userImg.image = [UIImage imageNamed:@"ActivitiesInfoHead1.png"];
+        _current_user = nil;
+    }
+    
     _titleArray = @[@"",@"意见反馈",@"离线缓存",@"我收藏的课程",@"我收藏的活动",@"一键拨打客服电话"];
     _imageArray = @[@"",@"SystemSettings.png",@"BtnBottomNormal3.png",@"BtnBottomNormal5.png",@"BtnBottomNormal5.png",@"MyRootMenu.png"];
     [self.baseTableView reloadData];
@@ -134,8 +142,14 @@
     }else if (indexPath.section == 2) {
         [self performSegueWithIdentifier:@"OfflineCache" sender:nil];
     }else if (indexPath.section == 3){
+        if (![self checkUserLogin]) {
+            return;
+        }
         [self performSegueWithIdentifier:@"CollectIdentifier" sender:@"0"];
     }else if (indexPath.section == 4){
+        if (![self checkUserLogin]) {
+            return;
+        }
         [self performSegueWithIdentifier:@"CollectIdentifier" sender:@"1"];
     }else if (indexPath.section == 5) {
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"tel://18682048054"]];

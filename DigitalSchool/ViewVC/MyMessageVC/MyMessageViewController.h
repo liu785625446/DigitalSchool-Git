@@ -7,6 +7,7 @@
 //
 
 #import "MBaseTableViewController.h"
+#import "UrlImageView.h"
 
 @class PLUser;
 
@@ -14,7 +15,7 @@
 
 @property (nonatomic, strong) IBOutlet NSLayoutConstraint *top;
 
-@property (nonatomic, assign) IBOutlet UIImageView *userImg;
+@property (nonatomic, assign) IBOutlet UrlImageView *userImg;
 @property (nonatomic, assign) IBOutlet UILabel *userName;
 
 @property (nonatomic, strong) NSArray *titleArray;

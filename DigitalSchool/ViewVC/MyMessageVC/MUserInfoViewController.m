@@ -70,7 +70,8 @@
         
         MUserInfoImgCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
         [cell.mUserInfoImg setImageWithURL:[NSURL URLWithString:_user_info.userImg] placeholderImage:[UIImage imageNamed:@"ActivitiesInfoHead1.png"]];
-        
+        cell.mUserInfoImg.layer.masksToBounds = YES;
+        cell.mUserInfoImg.layer.cornerRadius = cell.mUserInfoImg.frame.size.width/2;
         return cell;
     }else if (indexPath.section == 1 ) {
         static NSString *cellIdentifier = @"MUserInfoCellIdentifier";
@@ -151,10 +152,15 @@
     UIImage *image = [info objectForKey:UIImagePickerControllerEditedImage];
     NSData *imageData = UIImageJPEGRepresentation(image, 0.5);
     
+    if ([imageData length] > 1024*1024*2) {
+        [self showFailHUD:@"上传的图片过大"];
+        return;
+    }
+    [self showMyHUD:@"上传中..."];
     [_userProcess uploadHeadImg:_user_info.userId didHeadImg:imageData didSuccess:^(NSMutableArray *array) {
-        
+        [self showSuccessHUD:@"头像上传成功"];
     } didFail:^(NSString *error) {
-        
+        [self showFailHUD:error];
     }];
 }
 

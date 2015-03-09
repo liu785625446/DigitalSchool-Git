@@ -23,7 +23,8 @@
 -(void)timeAction:(id)item;
 -(void)seachAction:(id)item;
 
--(void) checkUserLogin;
+-(BOOL) checkUserLogin;
+-(NSString *)getUserId;
 @property (assign) CGRect baseRect;
 
 @end

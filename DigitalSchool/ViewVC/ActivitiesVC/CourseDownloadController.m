@@ -11,6 +11,8 @@
 #import "BLCourseDownloadProcess.h"
 #import "PLCourseDownload.h"
 
+#import "MKNetworkKit.h"
+
 @interface CourseDownloadController ()
 
 @end
@@ -19,6 +21,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self uploadImg];
+    return;
     
     _downloadQueue = [[NSArray alloc] init];
     _selectQueue = [[NSMutableArray alloc] initWithCapacity:0];
@@ -91,31 +96,39 @@
 //    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
 //    NSString *cachesDirectory = paths[0];
 //    NSString *uploadURL = [cachesDirectory stringByAppendingPathComponent:@"xsyy.png"];
-    
-//    上传图片
+//    
+////    上传图片
 //    NSString *url = [[NSBundle mainBundle] pathForResource:@"icon120_smart" ofType:@"png"];
-//    
-//    NSString *path = @"Icon/save_icon";
-//    
-//    MKNetworkEngine *engine = [[MKNetworkEngine alloc] initWithHostName:@"cloud.360fis.com" customHeaderFields:nil];
-//    
-//    NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:@"10012",@"user_id",@"dab15afc664b4d16338a09984119424f054ac8e1b",@"token", nil];
-//    MKNetworkOperation *operation = [engine operationWithPath:path params:dic httpMethod:@"POST"];
-//
-//    [operation addFile:url forKey:@"file"];
-//    [operation setFreezable:YES];
-//    
-//    [operation onUploadProgressChanged:^(double progress){
-//        NSLog(@"progress:%f",progress);
-//    }];
-//    
-//    [operation addCompletionHandler:^(MKNetworkOperation *op){
-//        
-//    }errorHandler:^(MKNetworkOperation *op, NSError *error){
-//        
-//    }];
-//    
-//    [engine enqueueOperation:operation];
+    
+    NSString *path = USER_UPLOAD_IMG;
+    
+    MKNetworkEngine *engine = [[MKNetworkEngine alloc] initWithHostName:ALL_URL customHeaderFields:nil];
+    
+    NSString *code = [BLTool getKeyCode:[self getUserId]];
+    NSMutableDictionary *dic = [[NSMutableDictionary alloc] initWithCapacity:0];
+    [dic setObject:[self getUserId] forKey:@"id"];
+//    [dic setObject:headImg forKey:@"file"];
+    [dic setObject:code forKey:@"code"];
+
+    MKNetworkOperation *operation = [engine operationWithPath:path params:dic httpMethod:@"POST"];
+
+    UIImage *image = [UIImage imageNamed:@"ic_look_history.png"];
+    NSData *data = UIImageJPEGRepresentation(image, 0.1);
+//    [operation addData:data forKey:@"file"];
+    [operation addData:data forKey:@"file" mimeType:@"png" fileName:@"png"];
+    [operation setFreezable:YES];
+    
+    [operation onUploadProgressChanged:^(double progress){
+        NSLog(@"progress:%f",progress);
+    }];
+    
+    [operation addCompletionHandler:^(MKNetworkOperation *op){
+        
+    }errorHandler:^(MKNetworkOperation *op, NSError *error){
+        
+    }];
+    
+    [engine enqueueOperation:operation];
     
 }
 

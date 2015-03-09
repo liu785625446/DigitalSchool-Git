@@ -68,19 +68,23 @@
 
 -(IBAction)uploadWorksAction:(id)sender
 {
-    
+    if (![self checkUserLogin]) {
+        return;
+    }
+    [self performSegueWithIdentifier:@"uploadWorksIdentifier" sender:nil];
 }
 
 -(IBAction)activityCollectAction:(id)sender
 {
-    [self checkUserLogin];
-                                
+    if (![self checkUserLogin]) {
+        return;
+    }
     
-//    [_activityProcess activityCollect:_activity.activityId didUserID:@"1" didSuccess:^(NSMutableArray *array) {
-//        [self.view makeToast:@"收藏成功"];
-//    } didFail:^(NSString *error) {
-//        [self.view makeToast:@"收藏失败"];
-//    }];
+    [_activityProcess activityCollect:_activity.activityId didUserID:@"1" didSuccess:^(NSMutableArray *array) {
+        [self.view makeToast:@"收藏成功"];
+    } didFail:^(NSString *error) {
+        [self.view makeToast:@"收藏失败"];
+    }];
 }
 
 #pragma mark -

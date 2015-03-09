@@ -9,6 +9,10 @@
 #import "MBaseViewController.h"
 
 
-@interface MNavigationVC : MBaseViewController
+@interface MNavigationVC : MBaseViewController<UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
+
+@property (nonatomic, assign) IBOutlet UICollectionView *collection;
+
+@property (nonatomic, strong) NSArray *titleArray;
 
 @end

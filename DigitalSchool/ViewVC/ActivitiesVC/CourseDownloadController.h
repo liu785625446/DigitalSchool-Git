@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "BLCourseDownloadProcess.h"
 #import "VCustomToolBar.h"
+#import "MBaseViewController.h"
 
-@interface CourseDownloadController: UIViewController<UITableViewDataSource, UITableViewDelegate,VCustomToolBarDelegate,BLCourseDownloadDelegate>
+@interface CourseDownloadController: MBaseViewController<UITableViewDataSource, UITableViewDelegate,VCustomToolBarDelegate,BLCourseDownloadDelegate>
 
 @property (nonatomic, strong)IBOutlet UITableView *table;
 

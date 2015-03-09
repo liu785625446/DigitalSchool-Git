@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A0F1C0D1AADDFD2000DEB3A /* MRegisterLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A0F1C0C1AADDFD2000DEB3A /* MRegisterLogo.png */; };
+		0A0F1C0F1AADDFF7000DEB3A /* MRegisterNickNameImg.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A0F1C0E1AADDFF7000DEB3A /* MRegisterNickNameImg.png */; };
+		0A0F1C131AADE548000DEB3A /* MNavigationColl.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A0F1C121AADE548000DEB3A /* MNavigationColl.m */; };
 		0A5756EE1AAC1FD600B78A3B /* libMobClickLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A5756EB1AAC1FD600B78A3B /* libMobClickLibrary.a */; };
 		0A5756F01AAC205F00B78A3B /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A5756EF1AAC205F00B78A3B /* libz.dylib */; };
 		0A57570A1AAC28BD00B78A3B /* UMFeedbackLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0A5756F21AAC28BD00B78A3B /* UMFeedbackLocalizable.strings */; };
@@ -268,6 +271,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0A0F1C0C1AADDFD2000DEB3A /* MRegisterLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MRegisterLogo.png; sourceTree = "<group>"; };
+		0A0F1C0E1AADDFF7000DEB3A /* MRegisterNickNameImg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MRegisterNickNameImg.png; sourceTree = "<group>"; };
+		0A0F1C111AADE548000DEB3A /* MNavigationColl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNavigationColl.h; sourceTree = "<group>"; };
+		0A0F1C121AADE548000DEB3A /* MNavigationColl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNavigationColl.m; sourceTree = "<group>"; };
 		0A5756EB1AAC1FD600B78A3B /* libMobClickLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libMobClickLibrary.a; sourceTree = "<group>"; };
 		0A5756EC1AAC1FD600B78A3B /* MobClick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClick.h; sourceTree = "<group>"; };
 		0A5756ED1AAC1FD600B78A3B /* MobClickSocialAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClickSocialAnalytics.h; sourceTree = "<group>"; };
@@ -681,6 +688,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0A0F1C101AADE51D000DEB3A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0A0F1C111AADE548000DEB3A /* MNavigationColl.h */,
+				0A0F1C121AADE548000DEB3A /* MNavigationColl.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		0A5756E91AAC1FC500B78A3B /* Umeng */ = {
 			isa = PBXGroup;
 			children = (
@@ -1332,6 +1348,8 @@
 		0AEA90611A835A3F00C699ED /* login */ = {
 			isa = PBXGroup;
 			children = (
+				0A0F1C0E1AADDFF7000DEB3A /* MRegisterNickNameImg.png */,
+				0A0F1C0C1AADDFD2000DEB3A /* MRegisterLogo.png */,
 				0AA3E4C71A8A5E58004D86BE /* MActivityDefault.png */,
 				0AA3E4C81A8A5E58004D86BE /* MCourseDefalut.png */,
 				0AEA90721A835F7C00C699ED /* password.png */,
@@ -1381,6 +1399,7 @@
 		8B5B740C1AAD8B8500ADB3DE /* NavigationVC */ = {
 			isa = PBXGroup;
 			children = (
+				0A0F1C101AADE51D000DEB3A /* Views */,
 				8B5B740D1AAD8C0700ADB3DE /* MNavigationVC.h */,
 				8B5B740E1AAD8C0700ADB3DE /* MNavigationVC.m */,
 			);
@@ -1492,7 +1511,7 @@
 				TargetAttributes = {
 					0AE430361A68D47B00CECD12 = {
 						CreatedOnToolsVersion = 6.1;
-						DevelopmentTeam = LZV72Z98L3;
+						DevelopmentTeam = FSL3FCUGV3;
 					};
 					0AE4304F1A68D47B00CECD12 = {
 						CreatedOnToolsVersion = 6.1;
@@ -1569,6 +1588,7 @@
 				0AEA906C1A835E0800C699ED /* loginBut_select.png in Resources */,
 				0AE4304B1A68D47B00CECD12 /* LaunchScreen.xib in Resources */,
 				CC5A94E41A6E8BC5008197BC /* BtnBottomNormal3@2x.png in Resources */,
+				0A0F1C0F1AADDFF7000DEB3A /* MRegisterNickNameImg.png in Resources */,
 				0A9A57271A70026300DA8122 /* ActivitiesInfoCase.png in Resources */,
 				CC3DACF61A68E91800C9139C /* MCellbackGround@2x.png in Resources */,
 				0A5757291AAC876800B78A3B /* check_icon@2x.png in Resources */,
@@ -1605,6 +1625,7 @@
 				0AB31DFB1A68D8B800B87850 /* DBConfig.plist in Resources */,
 				0AA3E4CA1A8A5E58004D86BE /* MCourseDefalut.png in Resources */,
 				CC5A94EC1A6E8BC5008197BC /* BtnBottomPressed5@2x.png in Resources */,
+				0A0F1C0D1AADDFD2000DEB3A /* MRegisterLogo.png in Resources */,
 				0AEA906E1A835E0800C699ED /* visitorsBut_select.png in Resources */,
 				0A9A575F1A7025B800DA8122 /* movieSliderImg.png in Resources */,
 				0A9A574D1A7010B500DA8122 /* MyRootEdit.png in Resources */,
@@ -1670,6 +1691,7 @@
 				0AB31E031A68D8B800B87850 /* PLCourseDownLoadDao.m in Sources */,
 				0A9A57561A7020F400DA8122 /* MDiscussNotesCell.m in Sources */,
 				CC5A94B81A6E7E13008197BC /* MPlayVideoViewController.m in Sources */,
+				0A0F1C131AADE548000DEB3A /* MNavigationColl.m in Sources */,
 				CCCF52241A79009800A4654F /* MJRefreshBaseView.m in Sources */,
 				0AB31DFE1A68D8B800B87850 /* PLBaseData.m in Sources */,
 				0A9A56B71A6FE5CB00DA8122 /* MBottomView.m in Sources */,

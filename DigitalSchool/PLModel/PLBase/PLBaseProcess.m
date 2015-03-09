@@ -8,6 +8,7 @@
 
 #import "PLBaseProcess.h"
 #import "PLBaseData.h"
+#import "PLUser.h"
 
 @implementation PLBaseProcess
 
@@ -63,5 +64,17 @@
     }
 
 }
+
+-(NSString *)getUserId
+{
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    NSData *userData = [userDefaults objectForKey:CURRENT_USER];
+    if (userData) {
+        PLUser *user = [NSKeyedUnarchiver unarchiveObjectWithData:userData];
+        return user.userId;
+    }
+    return @"";
+}
+
 
 @end

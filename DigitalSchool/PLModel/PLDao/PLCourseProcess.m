@@ -150,6 +150,7 @@
 
 -(void) submitCourseLookRecord:(NSString *)courseId didUser:(NSString *)userId didSuccess:(CallBackBlockSuccess)success didFail:(CallBackBlockFail)fail
 {
+    userId = [self getUserId];
     NSString *code = [BLTool getKeyCode:[NSString stringWithFormat:@"%@%@%@",courseId, userId,@"0"]];
     NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
     [dic setObject:courseId forKey:@"courseId"];
@@ -165,6 +166,7 @@
 
 -(void) getCourseLookRecord:(NSString *)userId didSuccess:(CallBackBlockSuccess)success didFail:(CallBackBlockFail)fail
 {
+    userId = [self getUserId];
     NSString *code = [BLTool getKeyCode:[NSString stringWithFormat:@"%@%@",userId,@"1"]];
     NSString *url = [NSString stringWithFormat:@"%@/%@/%@",userId,@"1",code];
     [PLInterface startRequest:ALL_URL didUrl:COURSE_GET_WATCH(url) didParam:nil didSuccess:^(id result){
@@ -176,6 +178,7 @@
 
 -(void) attentionCourse:(NSString *)courseId didUser:(NSString *)userId didSuccess:(CallBackBlockSuccess)success didFail:(CallBackBlockFail)fail
 {
+    userId = [self getUserId];
     NSString *code = [BLTool getKeyCode:[NSString stringWithFormat:@"%@%@",courseId, userId]];
     NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
     [dic setObject:courseId forKey:@"courseId"];
@@ -190,6 +193,7 @@
 
 -(void) cancelAttentionCourse:(NSString *)courseId didUser:(NSString *)userId didSuccess:(CallBackBlockSuccess)success didFail:(CallBackBlockFail)fail
 {
+    userId = [self getUserId];
     NSString *code = [BLTool getKeyCode:[NSString stringWithFormat:@"%@%@",courseId, userId]];
     NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
     [dic setObject:courseId forKey:@"courseId"];
@@ -204,6 +208,8 @@
 
 -(void) getAttentionCourse:(int)pageSize didCurrentPage:(int)currentPage diduserId:(NSString *)userId didSuccess:(CallBackBlockSuccess)success didFail:(CallBackBlockFail)fail
 {
+    userId = [self getUserId];
+
     NSString *code = [BLTool getKeyCode:[NSString stringWithFormat:@"%d%d%@",pageSize, currentPage, userId]];
     NSString *url = [NSString stringWithFormat:@"%d/%d/%@/%@",pageSize, currentPage, userId, code];
     [PLInterface startRequest:ALL_URL didUrl:COURSE_GET_ATTENTIONS(url) didParam:nil didSuccess:^(id result){

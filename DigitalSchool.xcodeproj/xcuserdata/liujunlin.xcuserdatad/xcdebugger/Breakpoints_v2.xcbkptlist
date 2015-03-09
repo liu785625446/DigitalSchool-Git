@@ -19,42 +19,58 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "DigitalSchool/PLModel/PLDao/PLUserProcess.m"
-            timestampString = "447580559.026677"
+            filePath = "DigitalSchool/ViewVC/ActivitiesVC/ActivitiesInfoViewController.m"
+            timestampString = "447601896.391231"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "85"
-            endingLineNumber = "85"
-            landmarkName = "-uploadHeadImg:didHeadImg:didSuccess:didFail:"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
+            landmarkName = "-activityCollectAction:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DigitalSchool/ViewVC/ActivitiesVC/ActivitiesInfoViewController.m"
+            timestampString = "447601897.416232"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "82"
+            endingLineNumber = "82"
+            landmarkName = "-activityCollectAction:"
             landmarkType = "5">
             <Locations>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "__61-[PLUserProcess uploadHeadImg:didHeadImg:didSuccess:didFail:]_block_invoke"
+                  symbolName = "-[ActivitiesInfoViewController activityCollectAction:]"
                   moduleName = "DigitalSchool"
-                  urlString = "file:///Users/liujunlin/Desktop/DigitalSchool-2/DigitalSchool/PLModel/PLDao/PLUserProcess.m"
-                  timestampString = "447586254.486715"
+                  urlString = "file:///Users/liujunlin/Desktop/DigitalSchool-Git/DigitalSchool/ViewVC/ActivitiesVC/ActivitiesInfoViewController.m"
+                  timestampString = "447613402.556891"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "86"
-                  endingLineNumber = "86"
-                  offsetFromSymbolStart = "38">
+                  startingLineNumber = "83"
+                  endingLineNumber = "83"
+                  offsetFromSymbolStart = "132">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "__61-[PLUserProcess uploadHeadImg:didHeadImg:didSuccess:didFail:]_block_invoke_2"
+                  symbolName = "__54-[ActivitiesInfoViewController activityCollectAction:]_block_invoke"
                   moduleName = "DigitalSchool"
-                  urlString = "file:///Users/liujunlin/Desktop/DigitalSchool-2/DigitalSchool/PLModel/PLDao/PLUserProcess.m"
-                  timestampString = "447586254.486848"
+                  urlString = "file:///Users/liujunlin/Desktop/DigitalSchool-Git/DigitalSchool/ViewVC/ActivitiesVC/ActivitiesInfoViewController.m"
+                  timestampString = "447613402.557215"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "86"
-                  endingLineNumber = "86"
-                  offsetFromSymbolStart = "34">
+                  startingLineNumber = "83"
+                  endingLineNumber = "83"
+                  offsetFromSymbolStart = "48">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -65,58 +81,42 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "DigitalSchool/PLModel/PLDao/PLUserProcess.m"
-            timestampString = "447580695.005718"
+            filePath = "DigitalSchool/ViewVC/ActivitiesVC/CourseDownloadController.m"
+            timestampString = "447607174.844177"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "79"
-            endingLineNumber = "79"
-            landmarkName = "-uploadHeadImg:didHeadImg:didSuccess:didFail:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "DigitalSchool/PLModel/PLDao/PLUserProcess.m"
-            timestampString = "447585855.485825"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "70"
-            endingLineNumber = "70"
-            landmarkName = "-modifyPassword:didOldPassword:didNewPassword:didSuccess:didFail:"
+            startingLineNumber = "126"
+            endingLineNumber = "126"
+            landmarkName = "-uploadImg"
             landmarkType = "5">
             <Locations>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "__81-[PLUserProcess modifyPassword:didOldPassword:didNewPassword:didSuccess:didFail:]_block_invoke"
+                  symbolName = "__37-[CourseDownloadController uploadImg]_block_invoke_2"
                   moduleName = "DigitalSchool"
-                  urlString = "file:///Users/liujunlin/Desktop/DigitalSchool-2/DigitalSchool/PLModel/PLDao/PLUserProcess.m"
-                  timestampString = "447586254.572786"
+                  urlString = "file:///Users/liujunlin/Desktop/DigitalSchool-Git/DigitalSchool/ViewVC/ActivitiesVC/CourseDownloadController.m"
+                  timestampString = "447613402.558627"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "71"
-                  endingLineNumber = "71"
+                  startingLineNumber = "127"
+                  endingLineNumber = "127"
                   offsetFromSymbolStart = "38">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "__81-[PLUserProcess modifyPassword:didOldPassword:didNewPassword:didSuccess:didFail:]_block_invoke_2"
+                  symbolName = "__37-[CourseDownloadController uploadImg]_block_invoke_3"
                   moduleName = "DigitalSchool"
-                  urlString = "file:///Users/liujunlin/Desktop/DigitalSchool-2/DigitalSchool/PLModel/PLDao/PLUserProcess.m"
-                  timestampString = "447586254.572921"
+                  urlString = "file:///Users/liujunlin/Desktop/DigitalSchool-Git/DigitalSchool/ViewVC/ActivitiesVC/CourseDownloadController.m"
+                  timestampString = "447613402.559049"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "71"
-                  endingLineNumber = "71"
-                  offsetFromSymbolStart = "34">
+                  startingLineNumber = "127"
+                  endingLineNumber = "127"
+                  offsetFromSymbolStart = "56">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -127,42 +127,74 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "DigitalSchool/ViewVC/MyMessageVC/MUpdatePwdTableViewController.m"
-            timestampString = "447586024.43269"
+            filePath = "DigitalSchool/ViewVC/ActivitiesVC/CourseDownloadController.m"
+            timestampString = "447606600.573222"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "86"
-            endingLineNumber = "86"
-            landmarkName = "-updatePwdAction:"
+            startingLineNumber = "102"
+            endingLineNumber = "102"
+            landmarkName = "-uploadImg"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DigitalSchool/ViewVC/ActivitiesVC/CourseDownloadController.m"
+            timestampString = "447607174.844177"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "122"
+            endingLineNumber = "122"
+            landmarkName = "-uploadImg"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DigitalSchool/ViewVC/ActivitiesVC/CourseDownloadController.m"
+            timestampString = "447607442.968923"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "120"
+            endingLineNumber = "120"
+            landmarkName = "-uploadImg"
             landmarkType = "5">
             <Locations>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "__49-[MUpdatePwdTableViewController updatePwdAction:]_block_invoke"
+                  symbolName = "-[CourseDownloadController uploadImg]"
                   moduleName = "DigitalSchool"
-                  urlString = "file:///Users/liujunlin/Desktop/DigitalSchool-2/DigitalSchool/ViewVC/MyMessageVC/MUpdatePwdTableViewController.m"
-                  timestampString = "447586254.607198"
+                  urlString = "file:///Users/liujunlin/Desktop/DigitalSchool-Git/DigitalSchool/ViewVC/ActivitiesVC/CourseDownloadController.m"
+                  timestampString = "447613402.561939"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "87"
-                  endingLineNumber = "87"
-                  offsetFromSymbolStart = "38">
+                  startingLineNumber = "121"
+                  endingLineNumber = "121"
+                  offsetFromSymbolStart = "946">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "__49-[MUpdatePwdTableViewController updatePwdAction:]_block_invoke_2"
+                  symbolName = "__37-[CourseDownloadController uploadImg]_block_invoke"
                   moduleName = "DigitalSchool"
-                  urlString = "file:///Users/liujunlin/Desktop/DigitalSchool-2/DigitalSchool/ViewVC/MyMessageVC/MUpdatePwdTableViewController.m"
-                  timestampString = "447586254.607406"
+                  urlString = "file:///Users/liujunlin/Desktop/DigitalSchool-Git/DigitalSchool/ViewVC/ActivitiesVC/CourseDownloadController.m"
+                  timestampString = "447613402.562183"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "87"
-                  endingLineNumber = "87"
-                  offsetFromSymbolStart = "34">
+                  startingLineNumber = "122"
+                  endingLineNumber = "122"
+                  offsetFromSymbolStart = "36">
                </Location>
             </Locations>
          </BreakpointContent>

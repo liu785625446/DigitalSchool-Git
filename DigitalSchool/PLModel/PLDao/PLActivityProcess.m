@@ -25,6 +25,7 @@
 
 -(void)activityCollect:(NSString *)activityId didUserID:(NSString *)userId didSuccess:(CallBackBlockSuccess)success didFail:(CallBackBlockFail)fail
 {
+    userId = [self getUserId];
     NSString *code = [BLTool getKeyCode:[NSString stringWithFormat:@"%@%@",activityId,userId]];
     NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
     [dic setObject:activityId forKey:@"activityId"];
@@ -39,6 +40,7 @@
 
 -(void) activityCancelCollect:(NSString *)Id didUserId:(NSString *)userId didSuccess:(CallBackBlockSuccess)success didFail:(CallBackBlockFail)fail
 {
+    userId = [self getUserId];
     NSString *code = [BLTool getKeyCode:[NSString stringWithFormat:@"%@%@",Id, userId]];
     NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
     [dic setObject:Id forKey:@"id"];
@@ -53,6 +55,7 @@
 
 -(void) activityAttentions:(int )pageSize didCurrentPage:(int )currentPage didUserId:(NSString *)userId didSuccess:(CallBackBlockSuccess)success didFail:(CallBackBlockFail)fail
 {
+    userId = [self getUserId];
     NSString *code = [BLTool getKeyCode:[NSString stringWithFormat:@"%d%d%@",pageSize, currentPage, userId]];
     NSString *url = [NSString stringWithFormat:@"%d/%d/%@/%@",pageSize, currentPage, userId, code];
     [PLInterface startRequest:ALL_URL didUrl:ACTIVITY_GET_ATTENTIONS_LIST(url) didParam:nil didSuccess:^(id result){

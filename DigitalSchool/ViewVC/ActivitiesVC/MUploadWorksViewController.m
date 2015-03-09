@@ -35,6 +35,11 @@
 //    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+-(IBAction)cancelUploadComplete:(id)sender
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 -(IBAction)uploadImage:(id)sender
 {
     [self presentImagePicke:NO];

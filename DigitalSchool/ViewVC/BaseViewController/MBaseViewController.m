@@ -7,6 +7,7 @@
 //
 
 #import "MBaseViewController.h"
+#import "PLUser.h"
 #define KNavColor @"#33B4E4"
 
 @interface MBaseViewController ()
@@ -113,11 +114,28 @@ static BOOL isHUD = NO;
     }
 }
 
--(void) checkUserLogin
+-(BOOL) checkUserLogin
 {
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
-    MLoginViewController *login = [storyboard instantiateViewControllerWithIdentifier:@"LoginIdentifity"];
-    [self presentViewController:login animated:YES completion:nil];
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    NSData *userData = [userDefaults objectForKey:CURRENT_USER];
+    if (!userData) {
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+        MLoginViewController *login = [storyboard instantiateViewControllerWithIdentifier:@"LoginIdentifity"];
+        [self presentViewController:login animated:YES completion:nil];
+        return NO;
+    }
+    return YES;
+}
+
+-(NSString *)getUserId
+{
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    NSData *userData = [userDefaults objectForKey:CURRENT_USER];
+    if (userData) {
+        PLUser *user = [NSKeyedUnarchiver unarchiveObjectWithData:userData];
+        return user.userId;
+    }
+    return @"";
 }
 
 #pragma mark- Action

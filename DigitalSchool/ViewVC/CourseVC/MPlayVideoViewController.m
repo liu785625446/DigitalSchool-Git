@@ -338,10 +338,8 @@ MBottomViewDelegate,MMenuViewDelegate,MDiscussNotesCellDelegate>
         cell.timeLabel.text = discuss.discussCreateTime;
         cell.otherBtn.tag = MDiscussButtonTag;
         [cell.otherBtn setTitle:@"回复" forState:UIControlStateNormal];
-        
     }else
     {//笔记
-        
         PLNotes *notes = [array objectAtIndex:indexPath.row];
         [cell.iconImage setImageWithURL:[NSURL URLWithString:notes.user.userImg]
                        placeholderImage:[UIImage imageNamed:@"default_user_icon.png"]];
@@ -493,6 +491,9 @@ MBottomViewDelegate,MMenuViewDelegate,MDiscussNotesCellDelegate>
         case 1:
         {
             //讨论
+             if (![self checkUserLogin]) {
+                 return;
+             }
             [self performSegueWithIdentifier:@"CommentIdentifier" sender:MCommentTitle];
             
         }
@@ -500,6 +501,10 @@ MBottomViewDelegate,MMenuViewDelegate,MDiscussNotesCellDelegate>
         case 2:
         {
             //笔记
+     
+             if (![self checkUserLogin]) {
+                 return;
+             }
             [self performSegueWithIdentifier:@"CommentIdentifier" sender:MNoteTitle];
         }
             break;
@@ -833,7 +838,10 @@ MBottomViewDelegate,MMenuViewDelegate,MDiscussNotesCellDelegate>
     {
         NSArray *object = [datas objectAtIndex:currentIndex];
         PLNotes *notes = [object objectAtIndex:row];
-        
+ 
+         if (![self checkUserLogin]) {
+             return;
+         }
         [self.notesProcess praiseNotes:notes.noteId
                                didUser:@"1"
                             didSuccess:^(NSMutableArray *array)

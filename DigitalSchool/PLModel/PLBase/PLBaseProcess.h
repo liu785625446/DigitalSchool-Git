@@ -16,4 +16,5 @@ typedef void (^CallBackBlockFail) (NSString *error);
 
 -(void) dataFormat:(NSDictionary *)dic didClass:(NSString *)classStr didSuccess:(CallBackBlockSuccess)success didFail:(CallBackBlockFail)fail;
 -(void) dataFormatPost:(NSDictionary *)dic didSuccess:(CallBackBlockSuccess)success didFail:(CallBackBlockFail)fail;
+-(NSString *)getUserId;
 @end
