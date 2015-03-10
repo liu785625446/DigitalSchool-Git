@@ -77,8 +77,7 @@
 	if([NSURL isWebURL:tempUrl])
 	{
 		finallyUrl = tempUrl;
-	}
-	else {
+	}else {
 		finallyUrl = [NSURL URLWithString:iconUrl];
 	}
     
@@ -89,7 +88,7 @@
 
 - (void)setImageWithURL:(NSURL *)url
 {
-	[self setImageWithURL:url placeholderImage:nil];
+	[self setImageWithURL:url placeholderImage:[self getDefaultImage]];
 }
 
 - (void)setImageWithURL:(NSURL *)url placeholderImage:(UIImage *)placeholder
@@ -104,7 +103,9 @@
         [manager downloadWithURL:url delegate:self];
     }else
     {
-        self.image = placeholder;
+        if (placeholder) {
+           self.image = placeholder;
+        }
     }
 	
 }
