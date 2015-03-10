@@ -64,6 +64,14 @@
     }
     return self;
 }
+-(void)setFrame:(CGRect)frame
+{
+    float imgX = (frame.size.width - imageView.frame.size.width)/2;
+    float imgY = (frame.size.height - imageView.frame.size.height-KINFODefaultWH)/2;
+    imageView.frame = CGRectMake(imgX, imgY, imageView.frame.size.width, imageView.frame.size.height);;
+    Infolabel.frame = CGRectMake(0,imageView.frame.size.height+imgY,Infolabel.frame.size.width, Infolabel.frame.size.height);
+    [super setFrame:frame];
+}
 
 
 - (void)startAnimation

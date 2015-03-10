@@ -123,24 +123,17 @@
         
         NSMutableArray *list = [[NSMutableArray alloc] init];
         if ([[result objectForKey:@"ret"] isEqualToNumber:[NSNumber numberWithInt:0]]) {
-            NSMutableArray *gradeList = [NSMutableArray arrayWithArray:[[[result objectForKey:@"data"] objectAtIndex:0] objectForKey:@"gradeList"]];
-            if (gradeList) {
-                [gradeList insertObject:@{@"id":@"0", @"name":@"全部"} atIndex:0];
+            NSArray *dataArray = [result objectForKey:@"data"];
+            for (NSDictionary *dataDic in dataArray) {
+                if (dataDic) {
+                    NSArray *allKey = [dataDic allKeys];
+                    for (NSString *key in allKey) {
+                        NSMutableArray *tempArray = [NSMutableArray arrayWithArray:[dataDic objectForKey:key]];
+                        [tempArray insertObject:@{@"id":@"0", @"name":@"全部"} atIndex:0];
+                        [list addObject:tempArray];
+                    }
+                }
             }
-            
-            NSMutableArray *subjectList = [NSMutableArray arrayWithArray:[[[result objectForKey:@"data"] objectAtIndex:1] objectForKey:@"subjectList"]];
-            if (subjectList) {
-                [subjectList insertObject:@{@"id":@"0", @"name":@"全部"} atIndex:0];
-            }
-            
-            NSMutableArray *teacherList = [NSMutableArray arrayWithArray:[[[result objectForKey:@"data"] objectAtIndex:2] objectForKey:@"teacherList"]];
-            if (teacherList) {
-                [teacherList insertObject:@{@"id":@"0", @"name":@"全部"} atIndex:0];
-            }
-            
-            [list addObject:gradeList];
-            [list addObject:subjectList];
-            [list addObject:teacherList];
         }
         success(list);
     }didFail:^(NSString *error){

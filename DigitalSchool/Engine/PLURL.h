@@ -9,11 +9,11 @@
 #ifndef PersistenceLayer_PLURL_h
 #define PersistenceLayer_PLURL_h
 
-#define ALL_URL @"211.153.74.60"
+//#define ALL_URL @"211.153.74.60"
 
-//#define ALL_URL @"hnay20.vicp.cc"
+#define ALL_URL @"hnay20.vicp.cc"
 
-#define ALL_URL @"211.153.74.60"
+//#define ALL_URL @"211.153.74.60"
 
 #define COURSE_MAIN(url) [NSString stringWithFormat:@"/DSApp/course/main/%@.json",url]
 

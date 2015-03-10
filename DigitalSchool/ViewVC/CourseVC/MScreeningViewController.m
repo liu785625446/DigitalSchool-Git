@@ -92,6 +92,7 @@
                   separatorStyle:UITableViewCellSeparatorStyleNone
                            frame:tabR];
         self.baseTableView.backgroundColor = self.view.backgroundColor;
+        [super indicatorBringSubviewToFront];
     }
     
 }
@@ -105,6 +106,9 @@
                                              menuSelects:menuSelects];
         self.menu.delegate = self;
         [self.view addSubview:self.menu];
+ 
+        [super setIndicatorFrame:self.menu.frame.size.height+self.menu.frame.origin.y];
+ 
     }
 }
 
@@ -234,10 +238,8 @@
              
              [super stopAnimationIndicatorLoadText:@"加载成功!" withType:YES];
              [self creatMScreeningMenuWithMenuSelects:@[[NSIndexPath indexPathForRow:self.courseType inSection:0]]];
-             [super setIndicatorFrame:self.view.frame.size.height+self.menu.frame.size.height];
              [self creatTableView];
              
-             [super indicatorBringSubviewToFront];
          }
          if (array.count >0 && array.count == MPageSize)
          {

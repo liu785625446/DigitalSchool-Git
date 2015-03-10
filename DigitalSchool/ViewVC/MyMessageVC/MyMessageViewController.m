@@ -86,7 +86,7 @@
 
 -(IBAction)myActivitiesAction:(id)sender
 {
-    [self.tabBarController setSelectedIndex:1];
+    [self.tabBarController setSelectedIndex:2];
 }
 
 #pragma mark -

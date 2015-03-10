@@ -83,7 +83,7 @@
 }
 -(void)setIndicatorFrame:(CGFloat)height
 {
-    self.indicator.frame  = CGRectMake(self.indicator.frame.origin.x, height/2-self.indicator.frame.size.height/2, self.indicator.frame.size.width, self.indicator.frame.size.height);
+    self.indicator.frame  = CGRectMake(self.indicator.frame.origin.x, height, self.indicator.frame.size.width, self.indicator.frame.size.height-height);
 }
 
 -(void)startAnimationIndicator

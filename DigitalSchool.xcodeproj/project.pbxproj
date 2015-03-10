@@ -92,6 +92,7 @@
 		0A9A575F1A7025B800DA8122 /* movieSliderImg.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A9A575B1A7025B800DA8122 /* movieSliderImg.png */; };
 		0AA3E4C91A8A5E58004D86BE /* MActivityDefault.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AA3E4C71A8A5E58004D86BE /* MActivityDefault.png */; };
 		0AA3E4CA1A8A5E58004D86BE /* MCourseDefalut.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AA3E4C81A8A5E58004D86BE /* MCourseDefalut.png */; };
+		0AAE37031AAF072B00350BC4 /* MNavigationDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AAE37021AAF072B00350BC4 /* MNavigationDetailsViewController.m */; };
 		0AB31DDB1A68D8B800B87850 /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AB31D5B1A68D8B800B87850 /* UIColor+Hex.m */; };
 		0AB31DDC1A68D8B800B87850 /* BLTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AB31D5E1A68D8B800B87850 /* BLTool.m */; };
 		0AB31DDF1A68D8B800B87850 /* PLInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AB31D671A68D8B800B87850 /* PLInterface.m */; };
@@ -380,6 +381,8 @@
 		0A9A575B1A7025B800DA8122 /* movieSliderImg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = movieSliderImg.png; path = ../View/movieSliderImg.png; sourceTree = "<group>"; };
 		0AA3E4C71A8A5E58004D86BE /* MActivityDefault.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MActivityDefault.png; sourceTree = "<group>"; };
 		0AA3E4C81A8A5E58004D86BE /* MCourseDefalut.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MCourseDefalut.png; sourceTree = "<group>"; };
+		0AAE37011AAF072B00350BC4 /* MNavigationDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNavigationDetailsViewController.h; sourceTree = "<group>"; };
+		0AAE37021AAF072B00350BC4 /* MNavigationDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNavigationDetailsViewController.m; sourceTree = "<group>"; };
 		0AB31D5A1A68D8B800B87850 /* UIColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hex.h"; sourceTree = "<group>"; };
 		0AB31D5B1A68D8B800B87850 /* UIColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Hex.m"; sourceTree = "<group>"; };
 		0AB31D5D1A68D8B800B87850 /* BLTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLTool.h; sourceTree = "<group>"; };
@@ -1402,6 +1405,8 @@
 				0A0F1C101AADE51D000DEB3A /* Views */,
 				8B5B740D1AAD8C0700ADB3DE /* MNavigationVC.h */,
 				8B5B740E1AAD8C0700ADB3DE /* MNavigationVC.m */,
+				0AAE37011AAF072B00350BC4 /* MNavigationDetailsViewController.h */,
+				0AAE37021AAF072B00350BC4 /* MNavigationDetailsViewController.m */,
 			);
 			path = NavigationVC;
 			sourceTree = "<group>";
@@ -1511,7 +1516,7 @@
 				TargetAttributes = {
 					0AE430361A68D47B00CECD12 = {
 						CreatedOnToolsVersion = 6.1;
-						DevelopmentTeam = LZV72Z98L3;
+						DevelopmentTeam = FSL3FCUGV3;
 					};
 					0AE4304F1A68D47B00CECD12 = {
 						CreatedOnToolsVersion = 6.1;
@@ -1732,6 +1737,7 @@
 				8B5B740F1AAD8C0700ADB3DE /* MNavigationVC.m in Sources */,
 				0AE12E041A8AEEBC00D10389 /* MCollectListViewController.m in Sources */,
 				CCCF51F71A77B00500A4654F /* YYAnimationIndicator.m in Sources */,
+				0AAE37031AAF072B00350BC4 /* MNavigationDetailsViewController.m in Sources */,
 				8184D1A91A81A8D4008C5D80 /* PLActivity.m in Sources */,
 				CC3DAD0E1A68ED4400C9139C /* MScreeningViewController.m in Sources */,
 				0AB31DDB1A68D8B800B87850 /* UIColor+Hex.m in Sources */,
@@ -1939,7 +1945,7 @@
 					"$(PROJECT_DIR)/DigitalSchool/Capability/Umeng/UMengFeedback_SDK_2.1/UMOpus",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "3a00c436-2b11-47b3-8561-57bfcd95ce05";
 			};
 			name = Debug;
 		};
@@ -1960,7 +1966,7 @@
 					"$(PROJECT_DIR)/DigitalSchool/Capability/Umeng/UMengFeedback_SDK_2.1/UMOpus",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "3a00c436-2b11-47b3-8561-57bfcd95ce05";
 			};
 			name = Release;
 		};
