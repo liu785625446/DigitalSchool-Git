@@ -169,7 +169,7 @@
     
     NSInteger index = tableView.tag-kSubTableViewTag;
     NSArray *data = [datas objectAtIndex:index];
-    NSDictionary *titleDic = [titles objectAtIndex:currentIndex];
+    NSDictionary *titleDic = [titles objectAtIndex:index];
     int type = [[titleDic objectForKey:@"type"] intValue];
     if (type == 1)
     {

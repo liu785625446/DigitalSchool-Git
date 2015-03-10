@@ -325,10 +325,11 @@ MBottomViewDelegate,MMenuViewDelegate,MDiscussNotesCellDelegate>
         cell.delegate = self;
         
     }
-    NSArray *array = [datas objectAtIndex:tableView.tag-kSubTableViewTag];
+    NSInteger index = tableView.tag-kSubTableViewTag;
+    NSArray *array = [datas objectAtIndex:index];
     cell.tag = indexPath.row;
     
-    if (currentIndex == 1)
+    if (index == 1)
     {//讨论
         PLDiscuss *discuss = [array objectAtIndex:indexPath.row];
         [cell.iconImage setImageWithURL:[NSURL URLWithString:discuss.pluser.userImg]
@@ -338,6 +339,7 @@ MBottomViewDelegate,MMenuViewDelegate,MDiscussNotesCellDelegate>
         cell.timeLabel.text = discuss.discussCreateTime;
         cell.otherBtn.tag = MDiscussButtonTag;
         [cell.otherBtn setTitle:@"回复" forState:UIControlStateNormal];
+        
     }else
     {//笔记
         PLNotes *notes = [array objectAtIndex:indexPath.row];
