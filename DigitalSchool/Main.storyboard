@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="TK3-tq-V64">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="TK3-tq-V64">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
     <scenes>
         <!--Login View Controller-->
@@ -950,7 +950,7 @@
                                                 <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Oxy-hL-hdy">
                                                     <rect key="frame" x="5" y="2" width="310" height="85"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="58F-eG-ZMz" customClass="UrlImageView">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="MCourseDefalut.png" translatesAutoresizingMaskIntoConstraints="NO" id="58F-eG-ZMz" customClass="UrlImageView">
                                                             <rect key="frame" x="0.0" y="0.0" width="160" height="85"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="160" id="dVM-Bl-Auv"/>
@@ -1009,14 +1009,14 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bnP-RU-6wl" id="EoF-o3-Fh3">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9RJ-CO-vfa" customClass="UrlImageView">
-                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="113"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MCourseDefalut.png" translatesAutoresizingMaskIntoConstraints="NO" id="9RJ-CO-vfa" customClass="UrlImageView">
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="110"/>
                                                 </imageView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="9RJ-CO-vfa" firstAttribute="top" secondItem="EoF-o3-Fh3" secondAttribute="top" id="Q1r-Wl-1rE"/>
                                                 <constraint firstAttribute="trailing" secondItem="9RJ-CO-vfa" secondAttribute="trailing" id="clV-TR-80b"/>
-                                                <constraint firstAttribute="bottom" secondItem="9RJ-CO-vfa" secondAttribute="bottom" id="eGF-0A-JMP"/>
+                                                <constraint firstAttribute="bottom" secondItem="9RJ-CO-vfa" secondAttribute="bottom" constant="4" id="eGF-0A-JMP"/>
                                                 <constraint firstItem="9RJ-CO-vfa" firstAttribute="leading" secondItem="EoF-o3-Fh3" secondAttribute="leading" id="f1T-vR-y2p"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -2283,8 +2283,8 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="0Ur-Fx-svh"/>
+        <segue reference="eeL-oz-sx2"/>
+        <segue reference="2cK-F6-Tbp"/>
         <segue reference="dFt-LK-3i9"/>
-        <segue reference="hqc-Fz-YAe"/>
     </inferredMetricsTieBreakers>
 </document>
