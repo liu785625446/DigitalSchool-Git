@@ -35,7 +35,7 @@
     self.courseProcess = [[PLCourseProcess alloc]init];
     
     CGRect animationR = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
-    [super creatAnimationIndicator:animationR superView:self.view height:50];
+    [super creatAnimationIndicator:animationR superView:self.view delegate:self];
     
     currentPage = 1;
     
@@ -128,12 +128,21 @@
          }
 
          
-     } didFail:^(NSString *error) {
+     } didFail:^(NSString *error)
+     {
          if (currentPage == 1)
          {
-             [super stopAnimationIndicatorLoadText:@"加载失败!" withType:NO];
+             [super stopAnimationIndicatorLoadText:YYFailReloadText
+                                          withType:NO
+                                          loadType:MLoadTypeFail];
          }
      }];
+}
+
+#pragma mark- YYAnimationDelegate
+-(void)didReloadData:(YYAnimationIndicator *)animationView
+{
+    [self getData:self.seachText];
 }
 
 @end

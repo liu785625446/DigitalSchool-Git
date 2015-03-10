@@ -7,7 +7,6 @@
 //
 
 #import "MBaseTableViewController.h"
-#import "YYAnimationIndicator.h"
 
 @interface MBaseTableViewController ()
 {
@@ -47,7 +46,7 @@
     
     if (!indicator.superview)
     {
-        [self creatAnimationIndicator:frame superView:self.baseTableView height:50];
+        [self creatAnimationIndicator:frame superView:self.baseTableView delegate:self];
     }
 }
 
@@ -71,13 +70,14 @@
 }
 
 #pragma mark- 加载动画
--(void)creatAnimationIndicator:(CGRect)frame superView:(UIView*)superView height:(float)height
+-(void)creatAnimationIndicator:(CGRect)frame superView:(UIView*)superView delegate:(id)delegate
 {
     if (indicator.superview)
     {
         [indicator removeFromSuperview];
     }
-    indicator = [[YYAnimationIndicator alloc]initWithFrame:CGRectMake(frame.size.width/2-height, frame.size.height/2-height, 100, 100)];
+    indicator = [[YYAnimationIndicator alloc]initWithFrame:frame];
+    indicator.delegate = delegate;
     [indicator setLoadText:@"正在加载中..."];
     [superView addSubview:indicator];
 }
@@ -92,12 +92,23 @@
 }
 -(void)stopAnimationIndicatorLoadText:(NSString *)text withType:(BOOL)type
 {
-    [indicator stopAnimationWithLoadText:text withType:type];
+    [self stopAnimationIndicatorLoadText:text withType:type loadType:MLoadTypeDefault];
 }
+-(void)stopAnimationIndicatorLoadText:(NSString *)text withType:(BOOL)type loadType:(MLoadType)loadType
+{
+    [indicator stopAnimationWithLoadText:text withType:type loadType:loadType];
+}
+
 -(void)indicatorBringSubviewToFront
 {
     UIView *superView = indicator.superview;
     [superView bringSubviewToFront:indicator];
+}
+
+#pragma mark- YYAnimationDelegate
+-(void)didReloadData:(YYAnimationIndicator *)animationView
+{
+    
 }
 
 #pragma mark -add上啦加载

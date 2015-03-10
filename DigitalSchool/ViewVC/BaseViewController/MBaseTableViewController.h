@@ -8,9 +8,10 @@
 
 #import "MBaseViewController.h"
 #import "MJRefreshFooterView.h"
+#import "YYAnimationIndicator.h"
 
 @interface MBaseTableViewController : MBaseViewController
-<UITableViewDataSource,UITableViewDelegate,MJRefreshBaseViewDelegate>
+<UITableViewDataSource,UITableViewDelegate,MJRefreshBaseViewDelegate,YYAnimationDelegate>
 {
     UITableView *baseTableView;
     NSMutableArray *baseArray;
@@ -24,13 +25,17 @@
                    frame:(CGRect)frame;
 
 #pragma mark- 创建加载动画
--(void)creatAnimationIndicator:(CGRect)frame superView:(UIView *)superView height:(float)height;
+-(void)creatAnimationIndicator:(CGRect)frame superView:(UIView *)superView delegate:(id)delegate;
 -(void)setIndicatorFrame:(CGFloat)height;
 #pragma mark- 启动加载动画
 -(void)startAnimationIndicator;
 #pragma mark- 停止或者关闭加载动画
 -(void)stopAnimationIndicatorLoadText:(NSString *)text withType:(BOOL)type;
+-(void)stopAnimationIndicatorLoadText:(NSString *)text withType:(BOOL)type loadType:(MLoadType)loadType;
 -(void)indicatorBringSubviewToFront;
+
+#pragma mark- YYAnimationDelegate
+-(void)didReloadData:(YYAnimationIndicator *)animationView;
 
 
 #pragma mark -add上啦加载

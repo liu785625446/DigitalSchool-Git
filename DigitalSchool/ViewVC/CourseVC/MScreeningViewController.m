@@ -52,7 +52,7 @@
     self.courseProcess = [[PLCourseProcess alloc]init];
     
     CGRect animationR = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
-    [super creatAnimationIndicator:animationR superView:self.view height:50];
+    [super creatAnimationIndicator:animationR superView:self.view delegate:self];
     
     [self startAnimationIndicator];
 
@@ -67,8 +67,11 @@
                               didType:self.courseType+1];
         
         
-    } didFail:^(NSString *error) {
-
+    } didFail:^(NSString *error)
+    {
+        [super stopAnimationIndicatorLoadText:YYFailReloadText
+                                     withType:NO
+                                     loadType:MLoadTypeFail];
     }];
 }
 
@@ -194,6 +197,15 @@
                        didTeacher:teacher
                           didType:self.courseType+1];
 }
+#pragma mark- YYAnimationDelegate
+-(void)didReloadData:(YYAnimationIndicator *)animationView
+{
+    [self getGradeListCurrentPage:currentPage
+                         didGrade:grade
+                       didSubject:subject
+                       didTeacher:teacher
+                          didType:self.courseType+1];
+}
 
 #pragma mark- 获取筛选课程
 -(void)getGradeListCurrentPage:(int)mCurrentPage
@@ -246,16 +258,20 @@
                  {
                      [super stopAnimationIndicatorLoadText:@"没有数据!" withType:NO];
                  }
+                 
              }else
              {
                  currentPage +=1;
              }
          }
          
-     } didFail:^(NSString *error) {
+     } didFail:^(NSString *error)
+     {
          if (mCurrentPage == 1)
          {
-             [super stopAnimationIndicatorLoadText:@"加载失败!" withType:NO];
+             [super stopAnimationIndicatorLoadText:YYFailReloadText
+                                          withType:NO
+                                          loadType:MLoadTypeFail];
          }
      }];
 }

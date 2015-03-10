@@ -12,35 +12,55 @@
 
 #import "YYAnimationIndicator.h"
 
+#define KIMGDefaultWH 100
+#define KINFODefaultWH 20
+
 @implementation YYAnimationIndicator
 
 - (id)initWithFrame:(CGRect)frame
 {
+    return [self initWithFrame:frame withIMGWH:KIMGDefaultWH];
+}
+
+- (id)initWithFrame:(CGRect)frame withIMGWH:(CGFloat)imgWH
+{
     self = [super initWithFrame:frame];
-    if (self) {
+    if (self)
+    {
         
         self.backgroundColor = [UIColor clearColor];
+        
         _isAnimating = NO;
-        float imgX = (frame.size.width - (frame.size.width-20))/2;
-        imageView = [[UIImageView alloc] initWithFrame:CGRectMake(imgX,0,frame.size.width-20,frame.size.height-20)];
-        [self addSubview:imageView];
+        
+        float imgX = (frame.size.width - imgWH)/2;
+        float imgY = (frame.size.height - imgWH-KINFODefaultWH)/2;
+        imageView = [[UIImageView alloc] initWithFrame:CGRectMake(imgX,imgY,imgWH,imgWH)];
+        
         //设置动画帧
-        imageView.animationImages=[NSArray arrayWithObjects: [UIImage imageNamed:@"1"],
+        imageView.animationImages=[NSArray arrayWithObjects:
+                                   [UIImage imageNamed:@"1"],
                                    [UIImage imageNamed:@"2"],
                                    [UIImage imageNamed:@"3"],
                                    [UIImage imageNamed:@"4"],
                                    [UIImage imageNamed:@"5"],
-                                   [UIImage imageNamed:@"6"],
-                                   nil ];
+                                   [UIImage imageNamed:@"6"],nil ];
+        
+        [self addSubview:imageView];
         
         
-        Infolabel = [[UILabel alloc]initWithFrame:CGRectMake(0,imageView.frame.size.height,frame.size.width, 20)];
+        
+        Infolabel = [[UILabel alloc]initWithFrame:CGRectMake(0,imgWH+imgY,frame.size.width, KINFODefaultWH)];
         Infolabel.backgroundColor = [UIColor clearColor];
         Infolabel.textAlignment = NSTextAlignmentCenter;
         Infolabel.textColor = [UIColor colorWithRed:84.0/255 green:86./255 blue:212./255 alpha:1];
-        Infolabel.font = [UIFont fontWithName:@"ChalkboardSE-Bold" size:12.0f];
+        Infolabel.font = [UIFont fontWithName:@"ChalkboardSE-Bold" size:14.0f];
         [self addSubview:Infolabel];
+        
         self.layer.hidden = YES;
+        
+        UITapGestureRecognizer *tapGest = [[UITapGestureRecognizer alloc]initWithTarget:self
+                                                                                 action:@selector(loadData:)];
+        [self addGestureRecognizer:tapGest];
     }
     return self;
 }
@@ -49,11 +69,13 @@
 - (void)startAnimation
 {
     _isAnimating = YES;
+    _mLoadType = MLoadTypeDefault;
     self.layer.hidden = NO;
     [self doAnimation];
 }
 
--(void)doAnimation{
+-(void)doAnimation
+{
     
     Infolabel.text = _loadtext;
     //设置动画总时间
@@ -64,35 +86,56 @@
     [imageView startAnimating];
 }
 
-- (void)stopAnimationWithLoadText:(NSString *)text withType:(BOOL)type;
+- (void)stopAnimationWithLoadText:(NSString *)text withType:(BOOL)type
 {
+    [self stopAnimationWithLoadText:text withType:type loadType:MLoadTypeDefault];
+    
+}
+- (void)stopAnimationWithLoadText:(NSString *)text
+                         withType:(BOOL)type
+                         loadType:(MLoadType)loadType
+{
+   
     _isAnimating = NO;
     Infolabel.text = text;
-    if(type){
-        
-//        [UIView animateWithDuration:0.4f animations:^{
-//            self.alpha = 0;
-//        } completion:^(BOOL finished)
-//         {
-//            
-//            self.alpha = 1;
-//        }];
+    _mLoadType = loadType;
+    if(type)
+    {
         [imageView stopAnimating];
-        self.layer.hidden = YES;
+        self.layer.hidden = type;
+        
     }else
     {
         self.layer.hidden = type;
         [imageView stopAnimating];
-        [imageView setImage:[UIImage imageNamed:@"3"]];
+        if (loadType == MLoadTypeFail)
+        {
+            [imageView setImage:[UIImage imageNamed:@"6"]];
+            
+        }else
+        {
+            [imageView setImage:[UIImage imageNamed:@"3"]];
+        }
+        
     }
-    
 }
-
 
 -(void)setLoadText:(NSString *)text;
 {
-    if(text){
+    if(text)
+    {
         _loadtext = text;
+    }
+}
+
+-(void)loadData:(UITapGestureRecognizer *)tapGest
+{
+    if (self.mLoadType == MLoadTypeFail)
+    {
+        if (self.delegate && [self.delegate respondsToSelector:@selector(didReloadData:)])
+        {
+            [self.delegate didReloadData:self];
+        }
     }
 }
 

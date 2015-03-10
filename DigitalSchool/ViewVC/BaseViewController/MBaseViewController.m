@@ -51,7 +51,7 @@ static BOOL isHUD = NO;
              self.tabBarController.title = @"直播";
         }else
         {//我的信息
-             self.tabBarController.title = @"我的资料";
+             self.tabBarController.title = @"导航";
         }
         [self creatNavItem:NO];
     }
