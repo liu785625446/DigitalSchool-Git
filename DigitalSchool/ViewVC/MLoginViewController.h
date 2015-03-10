@@ -10,6 +10,9 @@
 #import "UIKeyboardViewController.h"
 #import "PLUserProcess.h"
 
+#define REMEMBER_USERNAME @"remember_username"
+#define REMEMBER_PASSWORD @"remember_password"
+
 @class MBaseViewController;
 
 @interface MLoginViewController : MBaseViewController

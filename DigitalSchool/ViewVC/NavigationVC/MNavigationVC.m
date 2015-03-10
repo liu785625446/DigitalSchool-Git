@@ -8,6 +8,7 @@
 
 #import "MNavigationVC.h"
 #import "MNavigationColl.h"
+#import "MNavigationDetailsViewController.h"
 
 @interface MNavigationVC ()
 
@@ -42,6 +43,25 @@
 {
     static NSString *cellIdentifier = @"MNavIdentifier";
     MNavigationColl *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
+    
+    //    设置边框和背景
+    if (indexPath.row < 3) {
+        UIImageView *imgback = [[UIImageView alloc] initWithFrame:cell.frame];
+        [imgback setImage:[[UIImage imageNamed:@"boxbg_left_upline.png"] stretchableImageWithLeftCapWidth:1 topCapHeight:1]];
+        cell.backgroundView = imgback;
+        
+        UIImageView *selectImg = [[UIImageView alloc] initWithFrame:cell.frame];
+        [selectImg setImage:[[UIImage imageNamed:@"boxbg_left_upline_over.png"] stretchableImageWithLeftCapWidth:1 topCapHeight:1]];
+        cell.selectedBackgroundView = selectImg;
+    }else{
+        UIImageView *imgback = [[UIImageView alloc] initWithFrame:cell.frame];
+        [imgback setImage:[[UIImage imageNamed:@"boxbg_left.png"] stretchableImageWithLeftCapWidth:1 topCapHeight:1]];
+        cell.backgroundView = imgback;
+        
+        UIImageView *selectImg = [[UIImageView alloc] initWithFrame:cell.frame];
+        [selectImg setImage:[[UIImage imageNamed:@"boxbg_left_over.png"] stretchableImageWithLeftCapWidth:1 topCapHeight:1]];
+        cell.selectedBackgroundView = selectImg;
+    }
     cell.navTitle.text = [_titleArray objectAtIndex:indexPath.row];
     return cell;
 }
@@ -60,17 +80,22 @@
 
 -(void) collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    [self.tabBarController setSelectedIndex:3];
+    [collectionView deselectItemAtIndexPath:indexPath animated:YES];
+    [self performSegueWithIdentifier:@"MNavDetailsIdentifier" sender:indexPath];
 }
 
-/*
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    
+    if ([segue.identifier isEqualToString:@"MNavDetailsIdentifier"]) {
+        NSIndexPath *indexPath = (NSIndexPath *)sender;
+        MNavigationDetailsViewController *navDetails = segue.destinationViewController;
+        navDetails.titleStr = [_titleArray objectAtIndex:indexPath.row];
+    }
 }
-*/
 
 @end

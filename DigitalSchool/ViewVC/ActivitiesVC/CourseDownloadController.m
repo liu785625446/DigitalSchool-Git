@@ -22,8 +22,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self uploadImg];
-    return;
+//    [self uploadImg];
+//    return;
     
     _downloadQueue = [[NSArray alloc] init];
     _selectQueue = [[NSMutableArray alloc] initWithCapacity:0];

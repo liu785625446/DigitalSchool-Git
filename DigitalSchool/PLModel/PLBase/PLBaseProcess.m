@@ -18,7 +18,6 @@
         if ([[dic objectForKey:@"ret"] isEqualToNumber:[NSNumber numberWithInt:0]]) {
             NSMutableArray *tempArray = [dic objectForKey:@"data"];
             NSMutableArray *list = [[NSMutableArray alloc] initWithCapacity:0];
-            
             for (id dic in tempArray) {
                 if ([dic isKindOfClass:[NSDictionary class]]) {
                     PLBaseData *baseData = [[NSClassFromString(classStr) alloc] init];

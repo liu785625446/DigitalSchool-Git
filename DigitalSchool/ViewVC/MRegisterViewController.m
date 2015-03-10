@@ -25,11 +25,13 @@
     _textBackGround.layer.borderColor = [[UIColor lightGrayColor] CGColor];
     _textBackGround.layer.borderWidth = 1.f;
     
-    _radioBut1.groupId = @"RegisterType";
-    _radioBut1.delegate = self;
-    [_radioBut1 setTitle:@"学生" forState:UIControlStateNormal];
-    [_radioBut1 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [_radioBut1 setChecked:NO];
+    registerType = 1;
+    
+    _radioBut3.groupId = @"RegisterType";
+    _radioBut3.delegate = self;
+    [_radioBut3 setTitle:@"家长" forState:UIControlStateNormal];
+    [_radioBut3 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [_radioBut3 setChecked:YES];
     
     _radioBut2.groupId = @"RegisterType";
     _radioBut2.delegate = self;
@@ -37,11 +39,11 @@
     [_radioBut2 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [_radioBut2 setChecked:YES];
     
-    _radioBut3.groupId = @"RegisterType";
-    _radioBut3.delegate = self;
-    [_radioBut3 setTitle:@"家长" forState:UIControlStateNormal];
-    [_radioBut3 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [_radioBut3 setChecked:YES];
+    _radioBut1.groupId = @"RegisterType";
+    _radioBut1.delegate = self;
+    [_radioBut1 setTitle:@"学生" forState:UIControlStateNormal];
+    [_radioBut1 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [_radioBut1 setChecked:YES];
     
     // Do any additional setup after loading the view.
 }

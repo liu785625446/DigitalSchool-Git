@@ -38,7 +38,7 @@
     
     if (data) {
         _current_user = [NSKeyedUnarchiver unarchiveObjectWithData:data];
-        _userName.text = _current_user.userName;
+        _userName.text = _current_user.userNickName;
         [_userImg setImageWithURL:[NSURL URLWithString:_current_user.userImg] placeholderImage:[UIImage imageNamed:@"ActivitiesInfoHead1.png"]];
         _userImg.layer.masksToBounds = YES;
         _userImg.layer.cornerRadius = _userImg.frame.size.width/2;

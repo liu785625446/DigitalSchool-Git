@@ -533,6 +533,9 @@ MBottomViewDelegate,MMenuViewDelegate,MDiscussNotesCellDelegate>
                 _id =works.workId;
             }
             
+            if (![self checkUserLogin]) {
+                return;
+            }
             [self.courseProcess attentionCourse:_id
                                         didUser:@"0"
                                      didSuccess:^(NSMutableArray *array)
