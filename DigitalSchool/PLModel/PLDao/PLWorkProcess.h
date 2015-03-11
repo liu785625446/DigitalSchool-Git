@@ -38,4 +38,25 @@
  *  @param fail
  */
 -(void) getWorksLookRecord:(NSString *)userId didSuccess:(CallBackBlockSuccess)success didFail:(CallBackBlockFail)fail;
+
+
+
+/**
+ *  上传作品
+ *
+ *  @param activityId
+ *  @param userId
+ *  @param movData
+ *  @param imgData
+ *  @param title
+ *  @param intro
+ **/
+-(void)uploadWorksWithActivityId:(NSString *)activityId
+                      withUserId:(NSString *)userId
+                     withMovData:(NSData *)movData
+                     withImgData:(NSData *)imgData
+                        workName:(NSString *)title
+                       workIntro:(NSString *)intro
+                      didSuccess:(CallBackBlockSuccess)success
+                         didFail:(CallBackBlockFail)fail;
 @end

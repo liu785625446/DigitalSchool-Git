@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="TK3-tq-V64">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="TK3-tq-V64">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
@@ -500,7 +500,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MCourseDefalut.png" translatesAutoresizingMaskIntoConstraints="NO" id="c8i-Dp-KY6" customClass="UrlImageView">
-                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="110"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="114"/>
                                                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                 </imageView>
                                             </subviews>
@@ -508,7 +508,7 @@
                                                 <constraint firstItem="c8i-Dp-KY6" firstAttribute="top" secondItem="Ddd-MV-Nv9" secondAttribute="top" id="5Ei-2J-Kxh"/>
                                                 <constraint firstAttribute="trailing" secondItem="c8i-Dp-KY6" secondAttribute="trailing" id="8Rd-fu-8tU"/>
                                                 <constraint firstItem="c8i-Dp-KY6" firstAttribute="leading" secondItem="Ddd-MV-Nv9" secondAttribute="leading" id="FPi-de-Nsq"/>
-                                                <constraint firstAttribute="bottom" secondItem="c8i-Dp-KY6" secondAttribute="bottom" constant="4" id="VlP-Yx-dlJ"/>
+                                                <constraint firstAttribute="bottom" secondItem="c8i-Dp-KY6" secondAttribute="bottom" id="VlP-Yx-dlJ"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -538,7 +538,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m1s-ND-vFG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="364" y="735"/>
+            <point key="canvasLocation" x="364" y="733"/>
         </scene>
         <!--个人设置-->
         <scene sceneID="MtK-72-qjD">
@@ -1222,9 +1222,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="D7q-VJ-s00">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="D7q-VJ-s00">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CourseIdentifierCell" rowHeight="90" id="HvH-Bx-Ag7" customClass="MCourseCell">
                                         <rect key="frame" x="10" y="10" width="320" height="90"/>
@@ -1232,17 +1232,17 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HvH-Bx-Ag7" id="ZCN-mW-nr2">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hPU-f9-dhk">
-                                                    <rect key="frame" x="5" y="2" width="310" height="85"/>
+                                                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hPU-f9-dhk">
+                                                    <rect key="frame" x="5" y="3" width="310" height="85"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MCourseDefalut.png" translatesAutoresizingMaskIntoConstraints="NO" id="zt4-U0-XMo" customClass="UrlImageView">
-                                                            <rect key="frame" x="0.0" y="0.0" width="160" height="85"/>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="MCourseDefalut.png" translatesAutoresizingMaskIntoConstraints="NO" id="zt4-U0-XMo" customClass="UrlImageView">
+                                                            <rect key="frame" x="0.0" y="1" width="160" height="85"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="160" id="Uj4-WJ-t0g"/>
                                                             </constraints>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OJJ-Xs-NaQ">
-                                                            <rect key="frame" x="168" y="8" width="130" height="21"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OJJ-Xs-NaQ">
+                                                            <rect key="frame" x="168" y="9" width="130" height="21"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="21" id="FOX-wv-YUa"/>
                                                             </constraints>
@@ -1250,8 +1250,8 @@
                                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MCR-lR-4Jd">
-                                                            <rect key="frame" x="168" y="36" width="130" height="40"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MCR-lR-4Jd">
+                                                            <rect key="frame" x="168" y="37" width="130" height="40"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="40" id="0qx-BC-bPS"/>
                                                             </constraints>
@@ -1550,12 +1550,12 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MCourseDefalut.png" translatesAutoresizingMaskIntoConstraints="NO" id="VDp-k7-WUW" customClass="UrlImageView">
-                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="110"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="114"/>
                                                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                 </imageView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="VDp-k7-WUW" secondAttribute="bottom" constant="4" id="4Ic-SY-8dQ"/>
+                                                <constraint firstAttribute="bottom" secondItem="VDp-k7-WUW" secondAttribute="bottom" id="4Ic-SY-8dQ"/>
                                                 <constraint firstAttribute="trailing" secondItem="VDp-k7-WUW" secondAttribute="trailing" id="QG3-Xq-VhX"/>
                                                 <constraint firstItem="VDp-k7-WUW" firstAttribute="leading" secondItem="Rji-wk-NYd" secondAttribute="leading" id="Qtm-4x-hM1"/>
                                                 <constraint firstItem="VDp-k7-WUW" firstAttribute="top" secondItem="Rji-wk-NYd" secondAttribute="top" id="R8Y-BN-01a"/>
@@ -1588,7 +1588,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oEu-ca-usE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="364" y="118"/>
+            <point key="canvasLocation" x="364" y="117"/>
         </scene>
         <!--Activities Info View Controller-->
         <scene sceneID="4Co-5K-iIc">
@@ -2236,7 +2236,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="作品名称" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r2l-68-2ya" customClass="作品名称">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="作品简介" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r2l-68-2ya" customClass="作品名称">
                                 <rect key="frame" x="16" y="132" width="219" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -2334,6 +2334,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="infoTextView" destination="9gU-3A-yLF" id="DXn-1d-VQA"/>
                         <outlet property="uploadImage" destination="Y5Z-cm-NWb" id="8ap-M3-7aI"/>
                         <outlet property="uploadVideo" destination="RVR-yg-oHs" id="Zx0-CU-eUY"/>
                         <outlet property="worksName" destination="C1A-5G-LOm" id="1Uc-yQ-Ioo"/>
@@ -2383,8 +2384,8 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="eeL-oz-sx2"/>
         <segue reference="hqc-Fz-YAe"/>
+        <segue reference="cXw-rl-Nas"/>
         <segue reference="dFt-LK-3i9"/>
     </inferredMetricsTieBreakers>
 </document>

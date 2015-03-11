@@ -14,6 +14,8 @@
     int grade; //年级ID（全部：0）
     int subject; //科目ID（全部：0）
     int teacher; //教师ID（全部：0）
+    
+    BOOL isCourseCondition;
 }
 @property(nonatomic,assign)NSInteger courseType; // 课程类型（常规课程：1  父母教育：2   微课程：3）
 @end

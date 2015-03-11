@@ -11,6 +11,7 @@
 #import "MAdcolumnView.h"
 
 @interface CourseViewController : MBaseViewController
+<MAdcolumnDelegate>
 {
     NSInteger currentIndex;
     NSMutableArray *datas;

@@ -40,6 +40,7 @@
     
     
     self.adcolumn = [[MAdcolumnView alloc]initWithFrame:CGRectMake(0, 64, self.view.frame.size.width, self.view.frame.size.width / 2)];
+    self.adcolumn.delegate = self;
     [self.view addSubview:self.adcolumn];
     
     
@@ -238,15 +239,23 @@
 {
     if ([segue.identifier isEqualToString:@"PlayIdentifier"])
     {
-        NSIndexPath *indexPath = sender;
-        
         MPlayVideoViewController *mplay = segue.destinationViewController;
-        NSArray *objects = [datas objectAtIndex:currentIndex];
-        if (currentIndex == 1)
+        if ([sender isKindOfClass:[PLRecommendCourse class]])
         {
-            mplay.mPlayVideoType = MPlayVideoTypeWorks;
+            mplay.mPlayVideoType = MPlayVideoTypeCourse;
+            mplay.objectModel = ((PLRecommendCourse *)sender).plCourse;
+            
+        }else
+        {
+            NSIndexPath *indexPath = sender;
+            NSArray *objects = [datas objectAtIndex:currentIndex];
+            if (currentIndex == 1)
+            {
+                mplay.mPlayVideoType = MPlayVideoTypeWorks;
+            }
+            mplay.objectModel = [objects objectAtIndex:indexPath.row];
         }
-        mplay.objectModel = [objects objectAtIndex:indexPath.row];
+        
 
     }else if ([segue.identifier isEqualToString:@"ScreeningIdentifier"])
     {
@@ -285,6 +294,12 @@
     NSString *_id = [dic objectForKey:@"id"];
     NSString *type = [dic objectForKey:@"type"];
     [self getListData:menuItemTag _id:_id type:type];
+}
+
+#pragma mark- MAdcolumnDelegate
+-(void)didAdcolumnObject:(id)object withIndex:(NSInteger)index
+{
+    [self performSegueWithIdentifier:@"PlayIdentifier" sender:object];
 }
 
 #pragma mark- 获取数据

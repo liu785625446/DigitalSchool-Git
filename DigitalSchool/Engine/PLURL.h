@@ -81,8 +81,12 @@
 
 #define USER_UPLOAD_IMG [NSString stringWithFormat:@"/DSApp/upload-img.json"]
 
+#define NAV_NAVS(url) [NSString stringWithFormat:@"/DSApp/nav/navs/%@.json",url]
+
+#define NAV_NAVS_DATA(url) [NSString stringWithFormat:@"/DSApp/nav/nav-data/%@.json",url]
+
+#define WORK_UPLOAD [NSString stringWithFormat:@"/DSApp/work/upload.json"]
+
 #define REQUEST_ERROR @"请求失败"
-
-
 
 #endif

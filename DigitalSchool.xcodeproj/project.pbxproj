@@ -192,6 +192,20 @@
 		810600201A8209E000407681 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 8106001E1A8209DF00407681 /* SVProgressHUD.m */; };
 		8184D1A91A81A8D4008C5D80 /* PLActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 8184D1A81A81A8D4008C5D80 /* PLActivity.m */; };
 		818DE8E81A80BF0E009383D2 /* MCommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 818DE8E71A80BF0E009383D2 /* MCommentViewController.m */; };
+		8B1F6AC61AAFC624009F3E6C /* boxbg_left_over.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B1F6ABA1AAFC624009F3E6C /* boxbg_left_over.png */; };
+		8B1F6AC71AAFC624009F3E6C /* boxbg_left_upline_over.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B1F6ABB1AAFC624009F3E6C /* boxbg_left_upline_over.png */; };
+		8B1F6AC81AAFC624009F3E6C /* boxbg_left_upline.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B1F6ABC1AAFC624009F3E6C /* boxbg_left_upline.png */; };
+		8B1F6AC91AAFC624009F3E6C /* boxbg_left.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B1F6ABD1AAFC624009F3E6C /* boxbg_left.png */; };
+		8B1F6ACA1AAFC624009F3E6C /* boxbg_mid_over.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B1F6ABE1AAFC624009F3E6C /* boxbg_mid_over.png */; };
+		8B1F6ACB1AAFC624009F3E6C /* boxbg_mid.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B1F6ABF1AAFC624009F3E6C /* boxbg_mid.png */; };
+		8B1F6ACC1AAFC624009F3E6C /* boxbg_right_over.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B1F6AC01AAFC624009F3E6C /* boxbg_right_over.png */; };
+		8B1F6ACD1AAFC624009F3E6C /* boxbg_right.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B1F6AC11AAFC624009F3E6C /* boxbg_right.png */; };
+		8B1F6ACE1AAFC624009F3E6C /* downloadIng@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B1F6AC21AAFC624009F3E6C /* downloadIng@2x.png */; };
+		8B1F6ACF1AAFC624009F3E6C /* downloadNoSelect@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B1F6AC31AAFC624009F3E6C /* downloadNoSelect@2x.png */; };
+		8B1F6AD01AAFC624009F3E6C /* downloadPause@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B1F6AC41AAFC624009F3E6C /* downloadPause@2x.png */; };
+		8B1F6AD11AAFC624009F3E6C /* downloadSelect@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B1F6AC51AAFC624009F3E6C /* downloadSelect@2x.png */; };
+		8B1F6AD31AAFC73E009F3E6C /* MSelectBackImage_h.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B1F6AD21AAFC73E009F3E6C /* MSelectBackImage_h.png */; };
+		8B1F6AD61AB03C04009F3E6C /* PLNavsProcess.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B1F6AD51AB03C04009F3E6C /* PLNavsProcess.m */; };
 		8B5B740B1AAD721100ADB3DE /* NSDateExtra.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B5B740A1AAD721100ADB3DE /* NSDateExtra.m */; };
 		8B5B740F1AAD8C0700ADB3DE /* MNavigationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B5B740E1AAD8C0700ADB3DE /* MNavigationVC.m */; };
 		CC01D1A41A6FF52F008EAE05 /* ActivitiesMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CC01D19F1A6FF52F008EAE05 /* ActivitiesMessageCell.m */; };
@@ -551,6 +565,21 @@
 		8184D1A81A81A8D4008C5D80 /* PLActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLActivity.m; sourceTree = "<group>"; };
 		818DE8E61A80BF0E009383D2 /* MCommentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCommentViewController.h; sourceTree = "<group>"; };
 		818DE8E71A80BF0E009383D2 /* MCommentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCommentViewController.m; sourceTree = "<group>"; };
+		8B1F6ABA1AAFC624009F3E6C /* boxbg_left_over.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = boxbg_left_over.png; sourceTree = "<group>"; };
+		8B1F6ABB1AAFC624009F3E6C /* boxbg_left_upline_over.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = boxbg_left_upline_over.png; sourceTree = "<group>"; };
+		8B1F6ABC1AAFC624009F3E6C /* boxbg_left_upline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = boxbg_left_upline.png; sourceTree = "<group>"; };
+		8B1F6ABD1AAFC624009F3E6C /* boxbg_left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = boxbg_left.png; sourceTree = "<group>"; };
+		8B1F6ABE1AAFC624009F3E6C /* boxbg_mid_over.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = boxbg_mid_over.png; sourceTree = "<group>"; };
+		8B1F6ABF1AAFC624009F3E6C /* boxbg_mid.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = boxbg_mid.png; sourceTree = "<group>"; };
+		8B1F6AC01AAFC624009F3E6C /* boxbg_right_over.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = boxbg_right_over.png; sourceTree = "<group>"; };
+		8B1F6AC11AAFC624009F3E6C /* boxbg_right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = boxbg_right.png; sourceTree = "<group>"; };
+		8B1F6AC21AAFC624009F3E6C /* downloadIng@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "downloadIng@2x.png"; sourceTree = "<group>"; };
+		8B1F6AC31AAFC624009F3E6C /* downloadNoSelect@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "downloadNoSelect@2x.png"; sourceTree = "<group>"; };
+		8B1F6AC41AAFC624009F3E6C /* downloadPause@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "downloadPause@2x.png"; sourceTree = "<group>"; };
+		8B1F6AC51AAFC624009F3E6C /* downloadSelect@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "downloadSelect@2x.png"; sourceTree = "<group>"; };
+		8B1F6AD21AAFC73E009F3E6C /* MSelectBackImage_h.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MSelectBackImage_h.png; sourceTree = "<group>"; };
+		8B1F6AD41AB03C04009F3E6C /* PLNavsProcess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLNavsProcess.h; sourceTree = "<group>"; };
+		8B1F6AD51AB03C04009F3E6C /* PLNavsProcess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLNavsProcess.m; sourceTree = "<group>"; };
 		8B5B74091AAD721100ADB3DE /* NSDateExtra.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSDateExtra.h; sourceTree = "<group>"; };
 		8B5B740A1AAD721100ADB3DE /* NSDateExtra.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDateExtra.m; sourceTree = "<group>"; };
 		8B5B740D1AAD8C0700ADB3DE /* MNavigationVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNavigationVC.h; sourceTree = "<group>"; };
@@ -884,6 +913,18 @@
 		0AB31D691A68D8B800B87850 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				8B1F6ABA1AAFC624009F3E6C /* boxbg_left_over.png */,
+				8B1F6ABB1AAFC624009F3E6C /* boxbg_left_upline_over.png */,
+				8B1F6ABC1AAFC624009F3E6C /* boxbg_left_upline.png */,
+				8B1F6ABD1AAFC624009F3E6C /* boxbg_left.png */,
+				8B1F6ABE1AAFC624009F3E6C /* boxbg_mid_over.png */,
+				8B1F6ABF1AAFC624009F3E6C /* boxbg_mid.png */,
+				8B1F6AC01AAFC624009F3E6C /* boxbg_right_over.png */,
+				8B1F6AC11AAFC624009F3E6C /* boxbg_right.png */,
+				8B1F6AC21AAFC624009F3E6C /* downloadIng@2x.png */,
+				8B1F6AC31AAFC624009F3E6C /* downloadNoSelect@2x.png */,
+				8B1F6AC41AAFC624009F3E6C /* downloadPause@2x.png */,
+				8B1F6AC51AAFC624009F3E6C /* downloadSelect@2x.png */,
 				0AE12E0E1A8B2DC100D10389 /* ic_look_history.png */,
 				0AEA90611A835A3F00C699ED /* login */,
 				0A9A574C1A7010B500DA8122 /* MyRootEdit.png */,
@@ -1113,6 +1154,8 @@
 		0AB31DA31A68D8B800B87850 /* PLDao */ = {
 			isa = PBXGroup;
 			children = (
+				8B1F6AD41AB03C04009F3E6C /* PLNavsProcess.h */,
+				8B1F6AD51AB03C04009F3E6C /* PLNavsProcess.m */,
 				CC415CDB1A8A276C00B5205D /* PLRecommendCourse.h */,
 				CC415CDC1A8A276C00B5205D /* PLRecommendCourse.m */,
 				CC415CD51A8A275700B5205D /* PLChapter.h */,
@@ -1351,6 +1394,7 @@
 		0AEA90611A835A3F00C699ED /* login */ = {
 			isa = PBXGroup;
 			children = (
+				8B1F6AD21AAFC73E009F3E6C /* MSelectBackImage_h.png */,
 				0A0F1C0E1AADDFF7000DEB3A /* MRegisterNickNameImg.png */,
 				0A0F1C0C1AADDFD2000DEB3A /* MRegisterLogo.png */,
 				0AA3E4C71A8A5E58004D86BE /* MActivityDefault.png */,
@@ -1516,7 +1560,7 @@
 				TargetAttributes = {
 					0AE430361A68D47B00CECD12 = {
 						CreatedOnToolsVersion = 6.1;
-						DevelopmentTeam = FSL3FCUGV3;
+						DevelopmentTeam = LZV72Z98L3;
 					};
 					0AE4304F1A68D47B00CECD12 = {
 						CreatedOnToolsVersion = 6.1;
@@ -1551,6 +1595,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A9A56BF1A6FE5CB00DA8122 /* MIntroductionCell.xib in Resources */,
+				8B1F6AD01AAFC624009F3E6C /* downloadPause@2x.png in Resources */,
 				0A9A573D1A70026300DA8122 /* SystemSettingsScrean.png in Resources */,
 				0AC66AFC1A9EB414000F6C0D /* icon@2x.png in Resources */,
 				0AE12E111A8B37CD00D10389 /* 课程2.mp4 in Resources */,
@@ -1558,12 +1603,14 @@
 				0A5757111AAC28BD00B78A3B /* ToolViewInputTextHL@2x.png in Resources */,
 				0AB31DE71A68D8B800B87850 /* TabbarMy@2x.png in Resources */,
 				0A9A572D1A70026300DA8122 /* ActivitiesInfoShear.png in Resources */,
+				8B1F6ACA1AAFC624009F3E6C /* boxbg_mid_over.png in Resources */,
 				0A5757161AAC28BD00B78A3B /* umeng_fb_audio_play_01@2x.png in Resources */,
 				CCCF51F21A77B00500A4654F /* 2.png in Resources */,
 				0AEA906D1A835E0800C699ED /* loginBut.png in Resources */,
 				0AA3E4C91A8A5E58004D86BE /* MActivityDefault.png in Resources */,
 				0A9A57381A70026300DA8122 /* MySettingsBut_select.png in Resources */,
 				0AEA90871A836D6400C699ED /* Main.storyboard in Resources */,
+				8B1F6ACC1AAFC624009F3E6C /* boxbg_right_over.png in Resources */,
 				CC5A94E81A6E8BC5008197BC /* BtnBottomPressed1@2x.png in Resources */,
 				0A9A575E1A7025B800DA8122 /* moviePlayButton.png in Resources */,
 				0A57572A1AAC876800B78A3B /* uncheck_icon.png in Resources */,
@@ -1579,6 +1626,7 @@
 				0A9A57391A70026300DA8122 /* MySettingsBut.png in Resources */,
 				0A9A573B1A70026300DA8122 /* SystemSettingsAbout.png in Resources */,
 				CC5A95121A6FDE25008197BC /* ic_chapter_normal@2x.png in Resources */,
+				8B1F6AC91AAFC624009F3E6C /* boxbg_left.png in Resources */,
 				0A5757131AAC28BD00B78A3B /* ToolViewInputVoiceHL@2x.png in Resources */,
 				0AB31DE21A68D8B800B87850 /* TabbarActivities_Selected@2x.png in Resources */,
 				0AB31DE91A68D8B800B87850 /* downloadIng.png in Resources */,
@@ -1591,15 +1639,18 @@
 				0A5757101AAC28BD00B78A3B /* ToolViewInputText@2x.png in Resources */,
 				0AB31DE81A68D8B800B87850 /* TabbarMy_Select@2x.png in Resources */,
 				0AEA906C1A835E0800C699ED /* loginBut_select.png in Resources */,
+				8B1F6ACB1AAFC624009F3E6C /* boxbg_mid.png in Resources */,
 				0AE4304B1A68D47B00CECD12 /* LaunchScreen.xib in Resources */,
 				CC5A94E41A6E8BC5008197BC /* BtnBottomNormal3@2x.png in Resources */,
 				0A0F1C0F1AADDFF7000DEB3A /* MRegisterNickNameImg.png in Resources */,
 				0A9A57271A70026300DA8122 /* ActivitiesInfoCase.png in Resources */,
 				CC3DACF61A68E91800C9139C /* MCellbackGround@2x.png in Resources */,
 				0A5757291AAC876800B78A3B /* check_icon@2x.png in Resources */,
+				8B1F6ACF1AAFC624009F3E6C /* downloadNoSelect@2x.png in Resources */,
 				0AEA90741A835F7C00C699ED /* password.png in Resources */,
 				0AEA90701A835E0800C699ED /* registerBut_select.png in Resources */,
 				CC3DACFA1A68E91800C9139C /* MNavItemSearch@2x.png in Resources */,
+				8B1F6AD31AAFC73E009F3E6C /* MSelectBackImage_h.png in Resources */,
 				CC5A94EB1A6E8BC5008197BC /* BtnBottomPressed4@2x.png in Resources */,
 				CC5A95131A6FDE25008197BC /* ic_chapter_pressed@2x.png in Resources */,
 				CC5A94E31A6E8BC5008197BC /* BtnBottomNormal2@2x.png in Resources */,
@@ -1614,6 +1665,7 @@
 				0A9A57351A70026300DA8122 /* MyRootActivitise.png in Resources */,
 				CCCF51F41A77B00500A4654F /* 4.png in Resources */,
 				CC5A94EA1A6E8BC5008197BC /* BtnBottomPressed3@2x.png in Resources */,
+				8B1F6AC71AAFC624009F3E6C /* boxbg_left_upline_over.png in Resources */,
 				CC3DACFC1A68E91800C9139C /* MNavItemTime@2x.png in Resources */,
 				0A9A573A1A70026300DA8122 /* SystemSettings.png in Resources */,
 				CCCF51F31A77B00500A4654F /* 3.png in Resources */,
@@ -1625,20 +1677,24 @@
 				CC5A94E51A6E8BC5008197BC /* BtnBottomNormal4@2x.png in Resources */,
 				CC3DACF91A68E91800C9139C /* MNavItemScreenHighlight@2x.png in Resources */,
 				0AEA90631A835A4800C699ED /* banner.png in Resources */,
+				8B1F6AD11AAFC624009F3E6C /* downloadSelect@2x.png in Resources */,
 				0A5757281AAC876800B78A3B /* check_icon.png in Resources */,
 				CCCF51F11A77B00500A4654F /* 1.png in Resources */,
 				0AB31DFB1A68D8B800B87850 /* DBConfig.plist in Resources */,
 				0AA3E4CA1A8A5E58004D86BE /* MCourseDefalut.png in Resources */,
 				CC5A94EC1A6E8BC5008197BC /* BtnBottomPressed5@2x.png in Resources */,
+				8B1F6AC61AAFC624009F3E6C /* boxbg_left_over.png in Resources */,
 				0A0F1C0D1AADDFD2000DEB3A /* MRegisterLogo.png in Resources */,
 				0AEA906E1A835E0800C699ED /* visitorsBut_select.png in Resources */,
 				0A9A575F1A7025B800DA8122 /* movieSliderImg.png in Resources */,
+				8B1F6ACD1AAFC624009F3E6C /* boxbg_right.png in Resources */,
 				0A9A574D1A7010B500DA8122 /* MyRootEdit.png in Resources */,
 				0AB31DE31A68D8B800B87850 /* TabbarCourse@2x.png in Resources */,
 				0A57572B1AAC876800B78A3B /* uncheck_icon@2x.png in Resources */,
 				0A9A572F1A70026300DA8122 /* ActivitiesInfoTips.png in Resources */,
 				0AC66AFD1A9EB414000F6C0D /* icon@3x.png in Resources */,
 				CC5A94E61A6E8BC5008197BC /* BtnBottomNormal5@2x.png in Resources */,
+				8B1F6AC81AAFC624009F3E6C /* boxbg_left_upline.png in Resources */,
 				CCCF51F51A77B00500A4654F /* 5.png in Resources */,
 				0AB31DE11A68D8B800B87850 /* TabbarActivities@2x.png in Resources */,
 				0A9A57291A70026300DA8122 /* ActivitiesInfoEdit.png in Resources */,
@@ -1663,6 +1719,7 @@
 				0A9A573E1A70026300DA8122 /* SystemSettingsUser.png in Resources */,
 				0AB31DEC1A68D8B800B87850 /* downloadSelect.png in Resources */,
 				0AEA90751A835F7C00C699ED /* user.png in Resources */,
+				8B1F6ACE1AAFC624009F3E6C /* downloadIng@2x.png in Resources */,
 				0A9A572E1A70026300DA8122 /* ActivitiesInfoTime.png in Resources */,
 				0AB31DEA1A68D8B800B87850 /* downloadNoSelect.png in Resources */,
 				0A9A57261A70026300DA8122 /* activities.png in Resources */,
@@ -1792,6 +1849,7 @@
 				0AEA303E1AAD78C800CC4DEF /* MUserInfoCell.m in Sources */,
 				CC77433D1A7FA89C009DA7C4 /* PLDiscussProcess.m in Sources */,
 				0AE12E0D1A8B286700D10389 /* MWatchRecordCell.m in Sources */,
+				8B1F6AD61AB03C04009F3E6C /* PLNavsProcess.m in Sources */,
 				CC415CE01A8A2BA600B5205D /* ActivityInfoCell.m in Sources */,
 				0AB31E0F1A68D8B800B87850 /* NSDictionary+RequestEncoding.m in Sources */,
 				0AEA905A1A83519400C699ED /* ActivityWorksCell.m in Sources */,
@@ -1865,8 +1923,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Excenon Mobile Tech Co., Ltd.";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Excenon Mobile Tech Co., Ltd.";
+				CODE_SIGN_IDENTITY = "iPhone Developer: leio shek (7PU7NRTS4X)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: leio shek (7PU7NRTS4X)";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1908,8 +1966,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Excenon Mobile Tech Co., Ltd.";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Excenon Mobile Tech Co., Ltd.";
+				CODE_SIGN_IDENTITY = "iPhone Developer: leio shek (7PU7NRTS4X)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: leio shek (7PU7NRTS4X)";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -1945,7 +2003,7 @@
 					"$(PROJECT_DIR)/DigitalSchool/Capability/Umeng/UMengFeedback_SDK_2.1/UMOpus",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "3a00c436-2b11-47b3-8561-57bfcd95ce05";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -1966,7 +2024,7 @@
 					"$(PROJECT_DIR)/DigitalSchool/Capability/Umeng/UMengFeedback_SDK_2.1/UMOpus",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "3a00c436-2b11-47b3-8561-57bfcd95ce05";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

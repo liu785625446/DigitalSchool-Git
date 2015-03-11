@@ -13,6 +13,8 @@
 #import "Toast+UIView.h"
 #import "ActivityInfoCell.h"
 
+#import "MUploadWorksViewController.h"
+
 @interface ActivitiesInfoViewController ()
 
 @property (assign) CellStyle cellStyle;
@@ -218,6 +220,10 @@
         ActivitiesInfoCellViewController *infoCell = segue.destinationViewController;
         infoCell.cellStyle = _cellStyle;
         infoCell.styleId = _activity.activityId;
+    }else if ([segue.identifier isEqualToString:@"uploadWorksIdentifier"])
+    {
+        MUploadWorksViewController *uploadVc = (MUploadWorksViewController *)((UINavigationController *)segue.destinationViewController).visibleViewController;
+        uploadVc.activityId = _activity.activityId;
     }
 }
 

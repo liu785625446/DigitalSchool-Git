@@ -56,6 +56,12 @@
     
     [self startAnimationIndicator];
 
+    [self getCourseCondition];
+}
+
+#pragma mark- 获取筛选条件
+-(void)getCourseCondition
+{
     [self.courseProcess  getCourseConditionList:^(NSMutableArray *array) {
         
         [self.screenItems addObjectsFromArray:array];
@@ -68,11 +74,12 @@
         
         
     } didFail:^(NSString *error)
-    {
-        [super stopAnimationIndicatorLoadText:YYFailReloadText
-                                     withType:NO
-                                     loadType:MLoadTypeFail];
-    }];
+     {
+         isCourseCondition = YES;
+         [super stopAnimationIndicatorLoadText:YYFailReloadText
+                                      withType:NO
+                                      loadType:MLoadTypeFail];
+     }];
 }
 
 - (void)didReceiveMemoryWarning
@@ -129,10 +136,8 @@
     }
     
     PLCourse *course = [self.baseArray objectAtIndex:indexPath.row];
-    cell.titleLabel.text  = course.courseName;
-    cell.contentLabel.text = course.courseContent;
-    [cell.iconImage setImageWithURL:[NSURL URLWithString:course.courseImgURL]
-                   placeholderImage:[UIImage imageNamed:@"MCourseDefalut.png"]];
+    [cell setBaseModel:course];
+
     return cell;
 }
 #pragma mark -UITableViewDelegate
@@ -146,7 +151,7 @@
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 92;
+    return 90;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -204,11 +209,20 @@
 #pragma mark- YYAnimationDelegate
 -(void)didReloadData:(YYAnimationIndicator *)animationView
 {
-    [self getGradeListCurrentPage:currentPage
-                         didGrade:grade
-                       didSubject:subject
-                       didTeacher:teacher
-                          didType:self.courseType+1];
+    if (isCourseCondition)
+    {
+        [self startAnimationIndicator];
+        [self getCourseCondition];
+        
+    }else
+    {
+        [self getGradeListCurrentPage:currentPage
+                             didGrade:grade
+                           didSubject:subject
+                           didTeacher:teacher
+                              didType:self.courseType+1];
+    }
+    
 }
 
 #pragma mark- 获取筛选课程
@@ -271,6 +285,7 @@
      {
          if (mCurrentPage == 1)
          {
+             isCourseCondition = NO;
              [super stopAnimationIndicatorLoadText:YYFailReloadText
                                           withType:NO
                                           loadType:MLoadTypeFail];

@@ -8,11 +8,21 @@
 
 #import <UIKit/UIKit.h>
 
+#import "PLRecommendCourse.h"
+
+@protocol MAdcolumnDelegate <NSObject>
+
+-(void)didAdcolumnObject:(id)object withIndex:(NSInteger)index;
+
+@end
+
 @interface MAdcolumnView : UIView
 <UIScrollViewDelegate>
 {
     UIPageControl *pageControl;
+    NSMutableArray *mAdcolumns;
 }
+@property(nonatomic,assign)id<MAdcolumnDelegate> delegate;
 -(id)initWithFrame:(CGRect)frame adcolumns:(NSArray *)adcolumns;
 
 -(void)creatAdcolumn:(NSArray *)adcolumns;

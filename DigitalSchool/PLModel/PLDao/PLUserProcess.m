@@ -95,6 +95,7 @@
         fail(REQUEST_ERROR);
     }];
     
-    [engine enqueueOperation:operation];}
+    [engine enqueueOperation:operation];
+}
 
 @end

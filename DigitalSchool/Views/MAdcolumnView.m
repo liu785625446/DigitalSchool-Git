@@ -9,8 +9,6 @@
 #import "MAdcolumnView.h"
 #import "UrlImageView.h"
 
-#import "PLRecommendCourse.h"
-
 @interface MAdcolumnView ()
 
 @property (nonatomic, strong) NSTimer *timer;
@@ -32,6 +30,7 @@
 -(void)creatAdcolumn:(NSArray *)adcolumns
 {
     self.backgroundColor = [UIColor colorWithHexString:MListBarkGroundColor alpha:1];
+    mAdcolumns = [NSMutableArray arrayWithArray:adcolumns];
     
     _scrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
     _scrollView.pagingEnabled = YES;
@@ -59,7 +58,10 @@
     
     [self addSubview:pageControl];
     
-    _timer = [NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(timerAction) userInfo:nil repeats:YES];
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapGest:)];
+    [_scrollView addGestureRecognizer:tap];
+    
+    _timer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(timerAction) userInfo:nil repeats:YES];
     [[NSRunLoop currentRunLoop] addTimer:_timer forMode:NSRunLoopCommonModes];
 }
 
@@ -79,6 +81,18 @@
 {
     int page = scrollView.contentOffset.x / self.frame.size.width;
     pageControl.currentPage = page;
+}
+
+-(void)tapGest:(UITapGestureRecognizer *)tap
+{
+    if (_delegate && [_delegate respondsToSelector:@selector(didAdcolumnObject:withIndex:)])
+    {
+        NSInteger index = pageControl.currentPage;
+        if (index <mAdcolumns.count)
+        {
+             [_delegate didAdcolumnObject:[mAdcolumns objectAtIndex:index] withIndex:index];
+        }
+    }
 }
 
 @end

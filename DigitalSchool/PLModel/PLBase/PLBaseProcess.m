@@ -46,6 +46,15 @@
                 success(nil);
             }
             
+        }else if ([[dic objectForKey:@"ret"] isEqualToNumber:[NSNumber numberWithInt:1]])
+        {
+            fail(@"秘钥错误");
+        }else if ([[dic objectForKey:@"ret"] isEqualToNumber:[NSNumber numberWithInt:2]])
+        {
+            fail(@"参数不对");
+        }else if ([[dic objectForKey:@"ret"] isEqualToNumber:[NSNumber numberWithInt:3]])
+        {
+            fail(@"程序异常");
         }else if ([[dic objectForKey:@"ret"] isEqualToNumber:[NSNumber numberWithInt:4]])
         {
             fail(@"已关注");

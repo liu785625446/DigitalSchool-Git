@@ -14,23 +14,37 @@
 
 -(void) setBaseModel:(PLBaseData *)baseModel
 {
-    if ([baseModel isKindOfClass:[PLCourse class]]) {
+    if ([baseModel isKindOfClass:[PLCourse class]])
+    {
         PLCourse *course = (PLCourse *) baseModel;
-        [self.iconImage setImageWithURL:[NSURL URLWithString:course.courseImgURL] placeholderImage:[UIImage imageNamed:@"MCourseDefalut.png"]];
-        self.titleLabel.text = course.courseName;
-        self.contentLabel.text = course.courseContent;
+        [self setImgUrl:course.courseImgURL
+                  title:course.courseName
+                content:course.courseContent];
+        
     }else if ([baseModel isKindOfClass:[PLActivity class]])
     {
         PLActivity *activity = (PLActivity *) baseModel;
-        [self.iconImage setImageWithURL:[NSURL URLWithString:activity.activityImg] placeholderImage:[UIImage imageNamed:@"MCourseDefalut.png"]];
-        self.titleLabel.text = activity.activityName;
-        self.contentLabel.text = activity.activityDetail;
-    }else if ([baseModel isKindOfClass:[PLWorks class]]) {
+        [self setImgUrl:activity.activityImg
+                  title:activity.activityName
+                content:activity.activityDetail];
+        
+    }else if ([baseModel isKindOfClass:[PLWorks class]])
+    {
+        
         PLWorks *works = (PLWorks *) baseModel;
-        [self.iconImage setImageWithURL:[NSURL URLWithString:works.workImg] placeholderImage:[UIImage imageNamed:@"MCourseDefalut.png"]];
-        self.titleLabel.text = works.workTitle;
-        self.contentLabel.text = works.workIntro;
+        [self setImgUrl:works.workImg
+                  title:works.workTitle
+                content:works.workIntro];
     }
+}
+
+-(void)setImgUrl:(NSString*)url title:(NSString *)title content:(NSString *)content
+{
+    self.titleLabel.text = title;
+    self.contentLabel.text = content;
+    [self.iconImage setImageWithURL:[NSURL URLWithString:url]
+                   placeholderImage:[UIImage imageNamed:@"MCourseDefalut.png"]];
+    
 }
 
 @end
