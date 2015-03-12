@@ -57,6 +57,7 @@
                      withImgData:(NSData *)imgData
                         workName:(NSString *)title
                        workIntro:(NSString *)intro
+                  uploadProgress:(UploadAndDownloadProgress)uploadProgress
                       didSuccess:(CallBackBlockSuccess)success
                          didFail:(CallBackBlockFail)fail;
 @end

@@ -69,6 +69,7 @@
                      withImgData:(NSData *)imgData
                         workName:(NSString *)title
                        workIntro:(NSString *)intro
+                  uploadProgress:(UploadAndDownloadProgress)uploadProgress
                       didSuccess:(CallBackBlockSuccess)success
                          didFail:(CallBackBlockFail)fail
 {
@@ -85,15 +86,22 @@
     MKNetworkOperation *operation = [engine operationWithPath:WORK_UPLOAD params:dic httpMethod:@"POST"];
     if (imgData !=nil)
     {
-        [operation addData:imgData forKey:@"files" mimeType:@"png" fileName:@"image.png"];
+        [operation addData:imgData forKey:@"files" mimeType:@"image/png" fileName:@"image.png"];
     }
     if (movData !=nil)
     {
-        [operation addData:movData forKey:@"files" mimeType:@"mp4" fileName:@"mov.mp4"];
+        [operation addData:movData forKey:@"files" mimeType:@"video/mp4" fileName:@"mov.mp4"];
     }
     
-    
     [operation setFreezable:YES];
+    [operation onUploadProgressChanged:^(double progress) {
+        //上传进度
+        NSLog(@"Upload progress: %f", progress);
+        uploadProgress(progress);
+        
+    }];
+    
+    operation.MKNetworkKitRequestTimeOutInSeconds = 3600;
     
     [operation addCompletionHandler:^(MKNetworkOperation *op)
     {

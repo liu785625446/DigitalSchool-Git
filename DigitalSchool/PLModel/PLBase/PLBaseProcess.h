@@ -11,6 +11,7 @@
 
 typedef void (^CallBackBlockSuccess) (NSMutableArray *array);
 typedef void (^CallBackBlockFail) (NSString *error);
+typedef void (^UploadAndDownloadProgress)(CGFloat progress);
 
 @interface PLBaseProcess : NSObject
 

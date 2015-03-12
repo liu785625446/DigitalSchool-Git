@@ -55,24 +55,33 @@
         {
             if (self.mp4Path.length>0)
             {
-                [SVProgressHUD showWithStatus:@"正在上传作品..." maskType:SVProgressHUDMaskTypeBlack];
+                [SVProgressHUD showProgress:0 status:@"正在上传作品..." maskType:SVProgressHUDMaskTypeBlack];
                 
                 NSData *vidoData = [NSData dataWithContentsOfFile:self.mp4Path];
                 PLWorkProcess *workProce = [[PLWorkProcess alloc]init];
                 [workProce uploadWorksWithActivityId:self.activityId
                                           withUserId:[self getUserId]
                                          withMovData:vidoData
-                                         withImgData:UIImagePNGRepresentation(self.mImage)
+                                         withImgData:UIImageJPEGRepresentation(self.mImage, 0.5)
                                             workName:self.worksName.text
                                            workIntro:self.infoTextView.text
-                                          didSuccess:^(NSMutableArray *array) {
-                                              
-                                              [SVProgressHUD dismissWithSuccess:@"上传成功"];
-                                              
-                                          } didFail:^(NSString *error) {
-                                              NSString *er = [NSString stringWithFormat:@"上传失败,%@",error];
-                                              [SVProgressHUD dismissWithError:er];
-                                          }];
+                                      uploadProgress:^(CGFloat progress) {
+                                          
+                                  [SVProgressHUD showProgress:progress
+                                                       status:@"正在上传作品..."
+                                                     maskType:SVProgressHUDMaskTypeBlack];
+                                          
+                } didSuccess:^(NSMutableArray *array) {
+                    
+                    [SVProgressHUD dismissWithSuccess:@"上传成功"];
+                    [self dismissViewControllerAnimated:YES completion:nil];
+                    
+                } didFail:^(NSString *error) {
+                    
+                    NSString *er = [NSString stringWithFormat:@"上传失败,%@",error];
+                    [SVProgressHUD dismissWithError:er];
+                    
+                }];
             }else
             {
                 [self encodeIsUpload:YES];
@@ -124,47 +133,45 @@
     {
         self.mImage = [info objectForKey:UIImagePickerControllerEditedImage];
         
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            //照片选取
+//            [self.uploadImage setBackgroundImage:self.mImage forState:UIControlStateNormal];
+            [self.uploadImage setImage:self.mImage forState:UIControlStateNormal];
+            
+        });
+        
     }else if ([type isEqualToString:(NSString*)kUTTypeMovie])
     {
         self.vidoUrl = [info objectForKey:UIImagePickerControllerMediaURL];
         [self encodeIsUpload:NO];
-    }
-    
-    ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
-    
-    [library assetForURL:object
-             resultBlock:^(ALAsset *asset) {
-                 
-                 UIImage *image = [UIImage imageWithCGImage:asset.thumbnail];
-                
-                 if (image)
-                 {
-                     dispatch_async(dispatch_get_main_queue(), ^{
-                         
-                         if ([type isEqualToString:(NSString*)kUTTypeImage])
-                         {
-                             //照片选取
-                             [self.uploadImage setBackgroundImage:image forState:UIControlStateNormal];
+        ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
+        
+        [library assetForURL:object
+                 resultBlock:^(ALAsset *asset) {
+                     
+                     UIImage *image = [UIImage imageWithCGImage:asset.thumbnail];
+                     
+                     if (image)
+                     {
+                         dispatch_async(dispatch_get_main_queue(), ^{
                              
-                         }else if ([type isEqualToString:(NSString*)kUTTypeMovie])
-                         {
                              //视频选取
                              [self.uploadVideo setBackgroundImage:image forState:UIControlStateNormal];
-                         }
+                             
+                         });
                          
-                     });
+                     }else
+                     {
+                         [self.view makeToast:@"显示缩略图失败"];
+                     }
                      
-                 }else
-                 {
+                     
+                 } failureBlock:^(NSError *error) {
+                     
                      [self.view makeToast:@"显示缩略图失败"];
-                 }
-                 
-                 
-             } failureBlock:^(NSError *error) {
-                 
-                 [self.view makeToast:@"显示缩略图失败"];
-             }];
-    
+                 }];
+    }
     [picker dismissViewControllerAnimated:YES completion:nil];
     
 }
@@ -178,13 +185,13 @@
     AVURLAsset *avAsset = [AVURLAsset URLAssetWithURL:self.vidoUrl options:nil];
     NSArray *compatiblePresets = [AVAssetExportSession exportPresetsCompatibleWithAsset:avAsset];
     
-    if ([compatiblePresets containsObject:AVAssetExportPresetMediumQuality])
+    if ([compatiblePresets containsObject:AVAssetExportPresetLowQuality])
         
     {
         
         
         AVAssetExportSession *exportSession = [[AVAssetExportSession alloc]initWithAsset:avAsset
-                                                                              presetName:AVAssetExportPresetMediumQuality];
+                                                                              presetName:AVAssetExportPresetLowQuality];
         NSDateFormatter* formater = [[NSDateFormatter alloc] init];
         [formater setDateFormat:@"yyyy-MM-dd-HH:mm:ss"];
         _mp4Path = [NSHomeDirectory() stringByAppendingFormat:@"/Documents/output-%@.mp4", [formater stringFromDate:[NSDate date]]];

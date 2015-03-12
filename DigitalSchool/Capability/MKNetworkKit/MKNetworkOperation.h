@@ -83,6 +83,7 @@ typedef enum {
 @property (strong, nonatomic) NSHTTPURLResponse *response;
 @property (assign, nonatomic) NSUInteger downloadedDataSize;
 @property (nonatomic, strong) NSMutableArray *downloadStreams;
+@property (nonatomic, assign) NSInteger MKNetworkKitRequestTimeOutInSeconds;
 
 /*!
  *  @abstract Request URL Property

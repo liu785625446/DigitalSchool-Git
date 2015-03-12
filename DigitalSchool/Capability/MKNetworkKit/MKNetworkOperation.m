@@ -627,6 +627,8 @@ OSStatus extractIdentityAndTrust(CFDataRef inPKCS12Data,
     
     self.credentialPersistence = NSURLCredentialPersistenceForSession;
     
+    self.MKNetworkKitRequestTimeOutInSeconds = 30;
+      
     NSURL *finalURL = nil;
     
     if(params)
@@ -656,7 +658,7 @@ OSStatus extractIdentityAndTrust(CFDataRef inPKCS12Data,
     
     self.request = [NSMutableURLRequest requestWithURL:finalURL
                                            cachePolicy:NSURLRequestReloadIgnoringLocalCacheData
-                                       timeoutInterval:kMKNetworkKitRequestTimeOutInSeconds];
+                                       timeoutInterval:self.MKNetworkKitRequestTimeOutInSeconds];
     
     [self.request setHTTPMethod:method];
     
@@ -670,6 +672,11 @@ OSStatus extractIdentityAndTrust(CFDataRef inPKCS12Data,
   }
   
   return self;
+}
+-(void)setMKNetworkKitRequestTimeOutInSeconds:(NSInteger)MKNetworkKitRequestTimeOutInSeconds
+{
+    _MKNetworkKitRequestTimeOutInSeconds = MKNetworkKitRequestTimeOutInSeconds;
+    self.request.timeoutInterval = MKNetworkKitRequestTimeOutInSeconds;
 }
 
 -(void) addParams:(NSDictionary*) paramsDictionary {
