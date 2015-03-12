@@ -36,19 +36,29 @@
         float imgY = (frame.size.height - imgWH-KINFODefaultWH)/2;
         imageView = [[UIImageView alloc] initWithFrame:CGRectMake(imgX,imgY,imgWH,imgWH)];
         
-        //设置动画帧
-        imageView.animationImages=[NSArray arrayWithObjects:
-                                   [UIImage imageNamed:@"1"],
-                                   [UIImage imageNamed:@"2"],
-                                   [UIImage imageNamed:@"3"],
-                                   [UIImage imageNamed:@"4"],
-                                   [UIImage imageNamed:@"5"],
-                                   [UIImage imageNamed:@"6"],nil ];
+        [imageView setImage:[UIImage imageNamed:@"MLoadImg.png"]];
+        imageView.hidden = NO;
+        CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"transform"];
+        animation.delegate = self;
+        animation.toValue = [NSValue valueWithCATransform3D:CATransform3DMakeRotation(M_PI/2, 0, 0, 1.0)];
+        animation.duration = 0.3;
+        animation.cumulative = YES;
+        animation.repeatCount = INT_MAX;
+        
+        [imageView.layer addAnimation:animation forKey:@"animation"];
+//        //设置动画帧
+//        imageView.animationImages=[NSArray arrayWithObjects:
+//                                   [UIImage imageNamed:@"1"],
+//                                   [UIImage imageNamed:@"2"],
+//                                   [UIImage imageNamed:@"3"],
+//                                   [UIImage imageNamed:@"4"],
+//                                   [UIImage imageNamed:@"5"],
+//                                   [UIImage imageNamed:@"6"],nil ];
         
         [self addSubview:imageView];
-        
-        
-        
+//        
+//        
+//        
         Infolabel = [[UILabel alloc]initWithFrame:CGRectMake(0,imgWH+imgY,frame.size.width, KINFODefaultWH)];
         Infolabel.backgroundColor = [UIColor clearColor];
         Infolabel.textAlignment = NSTextAlignmentCenter;
@@ -87,7 +97,7 @@
     
     Infolabel.text = _loadtext;
     //设置动画总时间
-    imageView.animationDuration=1.0;
+//    imageView.animationDuration=1.0;
     //设置重复次数,0表示不重复
     imageView.animationRepeatCount=0;
     //开始动画
@@ -103,29 +113,30 @@
                          withType:(BOOL)type
                          loadType:(MLoadType)loadType
 {
-   
-    _isAnimating = NO;
-    Infolabel.text = text;
-    _mLoadType = loadType;
-    if(type)
-    {
-        [imageView stopAnimating];
-        self.layer.hidden = type;
-        
-    }else
-    {
-        self.layer.hidden = type;
-        [imageView stopAnimating];
-        if (loadType == MLoadTypeFail)
-        {
-            [imageView setImage:[UIImage imageNamed:@"6"]];
-            
-        }else
-        {
-            [imageView setImage:[UIImage imageNamed:@"3"]];
-        }
-        
-    }
+    [imageView.layer removeAllAnimations];
+    imageView.hidden = YES;
+//    _isAnimating = NO;
+//    Infolabel.text = text;
+//    _mLoadType = loadType;
+//    if(type)
+//    {
+//        [imageView stopAnimating];
+//        self.layer.hidden = type;
+//        
+//    }else
+//    {
+//        self.layer.hidden = type;
+//        [imageView stopAnimating];
+//        if (loadType == MLoadTypeFail)
+//        {
+//            [imageView setImage:[UIImage imageNamed:@"6"]];
+//            
+//        }else
+//        {
+//            [imageView setImage:[UIImage imageNamed:@"3"]];
+//        }
+//        
+//    }
 }
 
 -(void)setLoadText:(NSString *)text;

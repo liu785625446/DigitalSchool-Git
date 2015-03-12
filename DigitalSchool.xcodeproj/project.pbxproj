@@ -153,6 +153,8 @@
 		0AB31E221A68D92800B87850 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AB31E211A68D92800B87850 /* ImageIO.framework */; };
 		0AC66AFC1A9EB414000F6C0D /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AC66AFA1A9EB414000F6C0D /* icon@2x.png */; };
 		0AC66AFD1A9EB414000F6C0D /* icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AC66AFB1A9EB414000F6C0D /* icon@3x.png */; };
+		0ADDB9C61AB123C700BAF68E /* PLNavs.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ADDB9C51AB123C700BAF68E /* PLNavs.m */; };
+		0ADDB9C81AB1376000BAF68E /* MLoadImg.png in Resources */ = {isa = PBXBuildFile; fileRef = 0ADDB9C71AB1376000BAF68E /* MLoadImg.png */; };
 		0AE12E041A8AEEBC00D10389 /* MCollectListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AE12E031A8AEEBC00D10389 /* MCollectListViewController.m */; };
 		0AE12E071A8B017700D10389 /* PLCollect.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AE12E061A8B017700D10389 /* PLCollect.m */; };
 		0AE12E0A1A8B261600D10389 /* MWatchRecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AE12E091A8B261600D10389 /* MWatchRecordViewController.m */; };
@@ -501,6 +503,9 @@
 		0AB31E231A68D95400B87850 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		0AC66AFA1A9EB414000F6C0D /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
 		0AC66AFB1A9EB414000F6C0D /* icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@3x.png"; sourceTree = "<group>"; };
+		0ADDB9C41AB123C700BAF68E /* PLNavs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLNavs.h; sourceTree = "<group>"; };
+		0ADDB9C51AB123C700BAF68E /* PLNavs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLNavs.m; sourceTree = "<group>"; };
+		0ADDB9C71AB1376000BAF68E /* MLoadImg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MLoadImg.png; sourceTree = "<group>"; };
 		0AE12E021A8AEEBC00D10389 /* MCollectListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCollectListViewController.h; sourceTree = "<group>"; };
 		0AE12E031A8AEEBC00D10389 /* MCollectListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCollectListViewController.m; sourceTree = "<group>"; };
 		0AE12E051A8B017700D10389 /* PLCollect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLCollect.h; sourceTree = "<group>"; };
@@ -1156,6 +1161,8 @@
 			children = (
 				8B1F6AD41AB03C04009F3E6C /* PLNavsProcess.h */,
 				8B1F6AD51AB03C04009F3E6C /* PLNavsProcess.m */,
+				0ADDB9C41AB123C700BAF68E /* PLNavs.h */,
+				0ADDB9C51AB123C700BAF68E /* PLNavs.m */,
 				CC415CDB1A8A276C00B5205D /* PLRecommendCourse.h */,
 				CC415CDC1A8A276C00B5205D /* PLRecommendCourse.m */,
 				CC415CD51A8A275700B5205D /* PLChapter.h */,
@@ -1458,6 +1465,7 @@
 		CCCF51E61A77B00500A4654F /* AnimationIndicator */ = {
 			isa = PBXGroup;
 			children = (
+				0ADDB9C71AB1376000BAF68E /* MLoadImg.png */,
 				CCCF51E71A77B00500A4654F /* 1.png */,
 				CCCF51E81A77B00500A4654F /* 2.png */,
 				CCCF51E91A77B00500A4654F /* 3.png */,
@@ -1560,7 +1568,7 @@
 				TargetAttributes = {
 					0AE430361A68D47B00CECD12 = {
 						CreatedOnToolsVersion = 6.1;
-						DevelopmentTeam = LZV72Z98L3;
+						DevelopmentTeam = FSL3FCUGV3;
 					};
 					0AE4304F1A68D47B00CECD12 = {
 						CreatedOnToolsVersion = 6.1;
@@ -1702,6 +1710,7 @@
 				0A9A57361A70026300DA8122 /* MyRootMenu.png in Resources */,
 				0A9A575C1A7025B800DA8122 /* movieFullScreen.png in Resources */,
 				0A57570A1AAC28BD00B78A3B /* UMFeedbackLocalizable.strings in Resources */,
+				0ADDB9C81AB1376000BAF68E /* MLoadImg.png in Resources */,
 				0A9A573C1A70026300DA8122 /* SystemSettingsClear.png in Resources */,
 				0A9A56BB1A6FE5CB00DA8122 /* MCourseCell.xib in Resources */,
 				CC5A95061A6FCDE4008197BC /* default_user_icon@2x.png in Resources */,
@@ -1813,6 +1822,7 @@
 				0AB31DEE1A68D8B800B87850 /* CourseDownloadController.m in Sources */,
 				0AB31DF61A68D8B800B87850 /* MCourseDownloadCell.m in Sources */,
 				0AB31E101A68D8B800B87850 /* NSString+MKNetworkKitAdditions.m in Sources */,
+				0ADDB9C61AB123C700BAF68E /* PLNavs.m in Sources */,
 				CC415CDA1A8A275700B5205D /* PLChapterProcess.m in Sources */,
 				0AB31DF51A68D8B800B87850 /* MyMessageViewController.m in Sources */,
 				0AB31DF41A68D8B800B87850 /* LiveViewController.m in Sources */,

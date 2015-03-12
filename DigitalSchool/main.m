@@ -15,6 +15,7 @@
 #import "PLCourseProcess.h"
 #import "PLNotesProcess.h"
 #import "PLUserProcess.h"
+#import "PLNavsProcess.h"
 
 int main(int argc, char * argv[]) {
     
@@ -210,6 +211,13 @@ int main(int argc, char * argv[]) {
 //    } didFail:^(NSString *error) {
 //        
 //    }];
+    
+    PLNavsProcess *nav = [[PLNavsProcess alloc] init];
+    [nav getNavsList:^(NSMutableArray *array) {
+        
+    } didFail:^(NSString *error) {
+        
+    }];
     
     @autoreleasepool {
         return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));

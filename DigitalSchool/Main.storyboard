@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="TK3-tq-V64">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="TK3-tq-V64">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
     <scenes>
         <!--Login View Controller-->
@@ -783,19 +783,6 @@
                                                 <outletCollection property="gestureRecognizers" destination="DOP-90-jxe" appends="YES" id="M3I-Zx-TS1"/>
                                             </connections>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hf8-qZ-ogH">
-                                            <rect key="frame" x="281" y="44" width="25" height="21"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="25" id="Knk-x2-bWi"/>
-                                                <constraint firstAttribute="height" constant="21" id="sWh-vr-h5e"/>
-                                            </constraints>
-                                            <state key="normal" image="MySettingsBut.png">
-                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                            </state>
-                                            <connections>
-                                                <action selector="settingsAction:" destination="uTt-cd-y0U" eventType="touchUpInside" id="1Hr-5d-Okd"/>
-                                            </connections>
-                                        </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nnt-Im-ZMv">
                                             <rect key="frame" x="126" y="155" width="69" height="30"/>
                                             <constraints>
@@ -808,6 +795,19 @@
                                             </state>
                                             <connections>
                                                 <action selector="userEditAction:" destination="uTt-cd-y0U" eventType="touchUpInside" id="8Mw-Cb-RLK"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hf8-qZ-ogH">
+                                            <rect key="frame" x="263" y="8" width="49" height="42"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="25" id="Knk-x2-bWi"/>
+                                                <constraint firstAttribute="height" constant="21" id="sWh-vr-h5e"/>
+                                            </constraints>
+                                            <state key="normal" image="MySettingsBut.png">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="settingsAction:" destination="uTt-cd-y0U" eventType="touchUpInside" id="1Hr-5d-Okd"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -2129,10 +2129,10 @@
                                                     </constraints>
                                                 </imageView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="downloadIng.png" translatesAutoresizingMaskIntoConstraints="NO" id="esc-Vj-9Lk">
-                                                    <rect key="frame" x="288" y="22" width="15" height="15"/>
+                                                    <rect key="frame" x="286" y="17" width="26" height="26"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="15" id="RIr-Zv-nSx"/>
-                                                        <constraint firstAttribute="height" constant="15" id="Rdh-HN-9b8"/>
+                                                        <constraint firstAttribute="width" constant="26" id="RIr-Zv-nSx"/>
+                                                        <constraint firstAttribute="height" constant="26" id="Rdh-HN-9b8"/>
                                                     </constraints>
                                                 </imageView>
                                             </subviews>
@@ -2142,10 +2142,10 @@
                                                 <constraint firstItem="QOI-wl-Z04" firstAttribute="leading" secondItem="Y0J-rq-mHs" secondAttribute="trailing" constant="6" id="AEM-gw-4ap"/>
                                                 <constraint firstItem="UBU-p8-Ws1" firstAttribute="top" secondItem="jFJ-as-rb9" secondAttribute="top" constant="16" id="BcE-pU-Ooo"/>
                                                 <constraint firstItem="UBU-p8-Ws1" firstAttribute="leading" secondItem="Y0J-rq-mHs" secondAttribute="trailing" constant="6" id="Brf-H5-f8B"/>
-                                                <constraint firstItem="esc-Vj-9Lk" firstAttribute="leading" secondItem="QOI-wl-Z04" secondAttribute="trailing" constant="14" id="Efw-mT-h1F"/>
+                                                <constraint firstItem="esc-Vj-9Lk" firstAttribute="leading" secondItem="QOI-wl-Z04" secondAttribute="trailing" constant="12" id="Efw-mT-h1F"/>
                                                 <constraint firstItem="Tlo-uG-nba" firstAttribute="top" secondItem="jFJ-as-rb9" secondAttribute="top" constant="19" id="X3O-fO-Zve"/>
-                                                <constraint firstAttribute="trailing" secondItem="esc-Vj-9Lk" secondAttribute="trailing" constant="17" id="qYl-uZ-5wi"/>
-                                                <constraint firstItem="esc-Vj-9Lk" firstAttribute="top" secondItem="jFJ-as-rb9" secondAttribute="top" constant="22" id="qmx-nY-W6D"/>
+                                                <constraint firstAttribute="trailing" secondItem="esc-Vj-9Lk" secondAttribute="trailing" constant="8" id="qYl-uZ-5wi"/>
+                                                <constraint firstItem="esc-Vj-9Lk" firstAttribute="top" secondItem="jFJ-as-rb9" secondAttribute="top" constant="17" id="qmx-nY-W6D"/>
                                                 <constraint firstItem="Y0J-rq-mHs" firstAttribute="top" secondItem="jFJ-as-rb9" secondAttribute="top" constant="23" id="qrm-pA-N8b"/>
                                                 <constraint firstItem="QOI-wl-Z04" firstAttribute="top" secondItem="jFJ-as-rb9" secondAttribute="top" constant="42" id="yDi-I4-Ylf"/>
                                             </constraints>
