@@ -89,7 +89,7 @@
         [superScrollView addSubview:subTableView];
         
         CGRect anR = CGRectMake(0,0,subTableView.frame.size.width,subTableView.frame.size.height);
-        YYAnimationIndicator *animationLoad = [[YYAnimationIndicator alloc]initWithFrame:anR withIMGWH:80];
+        YYAnimationIndicator *animationLoad = [[YYAnimationIndicator alloc]initWithFrame:anR];
         [animationLoad setLoadText:@"正在加载..."];
         animationLoad.tag = kYYAnimationIndicatorTag+i;
         [subTableView addSubview:animationLoad];

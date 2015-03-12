@@ -12,7 +12,8 @@
 
 #import <UIKit/UIKit.h>
 
-#define YYFailReloadText @"加载失败,点击屏幕重新加载"
+#define YYFailReloadText @"加载失败,点击屏幕重新加载!"
+#define YYNOTDATATEXT @"暂无相关数据!"
 
 @class YYAnimationIndicator;
 
@@ -39,7 +40,6 @@ typedef NS_ENUM(NSInteger, MLoadType)
 }
 @property (nonatomic, readonly) MLoadType mLoadType;
 @property (nonatomic, assign) NSString *loadtext;
-@property (nonatomic, readonly) BOOL isAnimating;
 @property (nonatomic, assign)id <YYAnimationDelegate> delegate;
 
 

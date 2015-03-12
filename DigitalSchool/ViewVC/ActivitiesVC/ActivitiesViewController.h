@@ -12,7 +12,6 @@
 
 @interface ActivitiesViewController : MBaseTableViewController
 
-@property (nonatomic, strong) NSArray *activityList;
 @property (nonatomic, strong) PLActivityProcess *activityProcess;
 
 @end

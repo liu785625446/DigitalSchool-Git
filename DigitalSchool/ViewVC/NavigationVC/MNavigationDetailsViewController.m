@@ -11,7 +11,9 @@
 #import "MCourseCell.h"
 
 @interface MNavigationDetailsViewController ()
-
+{
+    PLCourseProcess *courseProcess;
+}
 @end
 
 @implementation MNavigationDetailsViewController
@@ -23,22 +25,13 @@
     self.tabBarController.automaticallyAdjustsScrollViewInsets = YES;
     self.baseTableView.backgroundColor = self.view.backgroundColor;
     
-    PLCourseProcess *courseProcess = [[PLCourseProcess alloc] init];
+    courseProcess = [[PLCourseProcess alloc] init];
     self.title = _titleStr;
-    [courseProcess getCourseFilter:10
-                    didCurrentPage:1
-                          didGrade:0
-                        didSubject:0
-                        didTeacher:0
-                           didType:0
-                        didSuccess:^(NSMutableArray *array)
-     {
-        _course_list = array;
-        [self.baseTableView reloadData];
-         
-    } didFail:^(NSString *error) {
-        
-    }];
+    
+    CGRect animationR = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+    [super creatAnimationIndicator:animationR superView:self.view delegate:self];
+    
+    [self getData:self.currentPage];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -53,7 +46,7 @@
 
 -(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [_course_list count];
+    return [self.baseArray count];
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
@@ -78,7 +71,7 @@
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.backgroundColor = [UIColor colorWithHexString:MListBarkGroundColor alpha:1];
     }
-    PLCourse *course = [_course_list objectAtIndex:indexPath.row];
+    PLCourse *course = [self.baseArray objectAtIndex:indexPath.row];
     [cell setBaseModel:course];
     return cell;
 }
@@ -86,6 +79,36 @@
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+#pragma mark- RefreshViewDelegate
+// 开始进入刷新状态就会调用
+-(void)refreshViewBeginRefreshing:(MJRefreshBaseView *)refreshView
+{
+    [self getData:self.currentPage];
+}
+
+
+-(void)getData:(NSInteger)page
+{
+    if (page == 1)
+    {
+        [super startAnimationIndicator];
+    }
+    
+    [courseProcess getCourseFilter:MPageSize
+                    didCurrentPage:self.currentPage
+                          didGrade:0
+                        didSubject:0
+                        didTeacher:0
+                           didType:0
+                        didSuccess:^(NSMutableArray *array)
+     {
+         [super indicatorDataAnalysisSuccess:array page:page];
+         
+     } didFail:^(NSString *error) {
+         [super indicatorDataAnalysisFailure:page];
+     }];
 }
 
 

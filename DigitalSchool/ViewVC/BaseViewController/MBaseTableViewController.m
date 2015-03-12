@@ -28,6 +28,7 @@
     {
         self.baseArray = [[NSMutableArray alloc]init];
     }
+    _currentPage = 1;
 }
 
 - (void)didReceiveMemoryWarning
@@ -154,5 +155,49 @@
     NSLog(@"刷新状态变更就会调用");
 }
 
+#pragma mark- 有加载动画并且有上啦加载效果的数据解析成功
+-(void)indicatorDataAnalysisSuccess:(NSArray *)array page:(NSInteger)page
+{
+    if (page == 1)
+    {//默认是从第一页开始
+        
+        [self stopAnimationIndicatorLoadText:@"加载成功!" withType:YES];
+    }
+    
+    if (array.count >0 && array.count == MPageSize)
+    {
+        _currentPage +=1;
+        [self creatFootViewRefresh];
+        
+    }else
+    {
+        for (id object in array)
+        {
+            [self.baseArray addObject:object];
+            [self.baseTableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:self.baseArray.count-1 inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
+        }
+        if (array.count == 0)
+        {
+            [self removeFootViewRefresh];
+            if (self.baseArray.count<=0)
+            {
+                [self stopAnimationIndicatorLoadText:YYNOTDATATEXT withType:NO];
+            }
+            
+        }else
+        {
+            _currentPage +=1;
+        }
+    }
+}
+-(void)indicatorDataAnalysisFailure:(NSInteger)page
+{
+    if (page == 1)
+    {
+        [self stopAnimationIndicatorLoadText:YYFailReloadText
+                                    withType:NO
+                                    loadType:MLoadTypeFail];
+    }
+}
 
 @end

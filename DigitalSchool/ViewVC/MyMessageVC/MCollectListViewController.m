@@ -18,50 +18,34 @@
 #import "MPlayVideoViewController.h"
 
 @interface MCollectListViewController ()
-
+{
+    PLActivityProcess *activityProcess;
+    PLCourseProcess *courseProcess;
+}
 @end
 
 @implementation MCollectListViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     
-    PLActivityProcess *activityProcess = [[PLActivityProcess alloc] init];
-    PLCourseProcess *courseProcess = [[PLCourseProcess alloc] init];
+    self.title = _collectType == COLLECT_COURSE?@"收藏课程":@"收藏活动";
     
-    if (_collectType == COLLECT_COURSE) {
-        self.title = @"收藏课程";
-        
-        if (![self checkUserLogin]) {
-            return;
-        }
-        
-        [courseProcess getAttentionCourse:10 didCurrentPage:1 diduserId:@"1" didSuccess:^(NSMutableArray *array) {
-            _collect_list = array;
-            [self.baseTableView reloadData];
-        } didFail:^(NSString *error) {
-            
-        }];
-    }else if (_collectType == COLLECT_ACTIVITY) {
-        self.title = @"收藏活动";
-        if (![self checkUserLogin]) {
-            return;
-        }
-
-        [activityProcess  activityAttentions:10 didCurrentPage:1 didUserId:@"1" didSuccess:^(NSMutableArray *array) {
-            _collect_list = array;
-            [self.baseTableView reloadData];
-        } didFail:^(NSString *error) {
-            
-        }];
-    }
+    activityProcess = [[PLActivityProcess alloc] init];
+    courseProcess = [[PLCourseProcess alloc] init];
     
-    // Do any additional setup after loading the view.
+    CGRect animationR = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+    [super creatAnimationIndicator:animationR superView:self.view delegate:self];
+    
+    
+    [self getCollectData:self.currentPage];
+    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+
 }
 
 #pragma mark
@@ -73,7 +57,7 @@
 
 -(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [_collect_list count];
+    return [self.baseArray count];
 }
 
 -(CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
@@ -101,14 +85,14 @@
     if (_collectType == COLLECT_COURSE) {
         static NSString *cellIdectifier = @"CourseIdentifierCell";
         MCourseCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdectifier];
-        PLCollect *collect = [_collect_list objectAtIndex:indexPath.row];
+        PLCollect *collect = [self.baseArray objectAtIndex:indexPath.row];
         [cell setBaseModel:collect.courses];
         return cell;
     }else{
         static NSString *cellIdentifier = @"MActivityCollectCell";
         ActivityCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
         
-        PLCollect *collect = [_collect_list objectAtIndex:indexPath.row];
+        PLCollect *collect = [self.baseArray objectAtIndex:indexPath.row];
         [cell setActivity:collect.activitys];
         
         return cell;
@@ -131,23 +115,48 @@
     NSIndexPath *indexpath = (NSIndexPath *) sender;
     if ([segue.identifier isEqualToString:@"ActivityInfoIdentifier"]) {
         ActivitiesInfoViewController *activity = segue.destinationViewController;
-        PLCollect *collect = [_collect_list objectAtIndex:indexpath.row];
+        PLCollect *collect = [self.baseArray objectAtIndex:indexpath.row];
         activity.activity = collect.activitys;
     }else if ([segue.identifier isEqualToString:@"CoursePlayIdentifier"]) {
         MPlayVideoViewController *play = segue.destinationViewController;
-        PLCollect *collect = [_collect_list objectAtIndex:indexpath.row];
+        PLCollect *collect = [self.baseArray objectAtIndex:indexpath.row];
         play.objectModel = collect.courses;
     }
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+#pragma mark- RefreshViewDelegate
+// 开始进入刷新状态就会调用
+-(void)refreshViewBeginRefreshing:(MJRefreshBaseView *)refreshView
+{
+    [self getCollectData:self.currentPage];
 }
-*/
+
+-(void)getCollectData:(NSInteger)page
+{
+    if (![self checkUserLogin]) {
+        return;
+    }
+    
+    if (page ==1)
+    {
+        [super startAnimationIndicator];
+    }
+    
+    if (_collectType == COLLECT_COURSE) {
+        
+        [courseProcess getAttentionCourse:MPageSize didCurrentPage:page diduserId:@"1" didSuccess:^(NSMutableArray *array) {
+            [super indicatorDataAnalysisSuccess:array page:page];
+        } didFail:^(NSString *error) {
+            [super indicatorDataAnalysisFailure:page];
+        }];
+    }else if (_collectType == COLLECT_ACTIVITY) {
+
+        [activityProcess  activityAttentions:MPageSize didCurrentPage:page didUserId:@"1" didSuccess:^(NSMutableArray *array) {
+            [super indicatorDataAnalysisSuccess:array page:page];
+        } didFail:^(NSString *error) {
+            [super indicatorDataAnalysisFailure:page];
+        }];
+    }
+}
 
 @end

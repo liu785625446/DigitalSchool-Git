@@ -15,10 +15,12 @@
 {
     UITableView *baseTableView;
     NSMutableArray *baseArray;
+    
     MJRefreshFooterView *_footView;
 }
 @property(nonatomic,strong)IBOutlet UITableView *baseTableView;
 @property(nonatomic,strong)NSMutableArray *baseArray;
+@property(nonatomic,assign)NSInteger currentPage;// 当前页数（从1开始，下同）
 
 -(void)initBaseTableView:(UITableViewStyle)style
           separatorStyle:(UITableViewCellSeparatorStyle)separatorStyle
@@ -49,6 +51,12 @@
 - (void)refreshViewEndRefreshing:(MJRefreshBaseView *)refreshView;
 // 刷新状态变更就会调用
 - (void)refreshView:(MJRefreshBaseView *)refreshView stateChange:(MJRefreshState)state;
+
+
+
+#pragma mark- 有加载动画并且有上啦加载效果的数据解析成功
+-(void)indicatorDataAnalysisSuccess:(NSArray *)array page:(NSInteger)page;
+-(void)indicatorDataAnalysisFailure:(NSInteger)page;
 
 
 @end

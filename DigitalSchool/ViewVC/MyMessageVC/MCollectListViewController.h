@@ -20,6 +20,5 @@ typedef enum {
 @interface MCollectListViewController : MBaseTableViewController
 
 @property (assign) COLLECT_TYPE collectType;
-@property (nonatomic, strong) NSArray *collect_list;
 
 @end

@@ -10,6 +10,6 @@
 
 @interface MSearchViewController : MBaseTableViewController
 {
-    int currentPage; // 当前页数（从1开始，下同）
+    
 }
 @end

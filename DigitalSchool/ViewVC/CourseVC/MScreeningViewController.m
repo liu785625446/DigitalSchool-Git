@@ -47,7 +47,7 @@
     
     self.title = @"课程筛选";
     
-    currentPage = 1;
+    
     self.screenItems = [[NSMutableArray alloc]init];
     self.courseProcess = [[PLCourseProcess alloc]init];
     
@@ -66,7 +66,7 @@
         
         [self.screenItems addObjectsFromArray:array];
         
-        [self getGradeListCurrentPage:currentPage
+        [self getGradeListCurrentPage:self.currentPage
                              didGrade:0
                            didSubject:0
                            didTeacher:0
@@ -99,6 +99,8 @@
                   separatorStyle:UITableViewCellSeparatorStyleNone
                            frame:tabR];
         self.baseTableView.backgroundColor = self.view.backgroundColor;
+        
+        [super setIndicatorFrame:self.menu.frame.size.height+self.menu.frame.origin.y];
         [super indicatorBringSubviewToFront];
     }
     
@@ -113,9 +115,6 @@
                                              menuSelects:menuSelects];
         self.menu.delegate = self;
         [self.view addSubview:self.menu];
- 
-        [super setIndicatorFrame:self.menu.frame.size.height+self.menu.frame.origin.y];
- 
     }
 }
 
@@ -174,7 +173,7 @@
 -(void)didMenuLine:(NSInteger)line row:(NSInteger)row menuObject:(id)menuObject
 {
     NSLog(@"line = %d,row = %d",line,row);
-    currentPage = 1;
+    self.currentPage = 1;
     [self.baseArray removeAllObjects];
     [self.baseTableView reloadData];
     
@@ -190,7 +189,7 @@
     {//教师
         teacher = [[menuObject objectForKey:@"id"] intValue];;
     }
-    [self getGradeListCurrentPage:currentPage
+    [self getGradeListCurrentPage:self.currentPage
                          didGrade:grade
                        didSubject:subject
                        didTeacher:teacher
@@ -200,7 +199,7 @@
 // 开始进入刷新状态就会调用
 -(void)refreshViewBeginRefreshing:(MJRefreshBaseView *)refreshView
 {
-    [self getGradeListCurrentPage:currentPage
+    [self getGradeListCurrentPage:self.currentPage
                          didGrade:grade
                        didSubject:subject
                        didTeacher:teacher
@@ -216,7 +215,7 @@
         
     }else
     {
-        [self getGradeListCurrentPage:currentPage
+        [self getGradeListCurrentPage:self.currentPage
                              didGrade:grade
                            didSubject:subject
                            didTeacher:teacher
@@ -249,46 +248,19 @@
      {
          if (mCurrentPage == 1)
          {//默认是从第一页开始
-             
-             [super stopAnimationIndicatorLoadText:@"加载成功!" withType:YES];
+             [self stopAnimationIndicatorLoadText:@"加载成功!" withType:YES];
              [self creatMScreeningMenuWithMenuSelects:@[[NSIndexPath indexPathForRow:self.courseType inSection:0]]];
              [self creatTableView];
              
          }
-         if (array.count >0 && array.count == MPageSize)
-         {
-             currentPage +=1;
-             [super creatFootViewRefresh];
-             
-         }else
-         {
-             for (id object in array)
-             {
-                 [self.baseArray addObject:object];
-                 [self.baseTableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:self.baseArray.count-1 inSection:0]] withRowAnimation:UITableViewRowAnimationMiddle];
-             }
-             if (array.count == 0)
-             {
-                 [super removeFootViewRefresh];
-                 if (self.baseArray.count<=0)
-                 {
-                     [super stopAnimationIndicatorLoadText:@"没有数据!" withType:NO];
-                 }
-                 
-             }else
-             {
-                 currentPage +=1;
-             }
-         }
+         [super indicatorDataAnalysisSuccess:array page:mCurrentPage];
          
      } didFail:^(NSString *error)
      {
          if (mCurrentPage == 1)
          {
              isCourseCondition = NO;
-             [super stopAnimationIndicatorLoadText:YYFailReloadText
-                                          withType:NO
-                                          loadType:MLoadTypeFail];
+             [super indicatorDataAnalysisFailure:mCurrentPage];
          }
      }];
 }

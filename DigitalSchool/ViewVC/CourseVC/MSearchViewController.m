@@ -37,8 +37,6 @@
     CGRect animationR = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
     [super creatAnimationIndicator:animationR superView:self.view delegate:self];
     
-    currentPage = 1;
-    
 }
 
 - (void)didReceiveMemoryWarning
@@ -76,66 +74,36 @@
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
     [searchBar resignFirstResponder];
-    currentPage = 1;
+    self.currentPage = 1;
     self.seachText = searchBar.text;
     [self getData:searchBar.text];
 }
 
 -(void)getData:(NSString *)searchText
 {
-    if (currentPage == 1)
+    if (self.currentPage == 1)
     {
         [super startAnimationIndicator];
     }
     [self.courseProcess getCourseSearch:MPageSize
-                         didCurrentPage:currentPage
+                         didCurrentPage:self.currentPage
                               didSearch:searchText
                              didSuccess:^(NSMutableArray *array)
      {
          
-         if (currentPage == 1)
+         if (self.currentPage == 1)
          {//默认是从第一页开始
              
-             [super stopAnimationIndicatorLoadText:@"加载成功!" withType:YES];
              [self creatTableView];
              
              [super indicatorBringSubviewToFront];
          }
-         if (array.count >0 && array.count == MPageSize)
-         {
-             currentPage +=1;
-             [super creatFootViewRefresh];
-             
-         }else
-         {
-             for (id object in array)
-             {
-                 [self.baseArray addObject:object];
-                 [self.baseTableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:self.baseArray.count-1 inSection:0]] withRowAnimation:UITableViewRowAnimationMiddle];
-             }
-             if (array.count == 0)
-             {
-                 [super removeFootViewRefresh];
-                 if (self.baseArray.count<=0)
-                 {
-                     [super stopAnimationIndicatorLoadText:@"没有数据!" withType:NO];
-                 }
-                 
-             }else
-             {
-                 currentPage +=1;
-             }
-         }
+         [super indicatorDataAnalysisSuccess:array page:self.currentPage];
 
          
      } didFail:^(NSString *error)
      {
-         if (currentPage == 1)
-         {
-             [super stopAnimationIndicatorLoadText:YYFailReloadText
-                                          withType:NO
-                                          loadType:MLoadTypeFail];
-         }
+         [super indicatorDataAnalysisFailure:self.currentPage];
      }];
 }
 

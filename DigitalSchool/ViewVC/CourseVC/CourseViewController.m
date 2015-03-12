@@ -383,7 +383,7 @@
     {
         if (mArray.count<=0)
         {
-            [self.menuView stopAnimationIndicatorLoadText:@"没有数据!"
+            [self.menuView stopAnimationIndicatorLoadText:YYNOTDATATEXT
                                                  withType:NO
                                              mCurentIndex:mCurrentIndex];
         }else

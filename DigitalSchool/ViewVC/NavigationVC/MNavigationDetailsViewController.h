@@ -10,8 +10,6 @@
 
 @interface MNavigationDetailsViewController : MBaseTableViewController
 
-@property (nonatomic, strong) NSMutableArray *course_list;
-
 @property (nonatomic, strong) NSString *titleStr;
 
 @end

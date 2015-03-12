@@ -18,24 +18,20 @@
 
 @implementation ActivitiesViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
-//    self.baseTableView.hidden = YES;
-    _activityList = [[NSArray alloc] init];
     _activityProcess = [[PLActivityProcess alloc] init];
     
-    [_activityProcess getActivityList:10 didCurrentPage:1 didSuccess:^(NSMutableArray *array){
-        _activityList = array;
-//        self.baseTableView.hidden = NO;
-        [self.baseTableView reloadData];
-    }didFail:^(NSString *error) {
-        
-    }];
+    CGRect animationR = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+    [super creatAnimationIndicator:animationR superView:self.view delegate:self];
+    
+    [self getActivityData:self.currentPage];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    
 }
 -(void)viewWillAppear:(BOOL)animated
 {
@@ -59,7 +55,7 @@
 
 -(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [_activityList count];
+    return [self.baseArray count];
 }
 
 -(CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -82,7 +78,7 @@
 {
     static NSString *cellIdentifier = @"ActivitiesCell";
     ActivityCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
-    PLActivity *activity = [_activityList objectAtIndex:indexPath.row];
+    PLActivity *activity = [self.baseArray objectAtIndex:indexPath.row];
     cell.activity = activity;
     return cell;
 }
@@ -97,8 +93,32 @@
     NSIndexPath *indexPath = (NSIndexPath *)sender;
     if ([segue.identifier isEqualToString:@"ActivitiesInfo"]) {
         ActivitiesInfoViewController *activitiesView = segue.destinationViewController;
-        activitiesView.activity = [_activityList objectAtIndex:indexPath.row];
+        activitiesView.activity = [self.baseArray objectAtIndex:indexPath.row];
     }
+}
+#pragma mark- RefreshViewDelegate
+// 开始进入刷新状态就会调用
+-(void)refreshViewBeginRefreshing:(MJRefreshBaseView *)refreshView
+{
+    [self getActivityData:self.currentPage];
+}
+
+#pragma mark -获取活动列表
+-(void)getActivityData:(NSInteger)page
+{
+    if (page == 1)
+    {
+        [super startAnimationIndicator];
+    }
+    [_activityProcess getActivityList:MPageSize
+                       didCurrentPage:page
+                           didSuccess:^(NSMutableArray *array){
+                               
+                               [super indicatorDataAnalysisSuccess:array page:page];
+                               
+                           }didFail:^(NSString *error) {
+                               [super indicatorDataAnalysisFailure:page];
+                           }];
 }
 
 @end

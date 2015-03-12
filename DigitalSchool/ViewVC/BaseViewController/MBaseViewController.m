@@ -49,9 +49,12 @@ static BOOL isHUD = NO;
         }else if (self.tabBarItem.tag ==3)
         {//直播
              self.tabBarController.title = @"直播";
-        }else
+        }else if(self.tabBarItem.tag == 4)
         {//我的信息
-             self.tabBarController.title = @"导航";
+             self.tabBarController.title = @"我的资料";
+        }else
+        {
+            self.tabBarController.title = @"导航";
         }
         [self creatNavItem:NO];
     }

@@ -29,40 +29,18 @@
         UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"ActivitiesInfoEdit.png"] style:UIBarButtonItemStyleDone target:self action:@selector(commentActivityAction:)];
         self.navigationItem.rightBarButtonItem = item;
     }
-    // Do any additional setup after loading the view.
+    
+    CGRect animationR = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+    [super creatAnimationIndicator:animationR superView:self.view delegate:self];
+    
+    [self getDatas:self.currentPage];
 }
 
 
 
 -(void) viewWillAppear:(BOOL)animated
 {
-    if (_cellStyle == WINNERWORKS) {
-        self.title = @"获奖作品";
-        
-        [_workProcess getActivityWorksList:10 didCurrentPage:1 didActivityId:_styleId didType:1 didSuccess:^(NSMutableArray *array){
-            _array = array;
-            [self.baseTableView reloadData];
-        }didFail:^(NSString *error) {
-            
-        }];
-    }else if (_cellStyle == ALLWORKS) {
-        self.title = @"全部作品";
-        
-        [_workProcess getActivityWorksList:10 didCurrentPage:1 didActivityId:_styleId didType:0 didSuccess:^(NSMutableArray *array){
-            _array = array;
-            [self.baseTableView reloadData];
-        }didFail:^(NSString *error) {
-            
-        }];
-    }else if (_cellStyle ==  ALLCOMMENT) {
-        self.title = @"全部评论";
-        [_discussProcess getActivityDiscussList:10 didCurrentPage:1 didActivityId:_styleId didSuccess:^(NSMutableArray *array) {
-            _array = array;
-            [self.baseTableView reloadData];
-        } didFail:^(NSString *error) {
-            
-        }];
-    }
+    
 }
 
 -(void) commentActivityAction:(id)sender
@@ -97,7 +75,7 @@
 
 -(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [_array count];
+    return [self.baseArray count];
 }
 
 -(CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -111,7 +89,7 @@
         static NSString *cellIdentifier = @"WorksCellIndentifier";
         ActivityWorksCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
         
-        PLWorks *works = [_array objectAtIndex:indexPath.row];
+        PLWorks *works = [self.baseArray objectAtIndex:indexPath.row];
         cell.works = works;
         
         return cell;
@@ -119,28 +97,63 @@
         static NSString *cellIdentifier = @"WorksCellIndentifier";
         ActivityWorksCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
         
-        PLWorks *works = [_array objectAtIndex:indexPath.row];
+        PLWorks *works = [self.baseArray objectAtIndex:indexPath.row];
         cell.works = works;
         return cell;
     }else{
         static NSString *cellIdentifier = @"CommentCellIndentifier";
         ActivityDiscussCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
         
-        PLDiscuss *discuss = [_array objectAtIndex:indexPath.row];
+        PLDiscuss *discuss = [self.baseArray objectAtIndex:indexPath.row];
         cell.discuss = discuss;
         
         return cell;
     }
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+#pragma mark- RefreshViewDelegate
+// 开始进入刷新状态就会调用
+-(void)refreshViewBeginRefreshing:(MJRefreshBaseView *)refreshView
+{
+    [self getDatas:self.currentPage];
 }
-*/
+
+-(void)getDatas:(NSInteger)page
+{
+    
+    if (page == 1)
+    {
+        [self startAnimationIndicator];
+    }
+    if (_cellStyle == WINNERWORKS)
+    {
+        self.title = @"获奖作品";
+        
+        [_workProcess getActivityWorksList:MPageSize didCurrentPage:page didActivityId:_styleId didType:1 didSuccess:^(NSMutableArray *array){
+            [super indicatorDataAnalysisSuccess:array page:page];
+        }didFail:^(NSString *error) {
+            [super indicatorDataAnalysisFailure:page];
+        }];
+        
+    }else if (_cellStyle == ALLWORKS)
+    {
+        self.title = @"全部作品";
+        
+        [_workProcess getActivityWorksList:MPageSize didCurrentPage:page didActivityId:_styleId didType:0 didSuccess:^(NSMutableArray *array){
+            [super indicatorDataAnalysisSuccess:array page:page];
+        }didFail:^(NSString *error) {
+            [super indicatorDataAnalysisFailure:page];
+        }];
+        
+    }else if (_cellStyle ==  ALLCOMMENT)
+    {
+        self.title = @"全部评论";
+        [_discussProcess getActivityDiscussList:MPageSize didCurrentPage:page didActivityId:_styleId didSuccess:^(NSMutableArray *array) {
+            [super indicatorDataAnalysisSuccess:array page:page];
+        } didFail:^(NSString *error) {
+            [super indicatorDataAnalysisFailure:page];
+        }];
+    }
+}
 
 @end
