@@ -7,12 +7,11 @@
 //
 
 #import "MNavigationDetailsViewController.h"
-#import "PLCourseProcess.h"
 #import "MCourseCell.h"
 
 @interface MNavigationDetailsViewController ()
 {
-    PLCourseProcess *courseProcess;
+//    PLCourseProcess *courseProcess;
 }
 @end
 
@@ -25,8 +24,30 @@
     self.tabBarController.automaticallyAdjustsScrollViewInsets = YES;
     self.baseTableView.backgroundColor = self.view.backgroundColor;
     
-    courseProcess = [[PLCourseProcess alloc] init];
-    self.title = _titleStr;
+    _navsProcess = [[PLNavsProcess alloc] init];
+    self.title = _navs.navTitle;
+    
+    [_navsProcess getNavsDatails:10 didCurrentPage:1 didNavId:_navs.navId didSuccess:^(NSMutableArray *array) {
+        
+    } didFail:^(NSString *error) {
+        
+    }];
+//    [courseProcess getCourseFilter:10
+//                    didCurrentPage:1
+//                          didGrade:0
+//                        didSubject:0
+//                        didTeacher:0
+//                           didType:0
+//                        didSuccess:^(NSMutableArray *array)
+//     {
+//        _course_list = array;
+//        [self.baseTableView reloadData];
+//         
+//    } didFail:^(NSString *error) {
+//        
+//    }];
+//    courseProcess = [[PLCourseProcess alloc] init];
+//    self.title = _titleStr;
     
     CGRect animationR = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
     [super creatAnimationIndicator:animationR superView:self.view delegate:self];
@@ -96,19 +117,19 @@
         [super startAnimationIndicator];
     }
     
-    [courseProcess getCourseFilter:MPageSize
-                    didCurrentPage:self.currentPage
-                          didGrade:0
-                        didSubject:0
-                        didTeacher:0
-                           didType:0
-                        didSuccess:^(NSMutableArray *array)
-     {
-         [super indicatorDataAnalysisSuccess:array page:page];
-         
-     } didFail:^(NSString *error) {
-         [super indicatorDataAnalysisFailure:page];
-     }];
+//    [courseProcess getCourseFilter:MPageSize
+//                    didCurrentPage:self.currentPage
+//                          didGrade:0
+//                        didSubject:0
+//                        didTeacher:0
+//                           didType:0
+//                        didSuccess:^(NSMutableArray *array)
+//     {
+//         [super indicatorDataAnalysisSuccess:array page:page];
+//         
+//     } didFail:^(NSString *error) {
+//         [super indicatorDataAnalysisFailure:page];
+//     }];
 }
 
 

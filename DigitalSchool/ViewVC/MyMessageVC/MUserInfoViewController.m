@@ -158,7 +158,20 @@
     }
     [self showMyHUD:@"上传中..."];
     [_userProcess uploadHeadImg:_user_info.userId didHeadImg:imageData didSuccess:^(NSMutableArray *array) {
-        [self showSuccessHUD:@"头像上传成功"];
+        if ([array count] > 0) {
+            id url = [array objectAtIndex:0];
+            if ([url isKindOfClass:[NSString class]]) {
+                url = [NSString stringWithFormat:@"http://%@%@",ALL_URL,url];
+                
+                _user_info.userImg = url;
+                NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+                NSData *data = [NSKeyedArchiver archivedDataWithRootObject:_user_info];
+                [userDefaults setObject:data forKey:CURRENT_USER];
+                [userDefaults synchronize];
+                [self.baseTableView reloadData];
+                [self showSuccessHUD:@"头像上传成功"];
+            }
+        }
     } didFail:^(NSString *error) {
         [self showFailHUD:error];
     }];

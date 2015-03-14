@@ -20,8 +20,6 @@
 
 -(void) getCourseMainImg:(CallBackBlockSuccess)success didFail:(CallBackBlockFail)fail
 {
-    NSString *str = [BLTool md5:@"123{abc}"];
-    
     [PLInterface startRequest:ALL_URL didUrl:COURSE_MAIN([BLTool getKeyCode:@""]) didParam:nil didSuccess:^(id result){
         [self dataFormat:result didClass:NSStringFromClass([PLRecommendCourse class]) didSuccess:success didFail:fail];
     }didFail:^(NSString *error){

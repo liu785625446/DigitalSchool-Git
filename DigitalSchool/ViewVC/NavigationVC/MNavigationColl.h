@@ -7,10 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PLNavs.h"
+#import "UrlImageView.h"
 
 @interface MNavigationColl : UICollectionViewCell
 
-@property (nonatomic, assign) IBOutlet UIImageView *navImg;
+@property (nonatomic, assign) IBOutlet UrlImageView *navImg;
 @property (nonatomic, assign) IBOutlet UILabel *navTitle;
-
+@property (assign) int index;
+@property (nonatomic, strong) PLNavs *navs;
 @end

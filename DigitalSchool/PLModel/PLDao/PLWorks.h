@@ -20,6 +20,8 @@
 @property (nonatomic, strong) NSString *workURL;
 @property (nonatomic, strong) NSString *workWatchNum;
 @property (nonatomic, strong) NSString *workIntro;
+
+@property (nonatomic, strong) NSString *praise;
 @property (nonatomic, strong) PLUser *user;
 
 @end

@@ -92,7 +92,7 @@
 {
     userId = [self getUserId];
     NSString *encoderContent = [BLTool getEncoding:content];
-    NSString *code = [BLTool getKeyCode:[NSString stringWithFormat:@"%@%@%@%@",userId, discussId, content,@"3"]];
+    NSString *code = [BLTool getKeyCode:[NSString stringWithFormat:@"%@%@%@%@",userId, discussId, encoderContent,@"3"]];
     NSMutableDictionary *dic = [[NSMutableDictionary alloc] initWithCapacity:0];
     [dic setObject:userId forKey:@"userId"];
     [dic setObject:discussId forKey:@"discussId"];

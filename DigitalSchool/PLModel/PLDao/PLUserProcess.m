@@ -85,11 +85,13 @@
     
     MKNetworkOperation *operation = [engine operationWithPath:USER_UPLOAD_IMG params:dic httpMethod:@"POST"];
     
-    [operation addData:headImg forKey:@"file" mimeType:@"png" fileName:@"png"];
+    [operation addData:headImg forKey:@"file" mimeType:@"image/png" fileName:@"png"];
     [operation setFreezable:YES];
     
     [operation addCompletionHandler:^(MKNetworkOperation *op){
         id result = [op responseJSON];
+//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:[result objectForKey:@"message"] delegate:nil cancelButtonTitle:nil otherButtonTitles:@"aa", nil];
+//        [alert show];
         [self dataFormatPost:result didSuccess:success didFail:fail];
     }errorHandler:^(MKNetworkOperation *op, NSError *error){
         fail(REQUEST_ERROR);

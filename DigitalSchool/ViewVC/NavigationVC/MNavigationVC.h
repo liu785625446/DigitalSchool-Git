@@ -8,11 +8,14 @@
 
 #import "MBaseViewController.h"
 
+@class PLNavsProcess;
 
 @interface MNavigationVC : MBaseViewController<UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 
 @property (nonatomic, assign) IBOutlet UICollectionView *collection;
 
-@property (nonatomic, strong) NSArray *titleArray;
+@property (nonatomic, strong) NSArray *navs_list;
+
+@property (nonatomic, strong) PLNavsProcess *navsProcess;
 
 @end

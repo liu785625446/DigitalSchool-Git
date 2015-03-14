@@ -29,5 +29,6 @@
 @property (nonatomic, strong) NSString *status;
 @property (nonatomic, strong) NSString *subjectId;
 @property (nonatomic, strong) NSString *type;
+@property (nonatomic, strong) NSString *praise;
 
 @end

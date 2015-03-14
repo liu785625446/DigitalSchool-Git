@@ -14,6 +14,7 @@
 @synthesize worksImg;
 @synthesize worksName;
 @synthesize worksWatchNum;
+@synthesize worksPraise;
 @synthesize userName;
 
 - (void)awakeFromNib {
@@ -32,7 +33,7 @@
     worksName.text = _works.workTitle;
     [worksImg setImageWithURL:[NSURL URLWithString:_works.workImg] placeholderImage:[UIImage imageNamed:@"MActivityDefault.png"]];
     worksWatchNum.text = [NSString stringWithFormat:@"%@",_works.workWatchNum];
-    
+    worksPraise.text = _works.praise;
     userName.text = _works.user.userName;
 }
 

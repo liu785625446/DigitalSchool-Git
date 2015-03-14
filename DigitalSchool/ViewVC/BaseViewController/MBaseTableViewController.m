@@ -189,6 +189,7 @@
             _currentPage +=1;
         }
     }
+    [self.baseTableView reloadData];
 }
 -(void)indicatorDataAnalysisFailure:(NSInteger)page
 {

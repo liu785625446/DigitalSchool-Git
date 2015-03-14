@@ -1,12 +1,13 @@
-//
-//  PLNavsProcess.m
-//  DigitalSchool
-//
-//  Created by 刘军林 on 15/3/11.
-//  Copyright (c) 2015年 刘军林. All rights reserved.
-//
+    //
+    //  PLNavsProcess.m
+    //  DigitalSchool
+    //
+    //  Created by 刘军林 on 15/3/11.
+    //  Copyright (c) 2015年 刘军林. All rights reserved.
+    //
 
 #import "PLNavsProcess.h"
+#import "PLNavs.h"
 
 @implementation PLNavsProcess
 
@@ -15,7 +16,7 @@
     NSString *code = [BLTool getKeyCode:@""];
     NSString *url = code;
     [PLInterface startRequest:ALL_URL didUrl:NAV_NAVS(url) didParam:nil didSuccess:^(id result) {
-        
+        [self dataFormat:result didClass:NSStringFromClass([PLNavs class]) didSuccess:success didFail:fail];
     } didFail:^(NSString *error) {
         
     }];

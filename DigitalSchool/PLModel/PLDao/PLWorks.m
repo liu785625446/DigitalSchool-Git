@@ -18,6 +18,7 @@
 @synthesize workWatchNum;
 @synthesize user;
 @synthesize workIntro;
+@synthesize praise;
 
 -(id) init
 {

@@ -64,21 +64,20 @@
 
 -(IBAction)sendComment:(id)sender
 {
+    if (![self checkUserLogin]) {
+        return;
+    }
     if ([self.sizeLabel.text intValue]>0)
     {
         [SVProgressHUD showWithStatus:@"正在发送中..."
                              maskType:SVProgressHUDMaskTypeBlack];
-        
+ NSLog(@"aa%@bb%@cc",MCommentTitle,self.title);
         if ([self.title isEqualToString:MCommentTitle])
         {
             
             if (self.playVideoType == MPlayVideoTypeCourse)
             {
-                //课程
-                 if (![self checkUserLogin]) {
-                     return;
-                 }
-
+                //课
                 [self.discussProcess launchCourseDiscuss:self.courseId
                                                didUserId:@"1"
                                               didContent:self.comment.text
@@ -99,9 +98,6 @@
             }else if(self.playVideoType == MPlayVideoTypeWorks)
             {
                 //作品
-                 if (![self checkUserLogin]) {
-                     return;
-                 }
 
                 [self.discussProcess launchWorksDiscuss:self.courseId
                                               didUserId:@"1"
@@ -118,9 +114,6 @@
             }else
             {
                 //活动评论
-                 if (![self checkUserLogin]) {
-                     return;
-                 }
 
                 [self.discussProcess commentActivityDiscuss:self.courseId
                                                   didUserId:@"1"
@@ -137,9 +130,6 @@
             
         }else if([self.title isEqualToString:MNoteTitle])
         {//发表笔记
-            if (![self checkUserLogin]) {
-                return;
-            }
             [self.notesProcess noteWrite:@"1"
                              didCourseId:self.courseId
                               didContent:self.comment.text
@@ -159,9 +149,6 @@
             if (self.playVideoType == MPlayVideoTypeCourse)
             {
                 //课程
-                 if (![self checkUserLogin]) {
-                     return;
-                 }
 
                 [self.discussProcess replyDiscuss:@"1"
                                        didDiscuss:self.courseId
@@ -179,9 +166,6 @@
             }else
             {
                 //作品
-                 if (![self checkUserLogin]) {
-                     return;
-                 }
 
                 [self.discussProcess replyWorks:@"1"
                                      didDiscuss:self.courseId

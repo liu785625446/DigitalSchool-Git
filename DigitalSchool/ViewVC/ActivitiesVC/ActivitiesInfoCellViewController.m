@@ -12,6 +12,7 @@
 #import "ActivityWorksCell.h"
 #import "ActivityDiscussCell.h"
 #import "MCommentViewController.h"
+#import "MPlayVideoViewController.h"
 //#import "MWorksCell.h"
 //#import "MCommentCell.h"
 
@@ -30,24 +31,21 @@
         self.navigationItem.rightBarButtonItem = item;
     }
     
-    CGRect animationR = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
-    [super creatAnimationIndicator:animationR superView:self.view delegate:self];
-    
-    [self getDatas:self.currentPage];
 }
-
 
 
 -(void) viewWillAppear:(BOOL)animated
 {
+    CGRect animationR = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+    [super creatAnimationIndicator:animationR superView:self.view delegate:self];
     
+    [self getDatas:self.currentPage];
+
 }
 
 -(void) commentActivityAction:(id)sender
 {
-    [self checkUserLogin];
-
-//    [self performSegueWithIdentifier:@"commentActivity" sender:nil];
+    [self performSegueWithIdentifier:@"commentActivity" sender:nil];
 }
 
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -55,9 +53,13 @@
     if ([segue.identifier isEqualToString:@"commentActivity"]) {
         UINavigationController *nav = segue.destinationViewController;
         MCommentViewController *commentView = [nav.viewControllers objectAtIndex:0];
-        commentView.title = @"发评论";
+        commentView.title = MCommentTitle;
         commentView.playVideoType = MPlayVideoTypeActivities;
         commentView.courseId = _styleId;
+    }else if ([segue.identifier isEqualToString:@"playWorksIdentifier"]) {
+        MPlayVideoViewController *play = segue.destinationViewController;
+        play.mPlayVideoType = MPlayVideoTypeWorks;
+        play.objectModel = sender;
     }
 }
 
@@ -108,6 +110,17 @@
         cell.discuss = discuss;
         
         return cell;
+    }
+}
+
+-(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    if (_cellStyle == ALLWORKS || _cellStyle == WINNERWORKS) { //作品
+        PLWorks *works = [self.baseArray objectAtIndex:indexPath.row];
+        [self performSegueWithIdentifier:@"playWorksIdentifier" sender:works];
+    }else{ //评论
+        
     }
 }
 

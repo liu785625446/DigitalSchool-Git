@@ -20,12 +20,12 @@
 int main(int argc, char * argv[]) {
     
     //课程
-//    PLCourseProcess *courseProcess = [[PLCourseProcess alloc] init];
-//    [courseProcess getCourseMainImg:^(NSMutableArray *array) {
-//        
-//    } didFail:^(NSString *error) {
-//        
-//    }];
+    PLCourseProcess *courseProcess = [[PLCourseProcess alloc] init];
+    [courseProcess getCourseMainImg:^(NSMutableArray *array) {
+        
+    } didFail:^(NSString *error) {
+        
+    }];
     
 //    [courseProcess getCourseHostList:^(NSMutableArray *array) {
 //        

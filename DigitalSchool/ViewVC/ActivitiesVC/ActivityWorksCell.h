@@ -17,6 +17,7 @@
 @property (nonatomic, strong) IBOutlet UILabel *worksName;
 @property (nonatomic, strong) IBOutlet UILabel *worksWatchNum;
 @property (nonatomic, strong) IBOutlet UILabel *userName;
+@property (nonatomic, strong) IBOutlet UILabel *worksPraise;
 
 @property (nonatomic, strong) PLWorks *works;
 @end
