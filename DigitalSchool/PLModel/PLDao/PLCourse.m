@@ -26,6 +26,10 @@
 @synthesize status;
 @synthesize subjectId;
 @synthesize type;
+@synthesize gradeName;
+@synthesize subjectName;
+@synthesize volume;
+@synthesize volumeName;
 
 -(id) init
 {
@@ -46,6 +50,11 @@
         status = @"";
         subjectId = @"";
         type = @"";
+        gradeName = @"";
+        subjectName = @"";
+        volumeName = @"";
+        volume = @"";
+        
     }
     return self;
 }
@@ -92,6 +101,11 @@
             [self.courseTeacher setValuesForKeysWithDictionary:dic];
         }
         
+        self.courseTeacher.teacherName = value;
+        
+    }
+    if ([key isEqualToString:@"teacherIntro"]) {
+        self.courseTeacher.teacherIntroduction = value;
     }
 }
 

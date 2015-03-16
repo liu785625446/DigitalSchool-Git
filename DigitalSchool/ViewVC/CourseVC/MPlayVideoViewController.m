@@ -62,7 +62,7 @@ MBottomViewDelegate,MMenuViewDelegate,MDiscussNotesCellDelegate>
         itemArray = @[@"详细信息",@"讨论",@"笔记",@"章节"];
     }else
     {
-        itemArray = @[@"详细信息",@"讨论"];
+        itemArray = @[@"详细信息",@"讨论",@"笔记"];
     }
     
     
@@ -264,7 +264,7 @@ MBottomViewDelegate,MMenuViewDelegate,MDiscussNotesCellDelegate>
             PLCourse *course = self.objectModel;
             cell.titleLabel.text = @"讲师";
             [cell.iconImageView setImageWithURL:[NSURL URLWithString:course.courseTeacher.teacherImg]
-                               placeholderImage:[UIImage imageNamed:@"default_user_icon.png"]];
+                               placeholderImage:[UIImage imageNamed:@"ActivitiesInfoHead1.png"]];
             cell.nameLabel.text = course.courseTeacher.teacherName;
             cell.detailLabel.text = course.courseTeacher.teacherIntroduction;
             
@@ -273,7 +273,7 @@ MBottomViewDelegate,MMenuViewDelegate,MDiscussNotesCellDelegate>
             PLWorks *work = self.objectModel;
             cell.titleLabel.text = @"作者";
             [cell.iconImageView setImageWithURL:[NSURL URLWithString:work.user.userImg]
-                               placeholderImage:[UIImage imageNamed:@"default_user_icon.png"]];
+                               placeholderImage:[UIImage imageNamed:@"ActivitiesInfoHead1.png"]];
             cell.nameLabel.text = work.user.userName;
             cell.detailLabel.text = work.user.userSafeQuestion;
         }
@@ -293,7 +293,7 @@ MBottomViewDelegate,MMenuViewDelegate,MDiscussNotesCellDelegate>
         if (self.mPlayVideoType == MPlayVideoTypeCourse)
         {
             PLCourse *course = self.objectModel;
-            cell.detailLabel.text = course.courseIntroduction;
+            cell.detailLabel.text = course.courseContent;
             cell.titleLabel.text = @"课程简介";
             
         }else
@@ -332,6 +332,8 @@ MBottomViewDelegate,MMenuViewDelegate,MDiscussNotesCellDelegate>
         cell = [[NSBundle mainBundle]loadNibNamed:@"MDiscussNotesCell" owner:nil options:nil].firstObject;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.delegate = self;
+        cell.iconImage.layer.masksToBounds = YES;
+        cell.iconImage.layer.cornerRadius = cell.iconImage.frame.size.width/2;
         
     }
     NSInteger index = tableView.tag-kSubTableViewTag;
@@ -342,7 +344,7 @@ MBottomViewDelegate,MMenuViewDelegate,MDiscussNotesCellDelegate>
     {//讨论
         PLDiscuss *discuss = [array objectAtIndex:indexPath.row];
         [cell.iconImage setImageWithURL:[NSURL URLWithString:discuss.pluser.userImg]
-                       placeholderImage:[UIImage imageNamed:@"default_user_icon.png"]];
+                       placeholderImage:[UIImage imageNamed:@"ActivitiesInfoHead1.png"]];
         cell.userName.text = discuss.pluser.userNickName;
         cell.content.text = discuss.discussContent;
         cell.timeLabel.text = discuss.discussCreateTime;
@@ -353,7 +355,7 @@ MBottomViewDelegate,MMenuViewDelegate,MDiscussNotesCellDelegate>
     {//笔记
         PLNotes *notes = [array objectAtIndex:indexPath.row];
         [cell.iconImage setImageWithURL:[NSURL URLWithString:notes.user.userImg]
-                       placeholderImage:[UIImage imageNamed:@"default_user_icon.png"]];
+                       placeholderImage:[UIImage imageNamed:@"ActivitiesInfoHead1.png"]];
         cell.userName.text = notes.user.userNickName;
         cell.content.text = notes.noteContent;
         cell.timeLabel.text = notes.noteCreateTime;

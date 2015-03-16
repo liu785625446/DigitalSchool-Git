@@ -18,7 +18,7 @@
                         <rect key="frame" x="2" y="5" width="2" height="20"/>
                         <color key="backgroundColor" red="0.66666666666666663" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default_user_icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="Wnt-Y7-A4f" customClass="UrlImageView">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="teacherDIMG.png" translatesAutoresizingMaskIntoConstraints="NO" id="Wnt-Y7-A4f" customClass="UrlImageView">
                         <rect key="frame" x="10" y="31" width="40" height="40"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="40" id="PDJ-76-47M"/>
@@ -70,6 +70,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="default_user_icon.png" width="20" height="20"/>
+        <image name="teacherDIMG.png" width="59" height="59"/>
     </resources>
 </document>

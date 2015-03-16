@@ -32,6 +32,24 @@
  */
 -(void) getWorksDiscussList:(int)pageSize didCurrentPage:(int)currentPage didCourseId:(NSString *)courseId didSuccess:(CallBackBlockSuccess)success didFail:(CallBackBlockFail)fail;
 
+
+/**
+ *  获取课程或作品讨论回复列表
+ *  @param pageSize
+ *  @param currentPage
+ *  @param discussId  讨论ID
+ *  @param playVideoType  栏目类型
+ *  @param success
+ *  @param fail
+ */
+
+-(void)getReplyDiscussList:(int)pageSize
+            didCurrentPage:(int)currentPage
+              didDiscussId:(NSString *)discussId
+          didPlayVideoType:(int)playVideoType
+                didSuccess:(CallBackBlockSuccess)success
+                   didFail:(CallBackBlockFail)fail;
+
 /**
  *  评论课程
  *
