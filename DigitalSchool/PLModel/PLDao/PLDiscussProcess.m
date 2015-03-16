@@ -8,6 +8,7 @@
 
 #import "PLDiscussProcess.h"
 #import "PLDiscuss.h"
+#import "PLPeplyDiscuss.h"
 
 @implementation PLDiscussProcess
 
@@ -31,6 +32,32 @@
         fail(REQUEST_ERROR);
     }];
 }
+
+-(void)getReplyDiscussList:(int)pageSize
+            didCurrentPage:(int)currentPage
+              didDiscussId:(NSString *)discussId
+          didPlayVideoType:(int)playVideoType
+                didSuccess:(CallBackBlockSuccess)success
+                   didFail:(CallBackBlockFail)fail
+{
+    NSString *code = [BLTool getKeyCode:[NSString stringWithFormat:@"%d%d%@%d",pageSize, currentPage, discussId, playVideoType]];
+     NSString *url = [NSString stringWithFormat:@"%d/%d/%@/%d/%@",pageSize, currentPage, discussId, playVideoType,code];
+    
+    [PLInterface startRequest:ALL_URL
+                       didUrl:ReplysDiscuss(url)
+                     didParam:nil
+                   didSuccess:^(id result)
+    {
+        [self dataFormat:result
+                didClass:NSStringFromClass([PLPeplyDiscuss class])
+              didSuccess:success didFail:fail];
+        
+    }didFail:^(NSString *error)
+    {
+        fail(REQUEST_ERROR);
+    }];
+}
+
 -(void) launchCourseDiscuss:(NSString *)courseId didUserId:(NSString *)userId didContent:(NSString *)discussContent didSuccess:(CallBackBlockSuccess)success didFail:(CallBackBlockFail)fail
 {
     userId = [self getUserId];

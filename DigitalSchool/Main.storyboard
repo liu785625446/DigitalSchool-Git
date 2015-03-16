@@ -803,7 +803,7 @@
                                                 <constraint firstAttribute="width" constant="25" id="Knk-x2-bWi"/>
                                                 <constraint firstAttribute="height" constant="21" id="sWh-vr-h5e"/>
                                             </constraints>
-                                            <state key="normal" image="MySettingsBut.png">
+                                            <state key="normal" backgroundImage="MySettingsBut.png">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                             <connections>
@@ -1392,7 +1392,7 @@
                             <constraint firstItem="NR7-nw-s42" firstAttribute="top" secondItem="tya-oP-VnU" secondAttribute="top" constant="64" id="XQq-bD-oSx"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="导航" image="TabbarCourse.png" id="OR4-0W-Bzh"/>
+                    <tabBarItem key="tabBarItem" title="导航" image="TabbarNav.png" id="OR4-0W-Bzh"/>
                     <connections>
                         <outlet property="collection" destination="NR7-nw-s42" id="ouQ-wY-hoU"/>
                         <segue destination="GMg-n6-ogU" kind="push" identifier="MNavDetailsIdentifier" id="UC4-48-qxA"/>
@@ -1444,7 +1444,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ozo-SU-zjo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1211" y="-950"/>
+            <point key="canvasLocation" x="1365" y="-888"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Uhj-XM-dmh">
@@ -1460,7 +1460,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="It5-sZ-DMl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1689" y="-956"/>
+            <point key="canvasLocation" x="1807" y="-1578"/>
         </scene>
         <!--Comment View Controller-->
         <scene sceneID="i8b-Sx-Bfa">
@@ -1525,7 +1525,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T3G-zd-Cc4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2207" y="-950"/>
+            <point key="canvasLocation" x="2243" y="-1578"/>
         </scene>
         <!--活动-->
         <scene sceneID="Bqa-9c-0Eo">
@@ -2369,6 +2369,7 @@
         <image name="TabbarCourse.png" width="25" height="25"/>
         <image name="TabbarLive.png" width="25" height="25"/>
         <image name="TabbarMy.png" width="25" height="25"/>
+        <image name="TabbarNav.png" width="25" height="25"/>
         <image name="banner.png" width="426" height="216"/>
         <image name="downloadIng.png" width="26" height="26"/>
         <image name="downloadNoSelect.png" width="26" height="26"/>
@@ -2388,8 +2389,8 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="cXw-rl-Nas"/>
         <segue reference="dFt-LK-3i9"/>
-        <segue reference="lsD-er-YA6"/>
+        <segue reference="0Ur-Fx-svh"/>
+        <segue reference="USN-t9-CdT"/>
     </inferredMetricsTieBreakers>
 </document>

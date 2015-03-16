@@ -62,7 +62,7 @@ MBottomViewDelegate,MMenuViewDelegate,MDiscussNotesCellDelegate>
         itemArray = @[@"详细信息",@"讨论",@"笔记",@"章节"];
     }else
     {
-        itemArray = @[@"详细信息",@"讨论"];
+        itemArray = @[@"详细信息",@"讨论",@"笔记"];
     }
     
     
@@ -284,7 +284,7 @@ MBottomViewDelegate,MMenuViewDelegate,MDiscussNotesCellDelegate>
         if (self.mPlayVideoType == MPlayVideoTypeCourse)
         {
             PLCourse *course = self.objectModel;
-            cell.detailLabel.text = course.courseIntroduction;
+            cell.detailLabel.text = course.courseContent;
             cell.titleLabel.text = @"课程简介";
             
         }else
@@ -323,6 +323,8 @@ MBottomViewDelegate,MMenuViewDelegate,MDiscussNotesCellDelegate>
         cell = [[NSBundle mainBundle]loadNibNamed:@"MDiscussNotesCell" owner:nil options:nil].firstObject;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.delegate = self;
+        cell.iconImage.layer.masksToBounds = YES;
+        cell.iconImage.layer.cornerRadius = cell.iconImage.frame.size.width/2;
         
     }
     NSInteger index = tableView.tag-kSubTableViewTag;
