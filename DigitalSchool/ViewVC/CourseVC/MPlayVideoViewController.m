@@ -91,8 +91,17 @@ MBottomViewDelegate,MMenuViewDelegate,MDiscussNotesCellDelegate>
     [_moviePlayer setScalingMode:MPMovieScalingModeAspectFit];
     [_moviePlayer addConstraintSupview:self.view];
     
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"课程2" ofType:@"mp4"];
-    NSURL *url = [[NSURL alloc] initFileURLWithPath:path];
+//    NSString *path = [[NSBundle mainBundle] pathForResource:@"课程2" ofType:@"mp4"];
+//    NSURL *url = [[NSURL alloc] initFileURLWithPath:path];
+    NSURL *url;
+    if (_mPlayVideoType == MPlayVideoTypeCourse) {
+        PLCourse *course = (PLCourse *)self.objectModel;
+        url = [NSURL URLWithString:course.courseVideoURL];
+    }else if (_mPlayVideoType == MPlayVideoTypeWorks) {
+        PLWorks *works = (PLWorks *) self.objectModel;
+        url = [NSURL URLWithString:works.workURL];
+    }
+//     = [NSURL URLWithString:
     
 //    if (self.mPlayVideoType == MPlayVideoTypeCourse)
 //    {
@@ -106,7 +115,7 @@ MBottomViewDelegate,MMenuViewDelegate,MDiscussNotesCellDelegate>
 //    }
     [_moviePlayer setContentURL:url];
     [_moviePlayer setRepeatMode:MPMovieRepeatModeOne];
-    [_moviePlayer setMovieSourceType:MPMovieSourceTypeFile];
+    [_moviePlayer setMovieSourceType:MPMovieSourceTypeStreaming];
     [_moviePlayer play];
     
     
