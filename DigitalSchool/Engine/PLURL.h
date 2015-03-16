@@ -87,6 +87,8 @@
 
 #define WORK_UPLOAD [NSString stringWithFormat:@"/DSApp/work/upload.json"]
 
+#define ReplysDiscuss(url) [NSString stringWithFormat:@"/DSApp/cdiscuss/replys/%@.json",url]
+
 #define REQUEST_ERROR @"请求失败"
 
 #endif

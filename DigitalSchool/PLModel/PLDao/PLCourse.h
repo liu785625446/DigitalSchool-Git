@@ -25,10 +25,14 @@
 
 @property (nonatomic, strong) NSString *chapterId;
 @property (nonatomic, strong) NSString *gradeId;
+@property (nonatomic, strong) NSString *gradeName;
 @property (nonatomic, strong) NSString *length;
 @property (nonatomic, strong) NSString *status;
 @property (nonatomic, strong) NSString *subjectId;
+@property (nonatomic, strong) NSString *subjectName;
 @property (nonatomic, strong) NSString *type;
 @property (nonatomic, strong) NSString *praise;
+@property (nonatomic, strong) NSString *volume;
+@property (nonatomic, strong) NSString *volumeName;
 
 @end

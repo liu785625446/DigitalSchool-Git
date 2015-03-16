@@ -11,9 +11,10 @@
 
 typedef enum{
     
-    MPlayVideoTypeCourse = 0, //课程
-    MPlayVideoTypeWorks,  //(作品)
-    MPlayVideoTypeActivities //活动
+    MPlayVideoTypeCourse = 1, //课程
+    MPlayVideoTypeActivities, //活动
+    MPlayVideoTypeWorks  //(作品)
+    
     
 }MPlayVideoType;
 

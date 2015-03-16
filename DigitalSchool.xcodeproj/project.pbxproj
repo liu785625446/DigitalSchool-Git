@@ -65,8 +65,6 @@
 		0A9A57351A70026300DA8122 /* MyRootActivitise.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A9A57181A70026300DA8122 /* MyRootActivitise.png */; };
 		0A9A57361A70026300DA8122 /* MyRootMenu.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A9A57191A70026300DA8122 /* MyRootMenu.png */; };
 		0A9A57371A70026300DA8122 /* MyRootMessage.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A9A571A1A70026300DA8122 /* MyRootMessage.png */; };
-		0A9A57381A70026300DA8122 /* MySettingsBut_select.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A9A571B1A70026300DA8122 /* MySettingsBut_select.png */; };
-		0A9A57391A70026300DA8122 /* MySettingsBut.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A9A571C1A70026300DA8122 /* MySettingsBut.png */; };
 		0A9A573A1A70026300DA8122 /* SystemSettings.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A9A571D1A70026300DA8122 /* SystemSettings.png */; };
 		0A9A573B1A70026300DA8122 /* SystemSettingsAbout.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A9A571E1A70026300DA8122 /* SystemSettingsAbout.png */; };
 		0A9A573C1A70026300DA8122 /* SystemSettingsClear.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A9A571F1A70026300DA8122 /* SystemSettingsClear.png */; };
@@ -324,6 +322,7 @@
 		8B1367B51AB6875F00AA482C /* MRegisterNickNameImg@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B1367B31AB6875F00AA482C /* MRegisterNickNameImg@3x.png */; };
 		8B1367B81AB6884300AA482C /* teacherDIMG@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B1367B61AB6884300AA482C /* teacherDIMG@2x.png */; };
 		8B1367B91AB6884300AA482C /* teacherDIMG@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B1367B71AB6884300AA482C /* teacherDIMG@3x.png */; };
+		8B1367BC1AB6B2E000AA482C /* PLPeplyDiscuss.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B1367BB1AB6B2E000AA482C /* PLPeplyDiscuss.m */; };
 		8B1F6AC61AAFC624009F3E6C /* boxbg_left_over.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B1F6ABA1AAFC624009F3E6C /* boxbg_left_over.png */; };
 		8B1F6AC71AAFC624009F3E6C /* boxbg_left_upline_over.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B1F6ABB1AAFC624009F3E6C /* boxbg_left_upline_over.png */; };
 		8B1F6AC81AAFC624009F3E6C /* boxbg_left_upline.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B1F6ABC1AAFC624009F3E6C /* boxbg_left_upline.png */; };
@@ -494,8 +493,6 @@
 		0A9A57181A70026300DA8122 /* MyRootActivitise.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MyRootActivitise.png; sourceTree = "<group>"; };
 		0A9A57191A70026300DA8122 /* MyRootMenu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MyRootMenu.png; sourceTree = "<group>"; };
 		0A9A571A1A70026300DA8122 /* MyRootMessage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MyRootMessage.png; sourceTree = "<group>"; };
-		0A9A571B1A70026300DA8122 /* MySettingsBut_select.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MySettingsBut_select.png; sourceTree = "<group>"; };
-		0A9A571C1A70026300DA8122 /* MySettingsBut.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MySettingsBut.png; sourceTree = "<group>"; };
 		0A9A571D1A70026300DA8122 /* SystemSettings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SystemSettings.png; sourceTree = "<group>"; };
 		0A9A571E1A70026300DA8122 /* SystemSettingsAbout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SystemSettingsAbout.png; sourceTree = "<group>"; };
 		0A9A571F1A70026300DA8122 /* SystemSettingsClear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SystemSettingsClear.png; sourceTree = "<group>"; };
@@ -828,6 +825,8 @@
 		8B1367B31AB6875F00AA482C /* MRegisterNickNameImg@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MRegisterNickNameImg@3x.png"; sourceTree = "<group>"; };
 		8B1367B61AB6884300AA482C /* teacherDIMG@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "teacherDIMG@2x.png"; sourceTree = "<group>"; };
 		8B1367B71AB6884300AA482C /* teacherDIMG@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "teacherDIMG@3x.png"; sourceTree = "<group>"; };
+		8B1367BA1AB6B2E000AA482C /* PLPeplyDiscuss.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLPeplyDiscuss.h; sourceTree = "<group>"; };
+		8B1367BB1AB6B2E000AA482C /* PLPeplyDiscuss.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLPeplyDiscuss.m; sourceTree = "<group>"; };
 		8B1F6ABA1AAFC624009F3E6C /* boxbg_left_over.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = boxbg_left_over.png; sourceTree = "<group>"; };
 		8B1F6ABB1AAFC624009F3E6C /* boxbg_left_upline_over.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = boxbg_left_upline_over.png; sourceTree = "<group>"; };
 		8B1F6ABC1AAFC624009F3E6C /* boxbg_left_upline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = boxbg_left_upline.png; sourceTree = "<group>"; };
@@ -1246,7 +1245,6 @@
 				0A9A57181A70026300DA8122 /* MyRootActivitise.png */,
 				0A9A57191A70026300DA8122 /* MyRootMenu.png */,
 				0A9A571A1A70026300DA8122 /* MyRootMessage.png */,
-				0A9A571B1A70026300DA8122 /* MySettingsBut_select.png */,
 				8B1366821AB67AFC00AA482C /* MyRootMenu@2x.png */,
 				8B1366831AB67AFC00AA482C /* MyRootMenu@3x.png */,
 				8B1366841AB67AFC00AA482C /* MyRootMessage@2x.png */,
@@ -1255,7 +1253,6 @@
 				8B1366871AB67AFC00AA482C /* MySettingsBut_select@3x.png */,
 				8B1366881AB67AFC00AA482C /* MySettingsBut@2x.png */,
 				8B1366891AB67AFC00AA482C /* MySettingsBut@3x.png */,
-				0A9A571C1A70026300DA8122 /* MySettingsBut.png */,
 				0A9A571D1A70026300DA8122 /* SystemSettings.png */,
 				0A9A571E1A70026300DA8122 /* SystemSettingsAbout.png */,
 				0A9A571F1A70026300DA8122 /* SystemSettingsClear.png */,
@@ -1527,6 +1524,8 @@
 				0AEA904E1A83180700C699ED /* PLActivityProcess.m */,
 				CC7743341A7FA89C009DA7C4 /* PLDiscuss.h */,
 				CC7743351A7FA89C009DA7C4 /* PLDiscuss.m */,
+				8B1367BA1AB6B2E000AA482C /* PLPeplyDiscuss.h */,
+				8B1367BB1AB6B2E000AA482C /* PLPeplyDiscuss.m */,
 				0AE12E051A8B017700D10389 /* PLCollect.h */,
 				0AE12E061A8B017700D10389 /* PLCollect.m */,
 				CC7743361A7FA89C009DA7C4 /* PLDiscussProcess.h */,
@@ -2015,7 +2014,6 @@
 				0AA3E4C91A8A5E58004D86BE /* MActivityDefault.png in Resources */,
 				8B13664E1AB676B600AA482C /* teacher@2x.png in Resources */,
 				8B1367B11AB6806F00AA482C /* ActivitiesRegistrationH@3x.png in Resources */,
-				0A9A57381A70026300DA8122 /* MySettingsBut_select.png in Resources */,
 				0AEA90871A836D6400C699ED /* Main.storyboard in Resources */,
 				8B1F6ACC1AAFC624009F3E6C /* boxbg_right_over.png in Resources */,
 				CC5A94E81A6E8BC5008197BC /* BtnBottomPressed1@2x.png in Resources */,
@@ -2040,7 +2038,6 @@
 				0AB31DEB1A68D8B800B87850 /* downloadPause.png in Resources */,
 				CCCF51F61A77B00500A4654F /* 6.png in Resources */,
 				8B1367231AB67D6400AA482C /* ActivitiesInfoTips@2x.png in Resources */,
-				0A9A57391A70026300DA8122 /* MySettingsBut.png in Resources */,
 				0A9A573B1A70026300DA8122 /* SystemSettingsAbout.png in Resources */,
 				CC5A95121A6FDE25008197BC /* ic_chapter_normal@2x.png in Resources */,
 				8B1F6AC91AAFC624009F3E6C /* boxbg_left.png in Resources */,
@@ -2370,6 +2367,7 @@
 				0AB31E121A68D8B800B87850 /* UIImageView+MKNetworkKitAdditions.m in Sources */,
 				0AEA303E1AAD78C800CC4DEF /* MUserInfoCell.m in Sources */,
 				CC77433D1A7FA89C009DA7C4 /* PLDiscussProcess.m in Sources */,
+				8B1367BC1AB6B2E000AA482C /* PLPeplyDiscuss.m in Sources */,
 				0AE12E0D1A8B286700D10389 /* MWatchRecordCell.m in Sources */,
 				8B1F6AD61AB03C04009F3E6C /* PLNavsProcess.m in Sources */,
 				CC415CE01A8A2BA600B5205D /* ActivityInfoCell.m in Sources */,
