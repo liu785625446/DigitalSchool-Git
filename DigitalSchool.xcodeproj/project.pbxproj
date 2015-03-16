@@ -344,7 +344,6 @@
 		CC01D1A61A6FF52F008EAE05 /* SystemSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC01D1A31A6FF52F008EAE05 /* SystemSettingsViewController.m */; };
 		CC3DACEB1A68E88300C9139C /* MAdcolumnView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC3DACEA1A68E88300C9139C /* MAdcolumnView.m */; };
 		CC3DACF51A68E91800C9139C /* MAdcolumnView@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CC3DACEC1A68E91800C9139C /* MAdcolumnView@2x.png */; };
-		CC3DACF61A68E91800C9139C /* MCellbackGround@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CC3DACED1A68E91800C9139C /* MCellbackGround@2x.png */; };
 		CC3DACF71A68E91800C9139C /* MCellIconNomer@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CC3DACEE1A68E91800C9139C /* MCellIconNomer@2x.png */; };
 		CC3DACF81A68E91800C9139C /* MNavItemScreen@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CC3DACEF1A68E91800C9139C /* MNavItemScreen@2x.png */; };
 		CC3DACF91A68E91800C9139C /* MNavItemScreenHighlight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CC3DACF01A68E91800C9139C /* MNavItemScreenHighlight@2x.png */; };
@@ -855,7 +854,6 @@
 		CC3DACE91A68E88300C9139C /* MAdcolumnView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAdcolumnView.h; sourceTree = "<group>"; };
 		CC3DACEA1A68E88300C9139C /* MAdcolumnView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAdcolumnView.m; sourceTree = "<group>"; };
 		CC3DACEC1A68E91800C9139C /* MAdcolumnView@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MAdcolumnView@2x.png"; sourceTree = "<group>"; };
-		CC3DACED1A68E91800C9139C /* MCellbackGround@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MCellbackGround@2x.png"; sourceTree = "<group>"; };
 		CC3DACEE1A68E91800C9139C /* MCellIconNomer@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MCellIconNomer@2x.png"; sourceTree = "<group>"; };
 		CC3DACEF1A68E91800C9139C /* MNavItemScreen@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MNavItemScreen@2x.png"; sourceTree = "<group>"; };
 		CC3DACF01A68E91800C9139C /* MNavItemScreenHighlight@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MNavItemScreenHighlight@2x.png"; sourceTree = "<group>"; };
@@ -1345,7 +1343,6 @@
 				CC5A94DA1A6E8BC5008197BC /* BtnBottomNormal5@2x.png */,
 				CC5A94E01A6E8BC5008197BC /* BtnBottomPressed5@2x.png */,
 				CC3DACEC1A68E91800C9139C /* MAdcolumnView@2x.png */,
-				CC3DACED1A68E91800C9139C /* MCellbackGround@2x.png */,
 				CC3DACEE1A68E91800C9139C /* MCellIconNomer@2x.png */,
 				8B1367A61AB67F4700AA482C /* MCellbackGround@3x.png */,
 				8B1367A71AB67F4700AA482C /* MCellIconNomer@3x.png */,
@@ -1955,7 +1952,7 @@
 				TargetAttributes = {
 					0AE430361A68D47B00CECD12 = {
 						CreatedOnToolsVersion = 6.1;
-						DevelopmentTeam = LZV72Z98L3;
+						DevelopmentTeam = FSL3FCUGV3;
 					};
 					0AE4304F1A68D47B00CECD12 = {
 						CreatedOnToolsVersion = 6.1;
@@ -2076,7 +2073,6 @@
 				0A9A57271A70026300DA8122 /* ActivitiesInfoCase.png in Resources */,
 				8B13660D1AB6736D00AA482C /* MNavItemScreenHighlight@3x.png in Resources */,
 				8B1367B41AB6875F00AA482C /* MRegisterNickNameImg@2x.png in Resources */,
-				CC3DACF61A68E91800C9139C /* MCellbackGround@2x.png in Resources */,
 				8B1367251AB67D6400AA482C /* ActivitiesPraise@2x.png in Resources */,
 				0A5757291AAC876800B78A3B /* check_icon@2x.png in Resources */,
 				8B1F6ACF1AAFC624009F3E6C /* downloadNoSelect@2x.png in Resources */,
