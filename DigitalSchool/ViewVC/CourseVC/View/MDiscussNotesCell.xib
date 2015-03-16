@@ -14,7 +14,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default_user_icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="oID-FQ-Sru" customClass="UrlImageView">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ActivitiesInfoHead1.png" translatesAutoresizingMaskIntoConstraints="NO" id="oID-FQ-Sru" customClass="UrlImageView">
                         <rect key="frame" x="10" y="10" width="40" height="40"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="40" id="eNI-e8-Loh"/>
@@ -81,6 +81,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="default_user_icon.png" width="20" height="20"/>
+        <image name="ActivitiesInfoHead1.png" width="40" height="40"/>
     </resources>
 </document>

@@ -255,7 +255,7 @@ MBottomViewDelegate,MMenuViewDelegate,MDiscussNotesCellDelegate>
             PLCourse *course = self.objectModel;
             cell.titleLabel.text = @"讲师";
             [cell.iconImageView setImageWithURL:[NSURL URLWithString:course.courseTeacher.teacherImg]
-                               placeholderImage:[UIImage imageNamed:@"default_user_icon.png"]];
+                               placeholderImage:[UIImage imageNamed:@"ActivitiesInfoHead1.png"]];
             cell.nameLabel.text = course.courseTeacher.teacherName;
             cell.detailLabel.text = course.courseTeacher.teacherIntroduction;
             
@@ -264,7 +264,7 @@ MBottomViewDelegate,MMenuViewDelegate,MDiscussNotesCellDelegate>
             PLWorks *work = self.objectModel;
             cell.titleLabel.text = @"作者";
             [cell.iconImageView setImageWithURL:[NSURL URLWithString:work.user.userImg]
-                               placeholderImage:[UIImage imageNamed:@"default_user_icon.png"]];
+                               placeholderImage:[UIImage imageNamed:@"ActivitiesInfoHead1.png"]];
             cell.nameLabel.text = work.user.userName;
             cell.detailLabel.text = work.user.userSafeQuestion;
         }
@@ -333,7 +333,7 @@ MBottomViewDelegate,MMenuViewDelegate,MDiscussNotesCellDelegate>
     {//讨论
         PLDiscuss *discuss = [array objectAtIndex:indexPath.row];
         [cell.iconImage setImageWithURL:[NSURL URLWithString:discuss.pluser.userImg]
-                       placeholderImage:[UIImage imageNamed:@"default_user_icon.png"]];
+                       placeholderImage:[UIImage imageNamed:@"ActivitiesInfoHead1.png"]];
         cell.userName.text = discuss.pluser.userNickName;
         cell.content.text = discuss.discussContent;
         cell.timeLabel.text = discuss.discussCreateTime;
@@ -344,7 +344,7 @@ MBottomViewDelegate,MMenuViewDelegate,MDiscussNotesCellDelegate>
     {//笔记
         PLNotes *notes = [array objectAtIndex:indexPath.row];
         [cell.iconImage setImageWithURL:[NSURL URLWithString:notes.user.userImg]
-                       placeholderImage:[UIImage imageNamed:@"default_user_icon.png"]];
+                       placeholderImage:[UIImage imageNamed:@"ActivitiesInfoHead1.png"]];
         cell.userName.text = notes.user.userNickName;
         cell.content.text = notes.noteContent;
         cell.timeLabel.text = notes.noteCreateTime;
