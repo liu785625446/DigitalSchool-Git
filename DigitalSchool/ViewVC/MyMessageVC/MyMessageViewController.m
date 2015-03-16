@@ -14,6 +14,8 @@
 #import "PLUser.h"
 #import "MUserInfoViewController.h"
 
+#import "ActivitiesInfoCellViewController.h"
+
 @interface MyMessageViewController ()
 
 @end
@@ -86,7 +88,7 @@
 
 -(IBAction)myActivitiesAction:(id)sender
 {
-    [self.tabBarController setSelectedIndex:2];
+//    [self performSegueWithIdentifier:@"MyUploadWork" sender:nil];
 }
 
 #pragma mark -
@@ -138,7 +140,7 @@
     [cell setSelected:NO animated:YES];
     
     if (indexPath.section == 1) {
-        [self presentModalViewController:[UMFeedback feedbackModalViewController] animated:YES];
+        [self presentViewController:[UMFeedback feedbackModalViewController] animated:YES completion:nil];
     }else if (indexPath.section == 2) {
         [self performSegueWithIdentifier:@"OfflineCache" sender:nil];
     }else if (indexPath.section == 3){
@@ -170,6 +172,11 @@
     {
         MUserInfoViewController *userVC = segue.destinationViewController;
         userVC.user_info = _current_user;
+    }else if ([segue.identifier isEqualToString:@"MyUploadWork"])
+    {
+        //我上传的作品
+        ActivitiesInfoCellViewController *info = segue.destinationViewController;
+        info.cellStyle = MyUploadWork;
     }
 }
 

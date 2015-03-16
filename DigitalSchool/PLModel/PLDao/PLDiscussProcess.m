@@ -8,7 +8,6 @@
 
 #import "PLDiscussProcess.h"
 #import "PLDiscuss.h"
-#import "PLPeplyDiscuss.h"
 
 @implementation PLDiscussProcess
 
@@ -41,7 +40,7 @@
                    didFail:(CallBackBlockFail)fail
 {
     NSString *code = [BLTool getKeyCode:[NSString stringWithFormat:@"%d%d%@%d",pageSize, currentPage, discussId, playVideoType]];
-     NSString *url = [NSString stringWithFormat:@"%d/%d/%@/%d/%@",pageSize, currentPage, discussId, playVideoType,code];
+    NSString *url = [NSString stringWithFormat:@"%d/%d/%@/%d/%@",pageSize, currentPage, discussId, playVideoType,code];
     
     [PLInterface startRequest:ALL_URL
                        didUrl:ReplysDiscuss(url)
@@ -49,13 +48,37 @@
                    didSuccess:^(id result)
     {
         [self dataFormat:result
-                didClass:NSStringFromClass([PLPeplyDiscuss class])
+                didClass:NSStringFromClass([PLDiscuss class])
               didSuccess:success didFail:fail];
         
     }didFail:^(NSString *error)
     {
         fail(REQUEST_ERROR);
     }];
+}
+
+-(void)getActivitiesReplyDiscussList:(int)pageSize
+                      didCurrentPage:(int)currentPage
+                        didDiscussId:(NSString *)discussId
+                          didSuccess:(CallBackBlockSuccess)success
+                             didFail:(CallBackBlockFail)fail
+{
+    NSString *code = [BLTool getKeyCode:[NSString stringWithFormat:@"%d%d%@",pageSize, currentPage, discussId]];
+    NSString *url = [NSString stringWithFormat:@"%d/%d/%@/%@",pageSize, currentPage, discussId,code];
+    
+    [PLInterface startRequest:ALL_URL
+                       didUrl:ActivieReplysDiscuss(url)
+                     didParam:nil
+                   didSuccess:^(id result)
+     {
+         [self dataFormat:result
+                 didClass:NSStringFromClass([PLDiscuss class])
+               didSuccess:success didFail:fail];
+         
+     }didFail:^(NSString *error)
+     {
+         fail(REQUEST_ERROR);
+     }];
 }
 
 -(void) launchCourseDiscuss:(NSString *)courseId didUserId:(NSString *)userId didContent:(NSString *)discussContent didSuccess:(CallBackBlockSuccess)success didFail:(CallBackBlockFail)fail

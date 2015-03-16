@@ -8,6 +8,7 @@
 
 #import "MNavigationDetailsViewController.h"
 #import "MCourseCell.h"
+#import "MPlayVideoViewController.h"
 
 @interface MNavigationDetailsViewController ()
 {
@@ -27,11 +28,6 @@
     _navsProcess = [[PLNavsProcess alloc] init];
     self.title = _navs.navTitle;
     
-    [_navsProcess getNavsDatails:10 didCurrentPage:1 didNavId:_navs.navId didSuccess:^(NSMutableArray *array) {
-        
-    } didFail:^(NSString *error) {
-        
-    }];
 //    [courseProcess getCourseFilter:10
 //                    didCurrentPage:1
 //                          didGrade:0
@@ -75,7 +71,7 @@
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 10;
+    return 0.1;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -100,6 +96,18 @@
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    PLCourse *course = [self.baseArray objectAtIndex:indexPath.row];
+    [self performSegueWithIdentifier:@"MNavsPlayIdentifier" sender:course];
+}
+
+-(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    PLCourse *course = (PLCourse *) sender;
+    if ([segue.identifier isEqualToString:@"MNavsPlayIdentifier"]) {
+        MPlayVideoViewController *playVideo = segue.destinationViewController;
+        playVideo.mPlayVideoType = MPlayVideoTypeCourse;
+        playVideo.objectModel = course;
+    }
 }
 
 #pragma mark- RefreshViewDelegate
@@ -117,6 +125,12 @@
         [super startAnimationIndicator];
     }
     
+    [_navsProcess getNavsDatails:10 didCurrentPage:1 didNavId:_navs.navId didSuccess:^(NSMutableArray *array) {
+        [super indicatorDataAnalysisSuccess:array page:page];
+    } didFail:^(NSString *error) {
+        [super indicatorDataAnalysisFailure:page];
+    }];
+
 //    [courseProcess getCourseFilter:MPageSize
 //                    didCurrentPage:self.currentPage
 //                          didGrade:0

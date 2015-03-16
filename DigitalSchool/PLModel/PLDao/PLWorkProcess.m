@@ -10,6 +10,7 @@
 #import "PLWorks.h"
 #import "PLLookCourse.h"
 #import "MKNetworkKit.h"
+#import "PLActivity.h"
 
 @implementation PLWorkProcess
 
@@ -37,12 +38,12 @@
 -(void) submitWorksLookRecord:(NSString *)workId didUser:(NSString *)userId didSuccess:(CallBackBlockSuccess)success didFail:(CallBackBlockFail)fail
 {
     userId = [self getUserId];
-    NSString *code = [BLTool getKeyCode:[NSString stringWithFormat:@"%@%@%@",workId, userId,@"1"]];
+    NSString *code = [BLTool getKeyCode:[NSString stringWithFormat:@"%@%@%@",workId, userId,@"3"]];
     NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
     [dic setObject:workId forKey:@"courseId"];
     [dic setObject:userId forKey:@"userId"];
     [dic setObject:code forKey:@"code"];
-    [dic setObject:@"1" forKey:@"type"];
+    [dic setObject:@"3" forKey:@"type"];
     [PLInterface startRequest:ALL_URL didUrl:COURSE_SAVE_WATCH didParam:dic didSuccess:^(id result){
         [self dataFormatPost:result didSuccess:success didFail:fail];
     }didFail:^(NSString *error){
@@ -114,6 +115,28 @@
     }];
     
     [engine enqueueOperation:operation];
+}
+
+-(void)getMyUploadWorkList:(int)pageSize
+            didCurrentPage:(int)currentPage
+                 didUserId:(NSString *)userId
+                didSuccess:(CallBackBlockSuccess)success
+                   didFail:(CallBackBlockFail)fail
+{
+    userId = [self getUserId];
+    NSString *code = [BLTool getKeyCode:[NSString stringWithFormat:@"%d%d%@",pageSize,currentPage,userId]];
+    NSString *url = [NSString stringWithFormat:@"%d/%d/%@/%@",pageSize,currentPage,userId,code];
+    [PLInterface startRequest:ALL_URL
+                       didUrl:MyUploadWork(url)
+                     didParam:nil
+                   didSuccess:^(id result)
+     {
+    [self dataFormat:result didClass:NSStringFromClass([PLWorks class]) didSuccess:success didFail:fail];
+  
+     }didFail:^(NSString *error)
+     {
+        fail(REQUEST_ERROR);
+     }];
 }
 
 @end

@@ -39,7 +39,9 @@
     }
     
     if ([key isEqualToString:@"admin"] || [key isEqualToString:@"user"]) {
-        [self.pluser setValuesForKeysWithDictionary:value];
+        if ([value isKindOfClass:[NSDictionary class]]) {
+            [self.pluser setValuesForKeysWithDictionary:value];
+        }
     }
 }
 

@@ -8,6 +8,7 @@
 
 #import "ActivityWorksCell.h"
 #import "PLWorks.h"
+#import "PLActivity.h"
 
 @implementation ActivityWorksCell
 
@@ -27,14 +28,23 @@
     // Configure the view for the selected state
 }
 
--(void) setWorks:(PLWorks *)works
+-(void) setObjectModel:(id)objectModel
 {
-    _works = works;
-    worksName.text = _works.workTitle;
-    [worksImg setImageWithURL:[NSURL URLWithString:_works.workImg] placeholderImage:[UIImage imageNamed:@"MActivityDefault.png"]];
-    worksWatchNum.text = [NSString stringWithFormat:@"%@",_works.workWatchNum];
-    worksPraise.text = _works.praise;
-    userName.text = _works.user.userName;
+    if ([objectModel isKindOfClass:[PLWorks class]]) {
+        PLWorks *works = (PLWorks *) objectModel;
+        worksName.text = works.workTitle;
+        [worksImg setImageWithURL:[NSURL URLWithString:works.workImg] placeholderImage:[UIImage imageNamed:@"MActivityDefault.png"]];
+        worksWatchNum.text = [NSString stringWithFormat:@"%@",works.workWatchNum];
+        worksPraise.text = works.praise;
+        userName.text = works.user.userName;
+    }else if ([objectModel isKindOfClass:[PLActivity class]]) {
+        PLActivity *activity = (PLActivity * ) objectModel;
+        worksName.text = activity.activityName;
+        [worksImg setImageWithURL:[NSURL URLWithString:activity.activityImg] placeholderImage:[UIImage imageNamed:@"MActivityDefault.png"]];
+        worksWatchNum.text = activity.activityCollectNum;
+        worksPraise.text = activity.activityJoinNum;
+        userName.text = activity.plUser.userName;
+    }
 }
 
 @end

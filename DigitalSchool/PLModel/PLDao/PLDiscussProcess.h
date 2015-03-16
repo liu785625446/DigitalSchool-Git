@@ -51,6 +51,22 @@
                    didFail:(CallBackBlockFail)fail;
 
 /**
+ *  获取活动讨论回复列表
+ *  @param pageSize
+ *  @param currentPage
+ *  @param discussId  讨论ID
+ *  @param playVideoType  栏目类型
+ *  @param success
+ *  @param fail
+ */
+
+-(void)getActivitiesReplyDiscussList:(int)pageSize
+                      didCurrentPage:(int)currentPage
+                        didDiscussId:(NSString *)discussId
+                          didSuccess:(CallBackBlockSuccess)success
+                             didFail:(CallBackBlockFail)fail;
+
+/**
  *  评论课程
  *
  *  @param courseId       课程id

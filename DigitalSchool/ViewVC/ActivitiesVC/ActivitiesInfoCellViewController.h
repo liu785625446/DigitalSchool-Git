@@ -14,6 +14,7 @@ typedef enum {
     WINNERWORKS = 0,
     ALLWORKS,
     ALLCOMMENT,
+    MyUploadWork    //我上传的作品
 }CellStyle;
 
 @interface ActivitiesInfoCellViewController : MBaseTableViewController

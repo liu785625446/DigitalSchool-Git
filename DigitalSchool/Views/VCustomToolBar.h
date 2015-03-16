@@ -28,6 +28,6 @@
 -(id) initWithTitiles:(NSArray *)titleArray;
 -(void) setTitleMethod:(NSString *)title didIndex:(NSInteger)index;
 
--(void) showToolbarAction;
--(void) hideToolbarAction;
+-(void) showToolbarAction:(void (^)(void))completion;
+-(void) hideToolbarAction:(void (^)(void))completion;;
 @end

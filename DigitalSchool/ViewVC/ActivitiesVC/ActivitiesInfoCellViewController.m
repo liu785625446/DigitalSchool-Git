@@ -13,8 +13,11 @@
 #import "ActivityDiscussCell.h"
 #import "MCommentViewController.h"
 #import "MPlayVideoViewController.h"
+#import "MReplyDiscussVC.h"
 //#import "MWorksCell.h"
 //#import "MCommentCell.h"
+
+#import "PLDiscuss.h"
 
 @interface ActivitiesInfoCellViewController ()
 
@@ -31,13 +34,13 @@
         self.navigationItem.rightBarButtonItem = item;
     }
     
+    CGRect animationR = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+    [super creatAnimationIndicator:animationR superView:self.view delegate:self];
 }
 
 
 -(void) viewWillAppear:(BOOL)animated
 {
-    CGRect animationR = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
-    [super creatAnimationIndicator:animationR superView:self.view delegate:self];
     
     [self getDatas:self.currentPage];
 
@@ -60,6 +63,16 @@
         MPlayVideoViewController *play = segue.destinationViewController;
         play.mPlayVideoType = MPlayVideoTypeWorks;
         play.objectModel = sender;
+    }else if ([segue.identifier isEqualToString:@"ActivesReplysDiscuss"])
+    {
+        
+        ActivityDiscussCell *cell = sender;
+        NSIndexPath *indexPath = [self.baseTableView indexPathForCell:cell];
+        PLDiscuss *discuss = [self.baseArray objectAtIndex:indexPath.row];
+        
+        MReplyDiscussVC *replyDis = segue.destinationViewController;
+        replyDis.discussId =discuss.discussId;
+        replyDis.playType = MPlayVideoTypeActivities;
     }
 }
 
@@ -92,15 +105,16 @@
         ActivityWorksCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
         
         PLWorks *works = [self.baseArray objectAtIndex:indexPath.row];
-        cell.works = works;
+        cell.objectModel = works;
         
         return cell;
-    }else if (_cellStyle == ALLWORKS) {
+    }else if (_cellStyle == ALLWORKS || _cellStyle  == MyUploadWork)
+    {
         static NSString *cellIdentifier = @"WorksCellIndentifier";
         ActivityWorksCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
         
-        PLWorks *works = [self.baseArray objectAtIndex:indexPath.row];
-        cell.works = works;
+        id works = [self.baseArray objectAtIndex:indexPath.row];
+        cell.objectModel = works;
         return cell;
     }else{
         static NSString *cellIdentifier = @"CommentCellIndentifier";
@@ -116,17 +130,28 @@
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    if (_cellStyle == ALLWORKS || _cellStyle == WINNERWORKS) { //作品
+    if (_cellStyle == ALLWORKS || _cellStyle == WINNERWORKS || _cellStyle == MyUploadWork) { //作品
+        
         PLWorks *works = [self.baseArray objectAtIndex:indexPath.row];
         [self performSegueWithIdentifier:@"playWorksIdentifier" sender:works];
-    }else{ //评论
         
+    }else if(_cellStyle == ALLCOMMENT)
+    {
+        //评论
+//        PLDiscuss *discuss = [self.baseArray objectAtIndex:indexPath.row];
+//        [self performSegueWithIdentifier:@"ActivesReplysDiscuss" sender:discuss];
     }
 }
 
 #pragma mark- RefreshViewDelegate
 // 开始进入刷新状态就会调用
 -(void)refreshViewBeginRefreshing:(MJRefreshBaseView *)refreshView
+{
+    [self getDatas:self.currentPage];
+}
+
+#pragma mark- YYAnimationDelegate
+-(void)didReloadData:(YYAnimationIndicator *)animationView
 {
     [self getDatas:self.currentPage];
 }
@@ -163,6 +188,20 @@
         self.title = @"全部评论";
         [_discussProcess getActivityDiscussList:MPageSize didCurrentPage:page didActivityId:_styleId didSuccess:^(NSMutableArray *array) {
             [super indicatorDataAnalysisSuccess:array page:page];
+        } didFail:^(NSString *error) {
+            [super indicatorDataAnalysisFailure:page];
+        }];
+    }else if (_cellStyle == MyUploadWork)
+    {
+        self.title = @"我的作品";
+        //我上传的作品
+        [_workProcess getMyUploadWorkList:MPageSize
+                           didCurrentPage:page
+                                didUserId:[self getUserId]
+                               didSuccess:^(NSMutableArray *array) {
+                                   
+            [super indicatorDataAnalysisSuccess:array page:page];
+            
         } didFail:^(NSString *error) {
             [super indicatorDataAnalysisFailure:page];
         }];

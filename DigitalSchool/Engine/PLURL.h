@@ -1,19 +1,19 @@
-//
-//  PLURL.h
-//  PersistenceLayer
-//
-//  Created by 刘军林 on 15/1/7.
-//  Copyright (c) 2015年 刘军林. All rights reserved.
-//
+    //
+    //  PLURL.h
+    //  PersistenceLayer
+    //
+    //  Created by 刘军林 on 15/1/7.
+    //  Copyright (c) 2015年 刘军林. All rights reserved.
+    //
 
 #ifndef PersistenceLayer_PLURL_h
 #define PersistenceLayer_PLURL_h
 
-//#define ALL_URL @"211.153.74.60"
+    //#define ALL_URL @"211.153.74.60"
 
 #define ALL_URL @"hnay20.vicp.cc"
 
-//#define ALL_URL @"211.153.74.60"
+    //#define ALL_URL @"211.153.74.60"
 
 #define COURSE_MAIN(url) [NSString stringWithFormat:@"/DSApp/course/main/%@.json",url]
 
@@ -88,6 +88,12 @@
 #define WORK_UPLOAD [NSString stringWithFormat:@"/DSApp/work/upload.json"]
 
 #define ReplysDiscuss(url) [NSString stringWithFormat:@"/DSApp/cdiscuss/replys/%@.json",url]
+
+#define ActivieReplysDiscuss(url) [NSString stringWithFormat:@"/DSApp/adiscuss/replys/%@.json",url]
+
+#define Praise @"/DSApp/cdiscuss/praise.json"
+
+#define MyUploadWork(url) [NSString stringWithFormat:@"/DSApp/work/my/%@.json",url]
 
 #define REQUEST_ERROR @"请求失败"
 

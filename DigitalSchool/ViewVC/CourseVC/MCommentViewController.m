@@ -133,6 +133,7 @@
             [self.notesProcess noteWrite:@"1"
                              didCourseId:self.courseId
                               didContent:self.comment.text
+                                 didType:self.playVideoType
                               didSuccess:^(NSMutableArray *array)
             {
                 

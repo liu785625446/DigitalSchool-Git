@@ -67,10 +67,10 @@
         return;
     }
     
-    if ([_pwdText.text length] < 6) {
-        [self.view makeToast:@"密码输入错误"];
-        return;
-    }
+//    if ([_pwdText.text length] < 6) {
+//        [self.view makeToast:@"密码输入错误"];
+//        return;
+//    }
     
     [self showMyHUD:@"登入中..."];
     [_userProcess loginUserName:_userNameText.text

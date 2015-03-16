@@ -22,11 +22,11 @@
     NSData *data = [userDefaults objectForKey:CURRENT_USER];
     
     if (data) {
-        _text_array = @[@[@"清除缓存"],@[@"版本更新",@"意见更新",@"关于我们"],@[@"退出登入"]];
-        _image_array = @[ @[@"SystemSettingsClear.png"], @[@"SystemSettingsScrean.png",@"SystemSettings.png",@"SystemSettingsAbout.png"], @[@"SystemSettingsUser.png"] ];
+        _text_array = @[@[@"版本更新",@"用户反馈",@"关于我们"],@[@"退出登入"]];
+        _image_array = @[@[@"SystemSettingsScrean.png",@"SystemSettings.png",@"SystemSettingsAbout.png"], @[@"SystemSettingsUser.png"] ];
     }else{
-        _text_array = @[@[@"清除缓存"],@[@"版本更新",@"意见更新",@"关于我们"]];
-        _image_array = @[ @[@"SystemSettingsClear.png"], @[@"SystemSettingsScrean.png",@"SystemSettings.png",@"SystemSettingsAbout.png"] ];
+        _text_array = @[@[@"版本更新",@"用户反馈",@"关于我们"]];
+        _image_array = @[@[@"SystemSettingsScrean.png",@"SystemSettings.png",@"SystemSettingsAbout.png"] ];
     }
     // Do any additional setup after loading the view.
 }
@@ -84,8 +84,6 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     if (indexPath.section == 0) {
-        
-    }else if (indexPath.section == 1) {
         
     }else {
         [self showMyHUD:@"注销中..."];

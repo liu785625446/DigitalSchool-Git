@@ -40,6 +40,7 @@
 -(void) getWorksLookRecord:(NSString *)userId didSuccess:(CallBackBlockSuccess)success didFail:(CallBackBlockFail)fail;
 
 
+-(void) submitWorksLookRecord:(NSString *)workId didUser:(NSString *)userId didSuccess:(CallBackBlockSuccess)success didFail:(CallBackBlockFail)fail;
 
 /**
  *  上传作品
@@ -60,4 +61,20 @@
                   uploadProgress:(UploadAndDownloadProgress)uploadProgress
                       didSuccess:(CallBackBlockSuccess)success
                          didFail:(CallBackBlockFail)fail;
+
+/**
+ *  获取我上传的作品列表（分页）
+ *
+ *  @param pageSize
+ *  @param currentPage
+ *  @param userId
+ *  @param success
+ *  @param fail
+ **/
+
+-(void)getMyUploadWorkList:(int)pageSize
+            didCurrentPage:(int)currentPage
+                 didUserId:(NSString *)userId
+                didSuccess:(CallBackBlockSuccess)success
+                   didFail:(CallBackBlockFail)fail;
 @end

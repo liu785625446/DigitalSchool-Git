@@ -23,6 +23,12 @@
 #import "PLDiscuss.h"
 #import "PLNotes.h"
 
+#import "MReplyDiscussVC.h"
+#import "PLWorkProcess.h"
+#import "BLCourseDownloadProcess.h"
+#import "PLCourseDownload.h"
+
+
 
 #define MDiscussButtonTag 99 //讨论回复按钮tag
 #define MNotesButtonTag 100 //笔记赞按钮tag
@@ -84,38 +90,55 @@ MBottomViewDelegate,MMenuViewDelegate,MDiscussNotesCellDelegate>
     _moviePlayer = [[DSMoviePlayerController alloc] init];
     _moviePlayer.delegate = self;
     
-//    self.view.translatesAutoresizingMaskIntoConstraints = NO;
+    //    self.view.translatesAutoresizingMaskIntoConstraints = NO;
     _moviePlayer.view.translatesAutoresizingMaskIntoConstraints = NO;
     [self.view addSubview:_moviePlayer.view];
     
     [_moviePlayer setScalingMode:MPMovieScalingModeAspectFit];
     [_moviePlayer addConstraintSupview:self.view];
     
-//    NSString *path = [[NSBundle mainBundle] pathForResource:@"课程2" ofType:@"mp4"];
-//    NSURL *url = [[NSURL alloc] initFileURLWithPath:path];
     NSURL *url;
     if (_mPlayVideoType == MPlayVideoTypeCourse) {
         PLCourse *course = (PLCourse *)self.objectModel;
         url = [NSURL URLWithString:course.courseVideoURL];
+        
+        PLCourseProcess *courseProcess = [[PLCourseProcess alloc] init];
+        [courseProcess submitCourseLookRecord:course.courseId didUser:@"0" didSuccess:^(NSMutableArray *array) {
+            
+        } didFail:^(NSString *error) {
+            
+        }];
     }else if (_mPlayVideoType == MPlayVideoTypeWorks) {
         PLWorks *works = (PLWorks *) self.objectModel;
         url = [NSURL URLWithString:works.workURL];
+        
+        PLWorkProcess *workProcess = [[PLWorkProcess alloc] init];
+        [workProcess submitWorksLookRecord:works.workId didUser:@"0" didSuccess:^(NSMutableArray *array) {
+            
+        } didFail:^(NSString *error) {
+            
+        }];
     }
-//     = [NSURL URLWithString:
+    //     = [NSURL URLWithString:
     
-//    if (self.mPlayVideoType == MPlayVideoTypeCourse)
-//    {
-//        PLCourse *course = self.objectModel;
-//        [_moviePlayer setContentURL:[NSURL URLWithString:course.courseVideoURL]];
-//        
-//    }else
-//    {
-//        PLWorks *work = self.objectModel;
-//        [_moviePlayer setContentURL:[NSURL URLWithString:work.workURL]];
-//    }
+    //    if (self.mPlayVideoType == MPlayVideoTypeCourse)
+    //    {
+    //        PLCourse *course = self.objectModel;
+    //        [_moviePlayer setContentURL:[NSURL URLWithString:course.courseVideoURL]];
+    //
+    //    }else
+    //    {
+    //        PLWorks *work = self.objectModel;
+    //        [_moviePlayer setContentURL:[NSURL URLWithString:work.workURL]];
+    //    }
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"课程2" ofType:@"mp4"];
+    url = [[NSURL alloc] initFileURLWithPath:path];
+    
+    //    url = [NSURL URLWithString:@"http://edu.360fis.com/edu/js/js1.mp4"];
     [_moviePlayer setContentURL:url];
     [_moviePlayer setRepeatMode:MPMovieRepeatModeOne];
-    [_moviePlayer setMovieSourceType:MPMovieSourceTypeStreaming];
+    //    [_moviePlayer setMovieSourceType:MPMovieSourceTypeStreaming];
+    [_moviePlayer setMovieSourceType:MPMovieSourceTypeFile];
     [_moviePlayer play];
     
     
@@ -464,9 +487,16 @@ MBottomViewDelegate,MMenuViewDelegate,MDiscussNotesCellDelegate>
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSInteger tag = tableView.tag - kSubTableViewTag;
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    if (currentIndex == 3) {
+    if (tag == 1)
+    {
+        //查看讨论回复
+        [self performSegueWithIdentifier:@"ReplyDiscussIdentifier" sender:indexPath];
         
+    }else if (tag == 3) {
+        
+        //章节
         self.objectModel = [[datas objectAtIndex:currentIndex] objectAtIndex:indexPath.row];
         NSMutableArray *dis = [datas objectAtIndex:1];
         [dis removeAllObjects];
@@ -524,6 +554,30 @@ MBottomViewDelegate,MMenuViewDelegate,MDiscussNotesCellDelegate>
         case 3:
         {
             //缓存
+            BLCourseDownloadProcess *courseDownloadProcess = [BLCourseDownloadProcess shareCourseDownload];
+            PLCourseDownload *courseDownload = [[PLCourseDownload alloc] init];
+            
+            if (_mPlayVideoType == MPlayVideoTypeCourse) {
+                PLCourse *course = (PLCourse *)self.objectModel;
+                courseDownload.downloadURL = course.courseVideoURL;
+                courseDownload.downloadName = course.courseName;
+                courseDownload.downloadStatus = downloadWait;
+            }else if (_mPlayVideoType == MPlayVideoTypeWorks) {
+                PLWorks *works = (PLWorks *) self.objectModel;
+                courseDownload.downloadURL = works.workURL;
+                courseDownload.downloadName = works.workTitle;
+                courseDownload.downloadStatus = downloadWait;
+            }
+            
+            NSArray *array = [courseDownloadProcess findCourseDownloadForUrl:courseDownload.downloadURL];
+            if ([array count] > 0) {
+                [self.view makeToast:@"已在下载列表"];
+            }else{
+                courseDownload = [BLTool getCourseDownloadPath:courseDownload];
+                [courseDownloadProcess addCourseDownload:courseDownload];
+                [courseDownloadProcess startRequestData];
+                [self.view makeToast:@"添加成功"];
+            }
         }
             break;
         case 4:
@@ -548,7 +602,7 @@ MBottomViewDelegate,MMenuViewDelegate,MDiscussNotesCellDelegate>
                 return;
             }
             [self.courseProcess attentionCourse:_id
-                                        didUser:@"0"
+                                        didUser:[self getUserId]
                                      didSuccess:^(NSMutableArray *array)
              {
                  [self shoMakeToast:@"收藏成功!"];
@@ -556,6 +610,38 @@ MBottomViewDelegate,MMenuViewDelegate,MDiscussNotesCellDelegate>
              } didFail:^(NSString *error) {
                  [self shoMakeToast:error];
              }];
+        }
+            break;
+        case 6:
+        {
+            //赞课程和作品
+            if (![self checkUserLogin]) {
+                
+                
+                return;
+            }else
+            {
+                NSString *_id = @"";
+                if (self.mPlayVideoType == MPlayVideoTypeCourse) {
+                    PLCourse *course = self.objectModel;
+                    _id = course.courseId;
+                }else
+                {
+                    PLWorks *works = self.objectModel;
+                    _id =works.workId;
+                }
+                
+                [self.courseProcess praiseDidCourseId:_id
+                                            didUserId:[self getUserId]
+                                              didType:self.mPlayVideoType
+                                           didSuccess:^(NSMutableArray *array)
+                 {
+                     [self shoMakeToast:@"赞成功!"];
+                 } didFail:^(NSString *error) {
+                     [self shoMakeToast:error];
+                 }];
+            }
+            
         }
             break;
     }
@@ -859,9 +945,10 @@ MBottomViewDelegate,MMenuViewDelegate,MDiscussNotesCellDelegate>
              return;
          }
         [self.notesProcess praiseNotes:notes.noteId
-                               didUser:@"1"
-                            didSuccess:^(NSMutableArray *array)
-        {
+                               didUser:[self getUserId]
+                      didPlayVideoType:self.mPlayVideoType
+                            didSuccess:^(NSMutableArray *array) {
+            
             [self shoMakeToast:@"赞成功"];
             
         } didFail:^(NSString *error) {
@@ -905,6 +992,18 @@ MBottomViewDelegate,MMenuViewDelegate,MDiscussNotesCellDelegate>
             comment.title = sender;
             comment.courseId = _id;
         }
+        
+    }else if ([segue.identifier isEqualToString:@"ReplyDiscussIdentifier"])
+    {
+        //跳转到回复评论列表
+        UINavigationController *commentN = segue.destinationViewController;
+        MReplyDiscussVC *replyDis =(MReplyDiscussVC *)commentN.visibleViewController;
+        
+        NSIndexPath *indexPath = sender;
+        NSArray *object = [datas objectAtIndex:currentIndex];
+        PLDiscuss *discuss = [object objectAtIndex:indexPath.row];
+        replyDis.discussId = discuss.discussId;
+        replyDis.playType = self.mPlayVideoType;
         
     }
 }

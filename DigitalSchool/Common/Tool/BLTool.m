@@ -8,6 +8,7 @@
 
 #import "BLTool.h"
 #import <CommonCrypto/CommonDigest.h>
+#import "PLCourseDownload.h"
 
 @implementation BLTool
 
@@ -40,5 +41,13 @@
 {
     return (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault, (CFStringRef)code, NULL, CFSTR(":/?#[]@!$ &'()*+,;=\"<>%{}|\\^~`"), kCFStringEncodingUTF8));
 }
+
++(PLCourseDownload *) getCourseDownloadPath:(PLCourseDownload *)course{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+    NSString *cachesDirectory = [paths objectAtIndex:0];
+    course.downloadPath = [cachesDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@%@",course.downloadName,@".mp4"]];
+    return course;
+}
+
 
 @end
