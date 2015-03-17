@@ -55,7 +55,7 @@
     }
     
     if ([key isEqualToString:@"nickName"]) {
-        self.userNickName = value;
+        self.userNickName = [NSString stringWithFormat:@"%@",value];
     }
     
     if ([key isEqualToString:@"safeQuestion"]) {
@@ -63,7 +63,7 @@
     }
     
     if ([key isEqualToString:@"status"]) {
-        self.userStatus = value;
+        self.userStatus = [NSString stringWithFormat:@"%@",value];
     }
     
     if ([key isEqualToString:@"updateTime"]) {
@@ -75,7 +75,7 @@
     }
     
     if ([key isEqualToString:@"type"]) {
-        self.userType = value;
+        self.userType = [NSString stringWithFormat:@"%@",value];
     }
 }
 
