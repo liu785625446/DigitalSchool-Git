@@ -174,7 +174,8 @@
         for (id object in array)
         {
             [self.baseArray addObject:object];
-            [self.baseTableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:self.baseArray.count-1 inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
+//            [self.baseTableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:self.baseArray.count-1 inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
+            [self.baseTableView reloadData];
         }
         if (array.count == 0)
         {

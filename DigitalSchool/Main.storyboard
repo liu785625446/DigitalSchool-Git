@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="TK3-tq-V64">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="TK3-tq-V64">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
@@ -843,7 +843,6 @@
                                                     </state>
                                                     <connections>
                                                         <action selector="myActivitiesAction:" destination="uTt-cd-y0U" eventType="touchUpInside" id="qZQ-YF-jWV"/>
-                                                        <segue destination="A29-iH-izS" kind="push" identifier="MyUploadWork" id="39u-Mv-iEj"/>
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C23-LT-dzv">
@@ -913,6 +912,7 @@
                         <segue destination="SfG-El-lAA" kind="push" identifier="OfflineCache" id="tiK-n9-5sI"/>
                         <segue destination="aZ3-dK-hs2" kind="push" identifier="CollectIdentifier" id="CuZ-5U-DwM"/>
                         <segue destination="fQb-RR-1ml" kind="push" identifier="userInfoIdentifier" id="eEu-iE-53k"/>
+                        <segue destination="A29-iH-izS" kind="push" identifier="MyUploadWork" id="mzd-Ya-ZGl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fhg-9G-4zx" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2141,7 +2141,7 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="downloadNoSelect.png" translatesAutoresizingMaskIntoConstraints="NO" id="DxL-Hw-rti">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="downloadNoSelect.png" translatesAutoresizingMaskIntoConstraints="NO" id="DxL-Hw-rti">
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="26" id="4hR-aY-4nB"/>
                                                         <constraint firstAttribute="width" id="n1h-co-Zai"/>
@@ -2552,10 +2552,10 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="lsD-er-YA6"/>
-        <segue reference="39u-Mv-iEj"/>
         <segue reference="0Ur-Fx-svh"/>
-        <segue reference="dFt-LK-3i9"/>
+        <segue reference="mzd-Ya-ZGl"/>
         <segue reference="8Yd-5t-5uj"/>
+        <segue reference="dFt-LK-3i9"/>
+        <segue reference="lsD-er-YA6"/>
     </inferredMetricsTieBreakers>
 </document>
