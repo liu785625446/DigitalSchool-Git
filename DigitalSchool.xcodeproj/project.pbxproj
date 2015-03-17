@@ -2477,8 +2477,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: leio shek (7PU7NRTS4X)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: leio shek (7PU7NRTS4X)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Excenon Mobile Tech Co., Ltd.";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Excenon Mobile Tech Co., Ltd.";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -2520,8 +2520,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: leio shek (7PU7NRTS4X)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: leio shek (7PU7NRTS4X)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Excenon Mobile Tech Co., Ltd.";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Excenon Mobile Tech Co., Ltd.";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -2544,8 +2544,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Excenon Mobile Tech Co., Ltd.";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Excenon Mobile Tech Co., Ltd.";
 				GCC_PREFIX_HEADER = DigitalSchool/PrefixHeader.pch;
 				INFOPLIST_FILE = DigitalSchool/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
@@ -2557,7 +2557,7 @@
 					"$(PROJECT_DIR)/DigitalSchool/Capability/Umeng/UMengFeedback_SDK_2.1/UMOpus",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "3a00c436-2b11-47b3-8561-57bfcd95ce05";
 			};
 			name = Debug;
 		};
@@ -2565,8 +2565,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Excenon Mobile Tech Co., Ltd.";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Excenon Mobile Tech Co., Ltd.";
 				GCC_PREFIX_HEADER = DigitalSchool/PrefixHeader.pch;
 				INFOPLIST_FILE = DigitalSchool/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
@@ -2578,7 +2578,7 @@
 					"$(PROJECT_DIR)/DigitalSchool/Capability/Umeng/UMengFeedback_SDK_2.1/UMOpus",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "3a00c436-2b11-47b3-8561-57bfcd95ce05";
 			};
 			name = Release;
 		};
