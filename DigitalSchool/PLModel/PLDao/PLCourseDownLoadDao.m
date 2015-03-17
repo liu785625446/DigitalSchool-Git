@@ -40,6 +40,18 @@ static PLCourseDownLoadDao *shareCourse = nil;
     return [self executeQuery:sql];
 }
 
+-(NSArray *) findCourseDownloadComplete
+{
+    NSString *sql = [NSString stringWithFormat:@"select * from courseDownload where downloadStatus = %d",downloadComplete];
+    return [self executeQuery:sql];
+}
+
+-(NSArray *) findCourseDownloadNoComplete
+{
+    NSString *sql = [NSString stringWithFormat:@"select * from courseDownload where downloadStatus = %d or downloadStatus = %d or downloadStatus = %d",downloadIng, downloadPause, downloadWait];
+    return [self executeQuery:sql];
+}
+
 -(NSArray *)findCourseDownloading
 {
     NSString *sql = [NSString stringWithFormat:@"select * from courseDownload where downloadStatus = %d",downloadIng];
@@ -50,6 +62,12 @@ static PLCourseDownLoadDao *shareCourse = nil;
 {
     NSString *sql = [NSString stringWithFormat:@"insert into courseDownload(downloadName, downloadPath, downloadURL, downloadStatus) VALUES ('%@', '%@', '%@', %d)",course.downloadName, course.downloadPath, course.downloadURL, course.downloadStatus];
     return [self executeUpdate:sql];
+}
+
+-(NSArray *) findCourseDownloadForUrl:(NSString *)url
+{
+    NSString *sql = [NSString stringWithFormat:@"select * from courseDownload where downloadURL = '%@'",url];
+    return [self executeQuery:sql];
 }
 
 -(BOOL) updateCourseDownload:(PLCourseDownload *)course

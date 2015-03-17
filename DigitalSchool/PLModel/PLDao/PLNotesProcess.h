@@ -1,10 +1,10 @@
-//
-//  PLNotesProcess.h
-//  DigitalSchool
-//
-//  Created by 刘军林 on 15/2/2.
-//  Copyright (c) 2015年 刘军林. All rights reserved.
-//
+    //
+    //  PLNotesProcess.h
+    //  DigitalSchool
+    //
+    //  Created by 刘军林 on 15/2/2.
+    //  Copyright (c) 2015年 刘军林. All rights reserved.
+    //
 
 #import "PLBaseProcess.h"
 
@@ -26,18 +26,20 @@
  *
  *  @param noteId  笔记id
  *  @param userId  用户id
+ *  @param playVideoType  栏目类型（type）（课程：1  作品：3）
  *  @param success
  *  @param fail
  */
--(void) praiseNotes:(NSString *)noteId didUser:(NSString *)userId didSuccess:(CallBackBlockSuccess)success didFail:(CallBackBlockFail)fail;
+-(void) praiseNotes:(NSString *)noteId didUser:(NSString *)userId didPlayVideoType:(int)playVideoType didSuccess:(CallBackBlockSuccess)success didFail:(CallBackBlockFail)fail;
 /**
  *  发表笔记
  *
  *  @param noteId  笔记id
  *  @param userId  用户id
  *  @param contentId 笔记内容
+ *  @param type     栏目类型（type）（课程：1  作品：3）
  *  @param success
  *  @param fail
  */
--(void) noteWrite:(NSString *)userId didCourseId:(NSString *)courseId didContent:(NSString *)contentId didSuccess:(CallBackBlockSuccess)success didFail:(CallBackBlockFail)fail;
+-(void) noteWrite:(NSString *)userId didCourseId:(NSString *)courseId didContent:(NSString *)contentId didType:(int)type didSuccess:(CallBackBlockSuccess)success didFail:(CallBackBlockFail)fail;
 @end

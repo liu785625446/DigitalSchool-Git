@@ -34,17 +34,19 @@
     _toolBar.delegate = self;
     [self.view addSubview:_toolBar];
     
-    PLCourseDownload *course = [[PLCourseDownload alloc] init];
-    _downloadQueue = [_courseProcess findAllCourseDownload];
-    course.downloadName = [NSString stringWithFormat:@"课程%lu",(unsigned long)[_downloadQueue count]];
-    course.downloadURL = @"http://edu.360fis.com/edu/xsyy/xsyy2.mp4";
-    course = [self getCoursePath:course];
+//    PLCourseDownload *course = [[PLCourseDownload alloc] init];
+//    _downloadQueue = [_courseProcess findAllCourseDownload];
+//    course.downloadName = [NSString stringWithFormat:@"课程%lu",(unsigned long)[_downloadQueue count]];
+//    course.downloadURL = @"http://edu.360fis.com/edu/xsyy/xsyy2.mp4";
+//    course = [self getCoursePath:course];
     
-    [_courseProcess addCourseDownload:course];
-    _downloadQueue = [_courseProcess findAllCourseDownload];
+//    [_courseProcess addCourseDownload:course];
+    _downloadQueue = [_courseProcess findCourseDownloadNoComplete];
     [self.table reloadData];
     
     [_courseProcess startRequestData];
+    
+    
 //    [_courseProcess requestDownloadTaskQueueNext:nil];
 //    http://edu.360fis.com/edu/xsyy/xsyy2.mp4
     
@@ -82,11 +84,14 @@
 -(IBAction)editAction:(id)sender
 {
     if (_toolBar.isShow) {
-        [_toolBar hideToolbarAction];
         _tableBottom.constant = 0;
+        [_toolBar hideToolbarAction:^{
+            
+        }];
     }else{
-        [_toolBar showToolbarAction];
-        _tableBottom.constant = _toolBar.frame.size.height;
+        [_toolBar showToolbarAction:^{
+            _tableBottom.constant = _toolBar.frame.size.height;
+        }];
     }
     [self.table reloadData];
 }
@@ -129,7 +134,6 @@
     }];
     
     [engine enqueueOperation:operation];
-    
 }
 
 -(PLCourseDownload *) getCoursePath:(PLCourseDownload *)course{
@@ -191,7 +195,7 @@
     currentCourse.downloadSize = downloadSize;
     currentCourse.downloadStatus = courseDownload.downloadStatus;
     if (row>=0) {
-        NSIndexPath *indexPath = [NSIndexPath indexPathForItem:row inSection:0];
+        NSIndexPath *indexPath = [NSIndexPath indexPathForItem:row inSection:1];
         [self.table reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
     }
 }
@@ -200,16 +204,23 @@
 #pragma mark UITableViewDelegate
 -(NSInteger) numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    return 2;
 }
 
 -(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [_downloadQueue count];
+    if (section == 0) {
+        return 1;
+    }else{
+        return [_downloadQueue count];
+    }
 }
 
 -(CGFloat) tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
+    if (section == 0) {
+        return 20.0f;
+    }
     return 0.1;
 }
 
@@ -220,18 +231,27 @@
 
 -(CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (indexPath.section == 0) {
+        return 45.0f;
+    }
     return 60.0f;
 }
 
 -(UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (indexPath.section == 0) {
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MCourseDownloadNumber" forIndexPath:indexPath];
+        NSArray *array = [_courseProcess findCourseDownloadComplete];
+        cell.textLabel.text = [NSString stringWithFormat:@"已下载视频%d个",[array count]];
+        return cell;
+    }
     static NSString *cellIdentifier = @"MCourseDownloadCell";
     MCourseDownloadCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
-
+    
     PLCourseDownload *course = [self.downloadQueue objectAtIndex:indexPath.row];
     cell.courseName.text = course.downloadName;
     if (_toolBar.isShow) {
-        cell.selectImgWidth.constant = 15;
+        cell.selectImgWidth.constant = 26;
     }else{
         cell.selectImgWidth.constant = 0;
     }
@@ -246,6 +266,7 @@
         cell.downloadInfo.text = @"下载成功";
         cell.courseProgress.progress = 1;
         cell.downloadStatus.image = [UIImage imageNamed:@"downloadSelect.png"];
+        
     }else if (course.downloadStatus == downloadIng) {
         cell.courseProgress.progress = course.downloadSize / course.totalSize;
         cell.downloadInfo.text = [NSString stringWithFormat:@"%.1fM/%.1fM", course.downloadSize/1000000, course.totalSize/1000000];
@@ -274,6 +295,10 @@
 
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    if (indexPath.section == 0) {
+        return;
+    }
     PLCourseDownload *course = [_downloadQueue objectAtIndex:indexPath.row];
     if (_toolBar.isShow) {
         if ([_selectQueue containsObject:course]) {

@@ -153,4 +153,20 @@
  */
 -(void) getChapterCorrelationListdGradeId:(NSString *)gradeId didCatalogId:(NSString *)catalogId didVolumes:(NSString *)volumesId didSuccess:(CallBackBlockSuccess)success didFail:(CallBackBlockFail)fail;
 
+/**
+ *  赞课程或作品
+ *
+ *  @param courseId  课程或作品ID
+ *  @param userId   当前用户ID
+ *  @param type   （课程：1  作品：3）
+ *  @param success
+ *  @param fail
+ */
+
+-(void)praiseDidCourseId:(NSString *)courseId
+               didUserId:(NSString *)userId
+                 didType:(int)type
+              didSuccess:(CallBackBlockSuccess)success
+                 didFail:(CallBackBlockFail)fail;
+
 @end

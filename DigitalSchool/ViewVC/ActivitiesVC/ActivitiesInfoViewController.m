@@ -60,7 +60,9 @@
     [self.scrollview setContentSize:CGSizeMake(self.baseRect.size.width * [array count], self.scrollview.frame.size.height)];
     for (int i=0 ; i<[array count] ; i++) {
         UrlImageView *image = [[UrlImageView alloc] initWithFrame:CGRectMake(i * self.baseRect.size.width, 0, self.baseRect.size.width, _tableTop.frame.size.height)];
-        [image setImageWithURL:[NSURL URLWithString:array[i]] placeholderImage:nil];
+//        [image setBackgroundColor:[UIColor redColor]];
+        [image setImage:[UIImage imageNamed:@"MCourseDefalut.png"]];
+        [image setImageWithURL:[NSURL URLWithString:array[i]] placeholderImage:[UIImage imageNamed:@"MCourseDefalut.png"]];
         [self.scrollview addSubview:image];
      }
     _joinLabel.text = [NSString stringWithFormat:@"%@",_activity.activityJoinNum];

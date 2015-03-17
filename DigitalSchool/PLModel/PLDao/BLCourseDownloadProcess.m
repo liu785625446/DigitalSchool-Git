@@ -34,6 +34,16 @@ static BLCourseDownloadProcess *shareCourseDownlad;
     return [self.courseDao findAllCourseDownload];
 }
 
+-(NSArray *) findCourseDownloadComplete
+{
+    return [self.courseDao findCourseDownloadComplete];
+}
+
+-(NSArray *) findCourseDownloadNoComplete
+{
+    return [self.courseDao findCourseDownloadNoComplete];
+}
+
 -(BOOL) addCourseDownload:(PLCourseDownload *)course
 {
     if ([[self.courseDao findCourseDownloading] count] == 0) {
@@ -42,6 +52,11 @@ static BLCourseDownloadProcess *shareCourseDownlad;
         course.downloadStatus = downloadWait;
     }
     return [self.courseDao addCourseDownload:course];
+}
+
+-(NSArray *) findCourseDownloadForUrl:(NSString *)url
+{
+    return [self.courseDao findCourseDownloadForUrl:url];
 }
 
 -(BOOL) removeCourseDownload:(PLCourseDownload *)course

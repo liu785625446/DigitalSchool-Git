@@ -19,5 +19,5 @@
 @property (nonatomic, strong) IBOutlet UILabel *userName;
 @property (nonatomic, strong) IBOutlet UILabel *worksPraise;
 
-@property (nonatomic, strong) PLWorks *works;
+@property (nonatomic, strong) id objectModel;
 @end

@@ -14,11 +14,11 @@
 
 -(void) rigesterUserName:(NSString *)userName didPassword:(NSString *)pwd didNickName:(NSString *)nickName didUserType:(NSString *)userType didSuccess:(CallBackBlockSuccess)success didFail:(CallBackBlockFail)fail
 {
-    NSString * encodePassword = [BLTool md5:[NSString stringWithFormat:@"%@{%@}",userName,pwd]];
-    NSString *code = [BLTool getKeyCode:[NSString stringWithFormat:@"%@%@%@%@",userName,pwd,nickName,userType]];
+    NSString * encodePassword = [BLTool md5:[NSString stringWithFormat:@"%@{%@}",pwd,userName]];
+    NSString *code = [BLTool getKeyCode:[NSString stringWithFormat:@"%@%@%@%@",userName,encodePassword,nickName,userType]];
     NSMutableDictionary *dic = [[NSMutableDictionary alloc] initWithCapacity:0];
     [dic setObject:userName forKey:@"username"];
-    [dic setObject:pwd forKey:@"password"];
+    [dic setObject:encodePassword forKey:@"password"];
     [dic setObject:nickName forKey:@"nickName"];
     [dic setObject:userType forKey:@"type"];
     [dic setObject:code forKey:@"code"];
@@ -32,12 +32,13 @@
 
 -(void) loginUserName:(NSString *)userName didPassword:(NSString *)pwd didSuccess:(CallBackBlockSuccess)success didFail:(CallBackBlockFail)fail
 {
-    NSString *encodePassword = [BLTool md5:[NSString stringWithFormat:@"%@{%@}",userName,pwd]];
-    NSString *code = [BLTool getKeyCode:[NSString stringWithFormat:@"%@%@",userName,pwd]];
+    NSString *encodePassword = [BLTool md5:[NSString stringWithFormat:@"%@{%@}",pwd,userName]];
+    NSString *code = [BLTool getKeyCode:[NSString stringWithFormat:@"%@%@",userName,encodePassword]];
     NSMutableDictionary *dic = [[NSMutableDictionary alloc] initWithCapacity:0];
     [dic setObject:userName forKey:@"username"];
-    [dic setObject:pwd forKey:@"password"];
+    [dic setObject:encodePassword forKey:@"password"];
     [dic setObject:code forKey:@"code"];
+    
     [PLInterface startRequest:ALL_URL didUrl:USER_LOGIN didParam:dic didSuccess:^(id result) {
         [self dataFormatPost:result didSuccess:success didFail:fail];
     } didFail:^(NSString *error) {

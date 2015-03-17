@@ -1,10 +1,10 @@
-//
-//  Macro.h
-//  DigitalScholl
-//
-//  Created by rachel on 15/1/8.
-//  Copyright (c) 2015年 刘军林. All rights reserved.
-//
+    //
+    //  Macro.h
+    //  DigitalScholl
+    //
+    //  Created by rachel on 15/1/8.
+    //  Copyright (c) 2015年 刘军林. All rights reserved.
+    //
 
 #ifndef DigitalScholl_Macro_h
 #define DigitalScholl_Macro_h
@@ -12,8 +12,8 @@
 typedef enum{
     
     MPlayVideoTypeCourse = 1, //课程
-    MPlayVideoTypeActivities, //活动
-    MPlayVideoTypeWorks  //(作品)
+    MPlayVideoTypeActivities = 2, //活动
+    MPlayVideoTypeWorks = 3 //(作品)
     
     
 }MPlayVideoType;

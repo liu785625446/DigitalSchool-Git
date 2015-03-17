@@ -212,12 +212,12 @@ int main(int argc, char * argv[]) {
 //        
 //    }];
     
-    PLNavsProcess *nav = [[PLNavsProcess alloc] init];
-    [nav getNavsList:^(NSMutableArray *array) {
-        
-    } didFail:^(NSString *error) {
-        
-    }];
+//    PLNavsProcess *nav = [[PLNavsProcess alloc] init];
+//    [nav getNavsList:^(NSMutableArray *array) {
+//        
+//    } didFail:^(NSString *error) {
+//        
+//    }];
     
     @autoreleasepool {
         return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));

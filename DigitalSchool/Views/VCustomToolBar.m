@@ -63,23 +63,27 @@
     CGContextStrokePath(ref);
 }
 
--(void) hideToolbarAction
+-(void) hideToolbarAction:(void (^)(void))completion
 {
     [UIView animateWithDuration:0.5 animations:^{
         CGRect frame = self.frame;
         frame.origin.y = boundRect.size.height;
         self.frame = frame;
-    }completion:nil];
+    }completion:^(BOOL finsh){
+        completion();
+    }];
     self.isShow = NO;
 }
 
--(void) showToolbarAction
+-(void) showToolbarAction:(void (^)(void))completion
 {
     [UIView animateWithDuration:0.5 animations:^{
         CGRect frame = self.frame;
         frame.origin.y = boundRect.size.height - self.frame.size.height;
         self.frame = frame;
-    }completion:nil];
+    }completion:^(BOOL finsh){
+        completion();
+    }];
     self.isShow = YES;
 }
 

@@ -23,6 +23,9 @@ typedef void (^DownloadFailBlock)(NSString *error);
 +(PLCourseDownLoadDao *) shareCourseDownloadDao;
 
 -(NSArray *) findAllCourseDownload;
+-(NSArray *) findCourseDownloadForUrl:(NSString *)url;
+-(NSArray *) findCourseDownloadComplete;
+-(NSArray *) findCourseDownloadNoComplete;
 -(BOOL) addCourseDownload:(PLCourseDownload *)course;
 -(BOOL) removeCourseDownload:(PLCourseDownload *)course;
 -(BOOL) updateCourseDownload:(PLCourseDownload *)course;

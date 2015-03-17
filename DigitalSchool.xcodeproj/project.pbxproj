@@ -86,6 +86,13 @@
 		0A9A575F1A7025B800DA8122 /* movieSliderImg.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A9A575B1A7025B800DA8122 /* movieSliderImg.png */; };
 		0AA3E4C91A8A5E58004D86BE /* MActivityDefault.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AA3E4C71A8A5E58004D86BE /* MActivityDefault.png */; };
 		0AA3E4CA1A8A5E58004D86BE /* MCourseDefalut.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AA3E4C81A8A5E58004D86BE /* MCourseDefalut.png */; };
+		0AA5273A1AB7193C00517F20 /* MDownloadCompleteController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AA527391AB7193C00517F20 /* MDownloadCompleteController.m */; };
+		0AA5273D1AB737A400517F20 /* MReplyDiscussCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AA5273B1AB737A400517F20 /* MReplyDiscussCell.m */; };
+		0AA527401AB7398A00517F20 /* MReplyDiscussVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AA5273E1AB7398A00517F20 /* MReplyDiscussVC.m */; };
+		0AA527451AB73C2F00517F20 /* BtnBottomNormal6@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AA527411AB73C2F00517F20 /* BtnBottomNormal6@3x.png */; };
+		0AA527461AB73C2F00517F20 /* BtnBottomPressed6@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AA527421AB73C2F00517F20 /* BtnBottomPressed6@2x.png */; };
+		0AA527471AB73C2F00517F20 /* BtnBottomNormal6@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AA527431AB73C2F00517F20 /* BtnBottomNormal6@2x.png */; };
+		0AA527481AB73C2F00517F20 /* BtnBottomPressed6@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AA527441AB73C2F00517F20 /* BtnBottomPressed6@3x.png */; };
 		0AAE37031AAF072B00350BC4 /* MNavigationDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AAE37021AAF072B00350BC4 /* MNavigationDetailsViewController.m */; };
 		0AB31DDB1A68D8B800B87850 /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AB31D5B1A68D8B800B87850 /* UIColor+Hex.m */; };
 		0AB31DDC1A68D8B800B87850 /* BLTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AB31D5E1A68D8B800B87850 /* BLTool.m */; };
@@ -518,6 +525,16 @@
 		0A9A575B1A7025B800DA8122 /* movieSliderImg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = movieSliderImg.png; path = ../View/movieSliderImg.png; sourceTree = "<group>"; };
 		0AA3E4C71A8A5E58004D86BE /* MActivityDefault.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MActivityDefault.png; sourceTree = "<group>"; };
 		0AA3E4C81A8A5E58004D86BE /* MCourseDefalut.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MCourseDefalut.png; sourceTree = "<group>"; };
+		0AA527381AB7193C00517F20 /* MDownloadCompleteController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDownloadCompleteController.h; sourceTree = "<group>"; };
+		0AA527391AB7193C00517F20 /* MDownloadCompleteController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDownloadCompleteController.m; sourceTree = "<group>"; };
+		0AA5273B1AB737A400517F20 /* MReplyDiscussCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MReplyDiscussCell.m; sourceTree = "<group>"; };
+		0AA5273C1AB737A400517F20 /* MReplyDiscussCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MReplyDiscussCell.h; sourceTree = "<group>"; };
+		0AA5273E1AB7398A00517F20 /* MReplyDiscussVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MReplyDiscussVC.m; sourceTree = "<group>"; };
+		0AA5273F1AB7398A00517F20 /* MReplyDiscussVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MReplyDiscussVC.h; sourceTree = "<group>"; };
+		0AA527411AB73C2F00517F20 /* BtnBottomNormal6@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BtnBottomNormal6@3x.png"; sourceTree = "<group>"; };
+		0AA527421AB73C2F00517F20 /* BtnBottomPressed6@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BtnBottomPressed6@2x.png"; sourceTree = "<group>"; };
+		0AA527431AB73C2F00517F20 /* BtnBottomNormal6@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BtnBottomNormal6@2x.png"; sourceTree = "<group>"; };
+		0AA527441AB73C2F00517F20 /* BtnBottomPressed6@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BtnBottomPressed6@3x.png"; sourceTree = "<group>"; };
 		0AAE37011AAF072B00350BC4 /* MNavigationDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNavigationDetailsViewController.h; sourceTree = "<group>"; };
 		0AAE37021AAF072B00350BC4 /* MNavigationDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNavigationDetailsViewController.m; sourceTree = "<group>"; };
 		0AB31D5A1A68D8B800B87850 /* UIColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hex.h"; sourceTree = "<group>"; };
@@ -1097,6 +1114,8 @@
 				0A9A57551A7020F400DA8122 /* MDiscussNotesCell.xib */,
 				0A9A56A91A6FE5CB00DA8122 /* MBottomView.h */,
 				0A9A56AA1A6FE5CB00DA8122 /* MBottomView.m */,
+				0AA5273B1AB737A400517F20 /* MReplyDiscussCell.m */,
+				0AA5273C1AB737A400517F20 /* MReplyDiscussCell.h */,
 				0A9A56AB1A6FE5CB00DA8122 /* MChapterCell.h */,
 				0A9A56AC1A6FE5CB00DA8122 /* MChapterCell.m */,
 				0A9A56AD1A6FE5CB00DA8122 /* MChapterCell.xib */,
@@ -1184,6 +1203,10 @@
 				0AEA90611A835A3F00C699ED /* login */,
 				0AB31D6B1A68D8B800B87850 /* AppImage */,
 				8B1F6ABA1AAFC624009F3E6C /* boxbg_left_over.png */,
+				0AA527411AB73C2F00517F20 /* BtnBottomNormal6@3x.png */,
+				0AA527421AB73C2F00517F20 /* BtnBottomPressed6@2x.png */,
+				0AA527431AB73C2F00517F20 /* BtnBottomNormal6@2x.png */,
+				0AA527441AB73C2F00517F20 /* BtnBottomPressed6@3x.png */,
 				8B1F6ABB1AAFC624009F3E6C /* boxbg_left_upline_over.png */,
 				8B1F6ABC1AAFC624009F3E6C /* boxbg_left_upline.png */,
 				8B1F6ABD1AAFC624009F3E6C /* boxbg_left.png */,
@@ -1387,6 +1410,8 @@
 				0A9A57461A70077B00DA8122 /* ActivitiesInfoViewController.m */,
 				0AB31D7C1A68D8B800B87850 /* CourseDownloadController.h */,
 				0AB31D7D1A68D8B800B87850 /* CourseDownloadController.m */,
+				0AA527381AB7193C00517F20 /* MDownloadCompleteController.h */,
+				0AA527391AB7193C00517F20 /* MDownloadCompleteController.m */,
 				0A9A57491A70078A00DA8122 /* MUploadWorksViewController.h */,
 				0A9A574A1A70078A00DA8122 /* MUploadWorksViewController.m */,
 			);
@@ -1421,6 +1446,8 @@
 				818DE8E71A80BF0E009383D2 /* MCommentViewController.m */,
 				0AE12E081A8B261600D10389 /* MWatchRecordViewController.h */,
 				0AE12E091A8B261600D10389 /* MWatchRecordViewController.m */,
+				0AA5273E1AB7398A00517F20 /* MReplyDiscussVC.m */,
+				0AA5273F1AB7398A00517F20 /* MReplyDiscussVC.h */,
 			);
 			path = CourseVC;
 			sourceTree = "<group>";
@@ -2144,6 +2171,7 @@
 				0AA3E4CA1A8A5E58004D86BE /* MCourseDefalut.png in Resources */,
 				8B13667F1AB67A0400AA482C /* SystemSettingsScrean@3x.png in Resources */,
 				8B13678E1AB67D6500AA482C /* MyRootEdit@2x.png in Resources */,
+				0AA527481AB73C2F00517F20 /* BtnBottomPressed6@3x.png in Resources */,
 				8B1367A81AB67F4700AA482C /* MCellbackGround@3x.png in Resources */,
 				CC5A94EC1A6E8BC5008197BC /* BtnBottomPressed5@2x.png in Resources */,
 				8B1F6AC61AAFC624009F3E6C /* boxbg_left_over.png in Resources */,
@@ -2155,6 +2183,7 @@
 				8B13668F1AB67AFC00AA482C /* MySettingsBut_select@3x.png in Resources */,
 				8B13661B1AB6736D00AA482C /* TabbarNav_Select@3x.png.png in Resources */,
 				0A9A575F1A7025B800DA8122 /* movieSliderImg.png in Resources */,
+				0AA527461AB73C2F00517F20 /* BtnBottomPressed6@2x.png in Resources */,
 				8B1367A31AB67EC700AA482C /* moviePlayButton@3x.png in Resources */,
 				8B1366031AB6736D00AA482C /* BtnBottomNormal3@3x.png in Resources */,
 				8B13667D1AB67A0400AA482C /* SystemSettingsClear@3x.png in Resources */,
@@ -2176,9 +2205,11 @@
 				8B13668E1AB67AFC00AA482C /* MySettingsBut_select@2x.png in Resources */,
 				CCCF51F51A77B00500A4654F /* 5.png in Resources */,
 				8B1366521AB676B600AA482C /* visitorsBut_select@2x.png in Resources */,
+				0AA527451AB73C2F00517F20 /* BtnBottomNormal6@3x.png in Resources */,
 				8B13678C1AB67D6500AA482C /* MyRootActivitise@2x.png in Resources */,
 				8B1366451AB676B600AA482C /* password@3x.png in Resources */,
 				8B13666B1AB6793A00AA482C /* uploadVideo_select@3x.png in Resources */,
+				0AA527471AB73C2F00517F20 /* BtnBottomNormal6@2x.png in Resources */,
 				0AB31DE11A68D8B800B87850 /* TabbarActivities@2x.png in Resources */,
 				8B1366681AB6793A00AA482C /* uploadImg@2x.png in Resources */,
 				8B1367A91AB67F4700AA482C /* MCellIconNomer@3x.png in Resources */,
@@ -2343,6 +2374,7 @@
 				0A9A56BA1A6FE5CB00DA8122 /* MCourseCell.m in Sources */,
 				0AEA90811A83698400C699ED /* UIKeyboardViewController.m in Sources */,
 				CC77433E1A7FA89C009DA7C4 /* PLLookCourse.m in Sources */,
+				0AA5273A1AB7193C00517F20 /* MDownloadCompleteController.m in Sources */,
 				8B5B740B1AAD721100ADB3DE /* NSDateExtra.m in Sources */,
 				CC3DAD031A68EB5D00C9139C /* MScreeningMenu.m in Sources */,
 				0A9A574B1A70078A00DA8122 /* MUploadWorksViewController.m in Sources */,
@@ -2358,6 +2390,7 @@
 				CCCF522C1A79009800A4654F /* UrlImageButton.m in Sources */,
 				818DE8E81A80BF0E009383D2 /* MCommentViewController.m in Sources */,
 				0A9A569B1A6FE2AF00DA8122 /* MyMessageCell.m in Sources */,
+				0AA5273D1AB737A400517F20 /* MReplyDiscussCell.m in Sources */,
 				CC3DACEB1A68E88300C9139C /* MAdcolumnView.m in Sources */,
 				CC3DAD0F1A68ED4400C9139C /* MSearchViewController.m in Sources */,
 				0AB31DDC1A68D8B800B87850 /* BLTool.m in Sources */,
@@ -2381,6 +2414,7 @@
 				0A9A56BC1A6FE5CB00DA8122 /* MDetailsCell.m in Sources */,
 				0AEA90781A8361CC00C699ED /* MLoginViewController.m in Sources */,
 				CCCF52261A79009800A4654F /* MJRefreshFooterView.m in Sources */,
+				0AA527401AB7398A00517F20 /* MReplyDiscussVC.m in Sources */,
 				CCCF522A1A79009800A4654F /* SDWebImageDownloader.m in Sources */,
 				0AB31E091A68D8B800B87850 /* FMDatabasePool.m in Sources */,
 				0AB31E111A68D8B800B87850 /* UIAlertView+MKNetworkKitAdditions.m in Sources */,

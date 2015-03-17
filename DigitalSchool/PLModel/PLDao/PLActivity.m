@@ -7,6 +7,7 @@
 //
 
 #import "PLActivity.h"
+#import "PLUser.h"
 
 @implementation PLActivity
 
@@ -20,6 +21,7 @@
 @synthesize activityPhone;
 @synthesize activityStartTime;
 @synthesize activityTips;
+@synthesize plUser;
 
 -(id) init
 {
@@ -34,6 +36,7 @@
         self.activityPhone = @"";
         self.activityStartTime = @"";
         self.activityTips = @"";
+        self.plUser = [[PLUser alloc]init];
     }
     return self;
 }
@@ -84,6 +87,12 @@
     {
         self.activityName = value;
     }
+    if ([key isEqualToString:@"admin"]|| [key isEqualToString:@"user"]) {
+        if ([value isKindOfClass:[NSDictionary class]]) {
+            [self.plUser setValuesForKeysWithDictionary:value];
+        }
+    }
+    
 }
 
 -(NSString *) description

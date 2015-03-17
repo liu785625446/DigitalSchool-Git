@@ -29,40 +29,43 @@
 
 -(void)creatAdcolumn:(NSArray *)adcolumns
 {
-    self.backgroundColor = [UIColor colorWithHexString:MListBarkGroundColor alpha:1];
-    mAdcolumns = [NSMutableArray arrayWithArray:adcolumns];
-    
-    _scrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
-    _scrollView.pagingEnabled = YES;
-    _scrollView.delegate = self;
-    _scrollView.showsVerticalScrollIndicator = NO;
-    _scrollView.showsHorizontalScrollIndicator = NO;
-    _scrollView.contentSize = CGSizeMake(adcolumns.count*self.frame.size.width, self.frame.size.height);
-    [self addSubview:_scrollView];
-    
-    for (int i=0; i<adcolumns.count; i++)
-    {
-        UrlImageView *imageView = [[UrlImageView alloc]initWithImage:[UIImage imageNamed:@"MCourseDefalut.png"]];
-        imageView.frame = CGRectMake(i*self.frame.size.width, 0, self.frame.size.width, self.frame.size.height);
-        PLRecommendCourse *course = [adcolumns objectAtIndex:i];
-        [imageView setImageWithURL:[NSURL URLWithString:course.recommendImg]
-                  placeholderImage:[UIImage imageNamed:@"MCourseDefalut.png"]];
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        mAdcolumns = [NSMutableArray arrayWithArray:adcolumns];
         
-        [_scrollView addSubview:imageView];
-    }
-    
-    pageControl = [[UIPageControl alloc] initWithFrame: CGRectMake(0, self.frame.size.height-20, self.frame.size.width, 20)];
-    pageControl.numberOfPages = adcolumns.count;
-    pageControl.currentPageIndicatorTintColor = [UIColor colorWithHexString:@"#FF8000" alpha:1];
-    pageControl.pageIndicatorTintColor = [UIColor colorWithHexString:@"#00FFFF" alpha:1];
-    
-    [self addSubview:pageControl];
-    
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapGest:)];
-    [_scrollView addGestureRecognizer:tap];
-    
-    _timer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(timerAction) userInfo:nil repeats:YES];
-    [[NSRunLoop currentRunLoop] addTimer:_timer forMode:NSRunLoopCommonModes];
+        _scrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
+        _scrollView.pagingEnabled = YES;
+        _scrollView.delegate = self;
+        _scrollView.showsVerticalScrollIndicator = NO;
+        _scrollView.showsHorizontalScrollIndicator = NO;
+        _scrollView.contentSize = CGSizeMake(adcolumns.count*self.frame.size.width, self.frame.size.height);
+        [self addSubview:_scrollView];
+        
+        for (int i=0; i<adcolumns.count; i++)
+               {
+            UrlImageView *imageView = [[UrlImageView alloc]initWithImage:[UIImage imageNamed:@"MCourseDefalut.png"]];
+            imageView.frame = CGRectMake(i*self.frame.size.width, 0, self.frame.size.width, self.frame.size.height);
+            PLRecommendCourse *course = [adcolumns objectAtIndex:i];
+            [imageView setImageWithURL:[NSURL URLWithString:course.recommendImg]
+                      placeholderImage:[UIImage imageNamed:@"MCourseDefalut.png"]];
+            
+            [_scrollView addSubview:imageView];
+               }
+        
+        pageControl = [[UIPageControl alloc] initWithFrame: CGRectMake(0, self.frame.size.height-20, self.frame.size.width, 20)];
+        pageControl.numberOfPages = adcolumns.count;
+        pageControl.currentPageIndicatorTintColor = [UIColor colorWithHexString:@"#FF8000" alpha:1];
+        pageControl.pageIndicatorTintColor = [UIColor colorWithHexString:@"#00FFFF" alpha:1];
+        
+        [self addSubview:pageControl];
+        
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapGest:)];
+        [_scrollView addGestureRecognizer:tap];
+        
+        _timer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(timerAction) userInfo:nil repeats:YES];
+        [[NSRunLoop currentRunLoop] addTimer:_timer forMode:NSRunLoopCommonModes];
+        
+    });
 }
 
 -(void) timerAction

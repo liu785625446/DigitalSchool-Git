@@ -20,7 +20,9 @@
 
 -(void) getCourseMainImg:(CallBackBlockSuccess)success didFail:(CallBackBlockFail)fail
 {
+    NSLog(@"aa");
     [PLInterface startRequest:ALL_URL didUrl:COURSE_MAIN([BLTool getKeyCode:@""]) didParam:nil didSuccess:^(id result){
+        NSLog(@"bb");
         [self dataFormat:result didClass:NSStringFromClass([PLRecommendCourse class]) didSuccess:success didFail:fail];
     }didFail:^(NSString *error){
         fail(REQUEST_ERROR);
@@ -142,12 +144,12 @@
 -(void) submitCourseLookRecord:(NSString *)courseId didUser:(NSString *)userId didSuccess:(CallBackBlockSuccess)success didFail:(CallBackBlockFail)fail
 {
     userId = [self getUserId];
-    NSString *code = [BLTool getKeyCode:[NSString stringWithFormat:@"%@%@%@",courseId, userId,@"0"]];
+    NSString *code = [BLTool getKeyCode:[NSString stringWithFormat:@"%@%@%@",courseId, userId,@"1"]];
     NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
     [dic setObject:courseId forKey:@"courseId"];
     [dic setObject:userId forKey:@"userId"];
     [dic setObject:code forKey:@"code"];
-    [dic setObject:@"0" forKey:@"type"];
+    [dic setObject:@"1" forKey:@"type"];
     [PLInterface startRequest:ALL_URL didUrl:COURSE_SAVE_WATCH didParam:dic didSuccess:^(id result){
         [self dataFormatPost:result didSuccess:success didFail:fail];
     }didFail:^(NSString *error){
@@ -220,6 +222,26 @@
     } didFail:^(NSString *error) {
         
     }];
+}
+
+-(void)praiseDidCourseId:(NSString *)courseId
+               didUserId:(NSString *)userId
+                 didType:(int)type
+              didSuccess:(CallBackBlockSuccess)success
+                 didFail:(CallBackBlockFail)fail
+{
+    NSString *code = [BLTool getKeyCode:[NSString stringWithFormat:@"%@%@%d", courseId, userId, type]];
+    NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
+    [dic setObject:courseId forKey:@"courseId"];
+    [dic setObject:userId forKey:@"userId"];
+    [dic setObject:[NSString stringWithFormat:@"%d",type] forKey:@"type"];
+    [dic setObject:code forKey:@"code"];
+    [PLInterface startRequest:ALL_URL didUrl:Praise didParam:dic didSuccess:^(id result) {
+        [self dataFormatPost:result didSuccess:success didFail:fail];
+    } didFail:^(NSString *error) {
+        fail(REQUEST_ERROR);
+    }];
+    
 }
 
 

@@ -252,6 +252,9 @@
             if (currentIndex == 1)
             {
                 mplay.mPlayVideoType = MPlayVideoTypeWorks;
+            }else
+            {
+                mplay.mPlayVideoType = MPlayVideoTypeCourse;
             }
             mplay.objectModel = [objects objectAtIndex:indexPath.row];
         }

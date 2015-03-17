@@ -8,6 +8,7 @@
 
 #import "PLNavsProcess.h"
 #import "PLNavs.h"
+#import "PLCourse.h"
 
 @implementation PLNavsProcess
 
@@ -27,9 +28,9 @@
     NSString *code = [BLTool getKeyCode:[NSString stringWithFormat:@"%d%d%@",pageSize, currentPage, navId]];
     NSString *url = [NSString stringWithFormat:@"%d/%d/%@/%@",pageSize, currentPage, navId, code];
     [PLInterface startRequest:ALL_URL didUrl:NAV_NAVS_DATA(url) didParam:nil didSuccess:^(id result) {
-        
+        [self dataFormat:result didClass:NSStringFromClass([PLCourse class]) didSuccess:success didFail:fail];
     } didFail:^(NSString *error) {
-        
+        fail(REQUEST_ERROR);
     }];
 }
 

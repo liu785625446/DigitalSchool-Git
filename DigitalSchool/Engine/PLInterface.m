@@ -14,6 +14,7 @@
 
 +(void) startRequest:(NSString *)host didUrl:(NSString *)url didParam:(NSMutableDictionary *)param didSuccess:(void (^)(id))success didFail:(void (^)(NSString *))fail
 {
+//    NSLog(@"aa");
     MKNetworkEngine *engine = [[MKNetworkEngine alloc] initWithHostName:host customHeaderFields:nil];
     MKNetworkOperation *operation = nil;
     if (param) {
@@ -23,6 +24,7 @@
     }
     
     [operation onCompletion:^(MKNetworkOperation *response){
+//        NSLog(@"bb");
         success([response responseJSON]);
     }onError:^(NSError *error){
         fail([error description]);

@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+@class PLCourseDownload;
+
 @interface BLTool : NSObject
 
 +(NSString *)md5:(NSString *)str;
@@ -20,5 +22,7 @@
 +(NSString *)getKeyCode:(NSString *)str;
 
 +(NSString *)getEncoding:(NSString *)code;
+
++(PLCourseDownload *) getCourseDownloadPath:(PLCourseDownload *)course;
 
 @end

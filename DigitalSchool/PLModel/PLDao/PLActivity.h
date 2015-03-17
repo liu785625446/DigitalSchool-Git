@@ -7,6 +7,7 @@
 //
 
 #import "PLBaseData.h"
+@class PLUser;
 
 @interface PLActivity : PLBaseData
 
@@ -20,5 +21,7 @@
 @property (nonatomic, strong) NSString *activityPhone;
 @property (nonatomic, strong) NSString *activityStartTime;
 @property (nonatomic, strong) NSString *activityTips;
+@property (nonatomic, strong) NSString *praise;
+@property (nonatomic, strong) PLUser *plUser;
 
 @end
