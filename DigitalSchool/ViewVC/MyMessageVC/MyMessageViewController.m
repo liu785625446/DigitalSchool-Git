@@ -88,7 +88,14 @@
 
 -(IBAction)myActivitiesAction:(id)sender
 {
-//    [self performSegueWithIdentifier:@"MyUploadWork" sender:nil];
+    if ([self checkUserLogin])
+    {
+       [self performSegueWithIdentifier:@"MyUploadWork" sender:nil];
+    }
+    else
+    {
+        
+    }
 }
 
 #pragma mark -

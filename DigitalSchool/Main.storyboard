@@ -843,7 +843,6 @@
                                                     </state>
                                                     <connections>
                                                         <action selector="myActivitiesAction:" destination="uTt-cd-y0U" eventType="touchUpInside" id="qZQ-YF-jWV"/>
-                                                        <segue destination="A29-iH-izS" kind="push" identifier="MyUploadWork" id="39u-Mv-iEj"/>
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C23-LT-dzv">
@@ -913,6 +912,7 @@
                         <segue destination="SfG-El-lAA" kind="push" identifier="OfflineCache" id="tiK-n9-5sI"/>
                         <segue destination="aZ3-dK-hs2" kind="push" identifier="CollectIdentifier" id="CuZ-5U-DwM"/>
                         <segue destination="fQb-RR-1ml" kind="push" identifier="userInfoIdentifier" id="eEu-iE-53k"/>
+                        <segue destination="A29-iH-izS" kind="push" identifier="MyUploadWork" id="mzd-Ya-ZGl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fhg-9G-4zx" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2552,10 +2552,10 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="lsD-er-YA6"/>
-        <segue reference="39u-Mv-iEj"/>
         <segue reference="0Ur-Fx-svh"/>
-        <segue reference="dFt-LK-3i9"/>
+        <segue reference="mzd-Ya-ZGl"/>
         <segue reference="8Yd-5t-5uj"/>
+        <segue reference="dFt-LK-3i9"/>
+        <segue reference="lsD-er-YA6"/>
     </inferredMetricsTieBreakers>
 </document>
