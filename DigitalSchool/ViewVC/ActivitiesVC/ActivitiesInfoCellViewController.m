@@ -27,6 +27,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     _discussProcess = [[PLDiscussProcess alloc] init];
     _workProcess = [[PLWorkProcess alloc] init];
     if (_cellStyle ==  ALLCOMMENT) {
@@ -95,7 +96,7 @@
 
 -(CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 99.f;
+    return 99.0f;
 }
 
 -(UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -115,7 +116,9 @@
         
         id works = [self.baseArray objectAtIndex:indexPath.row];
         cell.objectModel = works;
+        
         return cell;
+        
     }else{
         static NSString *cellIdentifier = @"CommentCellIndentifier";
         ActivityDiscussCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];

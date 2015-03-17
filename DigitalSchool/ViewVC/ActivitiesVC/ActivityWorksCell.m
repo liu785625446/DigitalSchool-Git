@@ -34,9 +34,11 @@
         PLWorks *works = (PLWorks *) objectModel;
         worksName.text = works.workTitle;
         [worksImg setImageWithURL:[NSURL URLWithString:works.workImg] placeholderImage:[UIImage imageNamed:@"MActivityDefault.png"]];
-        worksWatchNum.text = [NSString stringWithFormat:@"%@",works.workWatchNum];
-        worksPraise.text = works.praise;
+        worksWatchNum.text = [NSString stringWithFormat:@"%d",[works.workWatchNum intValue]];
+        worksPraise.text =  [NSString stringWithFormat:@"%d",[works.praise intValue]];
         userName.text = works.user.userName;
+        
+        
     }else if ([objectModel isKindOfClass:[PLActivity class]]) {
         PLActivity *activity = (PLActivity * ) objectModel;
         worksName.text = activity.activityName;

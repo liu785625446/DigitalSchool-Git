@@ -47,7 +47,7 @@
         self.workImg = [NSString stringWithFormat:@"%@%@%@",@"http://",ALL_URL, value];
     }
     if ([key isEqualToString:@"title"]) {
-        self.workTitle = value;
+        self.workTitle = [NSString stringWithFormat:@"%@",value];
     }
     if ([key isEqualToString:@"updateTime"]) {
         self.workUpdateTime = value;
@@ -56,14 +56,14 @@
         self.workURL = [NSString stringWithFormat:@"%@%@%@",@"http://",ALL_URL, value];
     }
     if ([key isEqualToString:@"watchNum"]) {
-        self.workWatchNum = value;
+        self.workWatchNum = [NSString stringWithFormat:@"%@",value];
     }
     if ([key isEqualToString:@"admin"]) {
         NSDictionary *dic = (NSDictionary *)value;
         [self.user setValuesForKeysWithDictionary:dic];
     }
     if ([key isEqualToString:@"intro"]) {
-        self.workIntro = value;
+        self.workIntro = [NSString stringWithFormat:@"%@",value];;
     }
 }
 

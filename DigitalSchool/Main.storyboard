@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="TK3-tq-V64">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="TK3-tq-V64">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
     </dependencies>
     <scenes>
         <!--Login View Controller-->
@@ -843,7 +843,6 @@
                                                     </state>
                                                     <connections>
                                                         <action selector="myActivitiesAction:" destination="uTt-cd-y0U" eventType="touchUpInside" id="qZQ-YF-jWV"/>
-                                                        <segue destination="A29-iH-izS" kind="push" identifier="MyUploadWork" id="39u-Mv-iEj"/>
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C23-LT-dzv">
@@ -913,6 +912,7 @@
                         <segue destination="SfG-El-lAA" kind="push" identifier="OfflineCache" id="tiK-n9-5sI"/>
                         <segue destination="aZ3-dK-hs2" kind="push" identifier="CollectIdentifier" id="CuZ-5U-DwM"/>
                         <segue destination="fQb-RR-1ml" kind="push" identifier="userInfoIdentifier" id="eEu-iE-53k"/>
+                        <segue destination="A29-iH-izS" kind="push" identifier="MyUploadWork" id="mzd-Ya-ZGl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fhg-9G-4zx" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1825,13 +1825,13 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="CommentCellIndentifier" id="z6U-By-4yf" customClass="ActivityDiscussCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="CommentCellIndentifier" id="z6U-By-4yf" customClass="ActivityDiscussCell">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="z6U-By-4yf" id="qAj-1L-cqw">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aU6-Ce-oxd">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aU6-Ce-oxd">
                                                     <rect key="frame" x="5" y="5" width="310" height="90"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ActivitiesInfoHead1.png" translatesAutoresizingMaskIntoConstraints="NO" id="HRR-sK-N1c">
@@ -1847,14 +1847,14 @@
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="ActivitiesInfoShear.png" translatesAutoresizingMaskIntoConstraints="NO" id="lqN-D3-2pQ">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ActivitiesInfoShear.png" translatesAutoresizingMaskIntoConstraints="NO" id="lqN-D3-2pQ">
                                                             <rect key="frame" x="271" y="5" width="15" height="15"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="15" id="5FB-cF-Ycz"/>
                                                                 <constraint firstAttribute="width" constant="15" id="hcy-at-q8l"/>
                                                             </constraints>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="赞同" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ros-Nh-gVS">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="赞同" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ros-Nh-gVS">
                                                             <rect key="frame" x="267" y="18" width="26" height="16"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -1872,7 +1872,7 @@
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="回复" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RYE-Pc-PoB">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="回复" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RYE-Pc-PoB">
                                                             <rect key="frame" x="268" y="71" width="26" height="16"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -2141,7 +2141,7 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="downloadNoSelect.png" translatesAutoresizingMaskIntoConstraints="NO" id="DxL-Hw-rti">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="downloadNoSelect.png" translatesAutoresizingMaskIntoConstraints="NO" id="DxL-Hw-rti">
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="26" id="4hR-aY-4nB"/>
                                                         <constraint firstAttribute="width" id="n1h-co-Zai"/>
@@ -2552,10 +2552,10 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="lsD-er-YA6"/>
-        <segue reference="39u-Mv-iEj"/>
         <segue reference="0Ur-Fx-svh"/>
-        <segue reference="dFt-LK-3i9"/>
+        <segue reference="mzd-Ya-ZGl"/>
         <segue reference="8Yd-5t-5uj"/>
+        <segue reference="dFt-LK-3i9"/>
+        <segue reference="lsD-er-YA6"/>
     </inferredMetricsTieBreakers>
 </document>
