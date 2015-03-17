@@ -36,5 +36,5 @@
 @property (nonatomic, strong) NSLayoutConstraint *dsRight;
 
 -(void) addConstraintSupview:(UIView *)supview;
-
+-(void) clickScreenAction:(id)sender;
 @end

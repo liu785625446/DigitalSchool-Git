@@ -19,13 +19,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "DigitalSchool/ViewVC/ActivitiesVC/ActivitiesInfoCellViewController.m"
-            timestampString = "448218565.725647"
+            filePath = "DigitalSchool/ViewVC/ActivitiesVC/MDownloadCompleteController.m"
+            timestampString = "448298142.106735"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "203"
-            endingLineNumber = "203"
-            landmarkName = "-getDatas:"
+            startingLineNumber = "77"
+            endingLineNumber = "77"
+            landmarkName = "-tableView:didSelectRowAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

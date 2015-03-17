@@ -10,6 +10,7 @@
 #import "MCourseDownloadCell.h"
 #import "BLCourseDownloadProcess.h"
 #import "PLCourseDownload.h"
+#import "MDownloadCompleteController.h"
 
 #import "MKNetworkKit.h"
 
@@ -200,6 +201,25 @@
     }
 }
 
+-(void) courseDownloadFail:(PLCourseDownload *)courseDownload
+{
+    PLCourseDownload *currentCourse = nil;
+    int row = -1;
+    for (int i=0 ; i<[self.downloadQueue count] ; i++) {
+        PLCourseDownload *temp = [self.downloadQueue objectAtIndex:i];
+        if ([temp.downloadPath isEqualToString:courseDownload.downloadPath]) {
+            currentCourse = temp;
+            row = i;
+            break;
+        }
+    }
+    currentCourse.downloadStatus = downloadFail;
+    if (row > 0) {
+        NSIndexPath *indexPath = [NSIndexPath indexPathForItem:row inSection:1];
+        [self.table reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+    }
+}
+
 #pragma mark -
 #pragma mark UITableViewDelegate
 -(NSInteger) numberOfSectionsInTableView:(UITableView *)tableView
@@ -277,12 +297,21 @@
         if (course.downloadSize > 0) {
             cell.courseProgress.progress = course.downloadSize / course.totalSize;
         }else{
-//            cell.courseProgress.progress = 0;
+            cell.courseProgress.progress = 0;
         }
         cell.downloadStatus.image = [UIImage imageNamed:@"downloadIng.png"];
     }else if (course.downloadStatus == downloadPause) {
         cell.downloadInfo.text = @"暂停";
         cell.downloadStatus.image = [UIImage imageNamed:@"downloadPause.png"];
+        if (course.downloadSize > 0) {
+            cell.courseProgress.progress = course.downloadSize / course.totalSize;
+        }else{
+            cell.courseProgress.progress = 0;
+        }
+    }else if (course.downloadStatus == downloadFail) {
+        cell.downloadInfo.text = @"连接失败";
+        cell.downloadStatus.image = nil;
+        cell.courseProgress.backgroundColor = [UIColor redColor];
         if (course.downloadSize > 0) {
             cell.courseProgress.progress = course.downloadSize / course.totalSize;
         }else{
@@ -297,6 +326,8 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (indexPath.section == 0) {
+        
+        [self performSegueWithIdentifier:@"DownloadCompleteIdentifier" sender:nil];
         return;
     }
     PLCourseDownload *course = [_downloadQueue objectAtIndex:indexPath.row];
@@ -322,23 +353,6 @@
             [_courseProcess priorityRequestDownloadTaskQueue:course];
         }
     }
-//    if (_toolBar.isShow) {
-//        if ([_selectQueue containsObject:course]) {
-//            [_selectQueue removeObject:course];
-//            [_toolBar setTitleMethod:@"全选" didIndex:0];
-//        }else{
-//            [_selectQueue addObject:course];
-//        }
-//        [self.table reloadData];
-//    }else{
-//        if (course.downloadStatus == downloadIng) {
-//            [_courseProcess pauseRequestDownloadTaskQueue:course];
-//        }else if(course.downloadStatus == downloadWait) {
-//            [_courseProcess priorityRequestDownloadTaskQueue:course];
-//        }else if (course.downloadStatus == downloadPause) {
-//            [_courseProcess priorityRequestDownloadTaskQueue:course];
-//        }
-//    }
 }
 
 -(UITableViewCellEditingStyle) tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -350,14 +364,26 @@
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
 
+        if ([_downloadQueue count] == 1) {
+            [self.table deleteSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:UITableViewRowAnimationFade];
+        }
+        [self.table deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        
         [_courseProcess deleteCourseDownloadTaskQueue:@[[_downloadQueue objectAtIndex:indexPath.row]]];
         
         PLCourseDownload *course = [_downloadQueue objectAtIndex:indexPath.row];
         [_courseProcess removeCourseDownload:course];
         _downloadQueue = [_courseProcess findAllCourseDownload];
         
-        [self.table deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
         [self.table reloadData];
+    }
+}
+
+-(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"DownloadCompleteIdentifier"]) {
+        MDownloadCompleteController *mDownload = segue.destinationViewController;
+        mDownload.download_list = [_courseProcess findCourseDownloadComplete];
     }
 }
 

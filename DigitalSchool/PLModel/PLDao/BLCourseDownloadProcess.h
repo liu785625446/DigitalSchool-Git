@@ -14,6 +14,8 @@
 @protocol BLCourseDownloadDelegate <NSObject>
 
 -(void)courseDownload:(PLCourseDownload *)courseDownload didTotalSize:(double)totalSize didDownloadSize:(double) downloadSize;
+
+-(void) courseDownloadFail:(PLCourseDownload *)courseDownload;
 @end
 
 @interface BLCourseDownloadProcess : NSObject

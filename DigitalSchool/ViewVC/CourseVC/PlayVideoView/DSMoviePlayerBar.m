@@ -27,6 +27,7 @@
 {
     if ([super init]) {
         self.backgroundColor = [UIColor blackColor];
+        self.alpha = 0.6f;
         //        self.alpha = 0.6;
         //        播放暂停按钮
         _playPauseButton = [[UIButton alloc] init];

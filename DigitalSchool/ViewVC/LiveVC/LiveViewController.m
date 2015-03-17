@@ -94,6 +94,11 @@
 {
     [self getActivityData:self.currentPage];
 }
+#pragma mark- YYAnimationDelegate
+-(void)didReloadData:(YYAnimationIndicator *)animationView
+{
+    [self getActivityData:self.currentPage];
+}
 
 #pragma mark -获取活动列表
 -(void)getActivityData:(NSInteger)page
