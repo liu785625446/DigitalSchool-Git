@@ -120,6 +120,7 @@
     }else if ([segue.identifier isEqualToString:@"CoursePlayIdentifier"]) {
         MPlayVideoViewController *play = segue.destinationViewController;
         PLCollect *collect = [self.baseArray objectAtIndex:indexpath.row];
+        play.mPlayVideoType = MPlayVideoTypeCourse;
         play.objectModel = collect.courses;
     }
 }

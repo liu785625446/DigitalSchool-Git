@@ -83,7 +83,7 @@ static BLCourseDownloadProcess *shareCourseDownlad;
         [self requestDownloadTaskQueueNext:course];
         
     }disFail:^(NSString *error){
-        
+        [_delegate courseDownloadFail:course];
     }];
 }
 

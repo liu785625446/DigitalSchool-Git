@@ -14,6 +14,7 @@ typedef enum : NSUInteger {
     downloadPause,
     downloadWait,
     downloadComplete,
+    downloadFail,
 }downloadType;
 
 @interface PLCourseDownload : PLBaseData

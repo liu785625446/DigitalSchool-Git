@@ -22,19 +22,20 @@
     
     _courseProcess = [[PLCourseProcess alloc] init];
     _workProcess = [[PLWorkProcess alloc] init];
-    [_courseProcess getCourseLookRecord:@"1" didSuccess:^(NSMutableArray *array) {
-        _watchRecord_list = array;
-        [self.baseTableView reloadData];
-    } didFail:^(NSString *error) {
-        
-    }];
     
-    // Do any additional setup after loading the view.
+    CGRect animationR = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+    [super creatAnimationIndicator:animationR superView:self.view delegate:self];
+    
+    [self.baseArray addObject:[[NSMutableArray alloc]init]];
+    [self.baseArray addObject:[[NSMutableArray alloc]init]];
+    
+    [self getDatas:_course_works];
+    
 }
 
-- (void)didReceiveMemoryWarning {
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark -
@@ -42,29 +43,9 @@
 {
     UISegmentedControl *segmented = (UISegmentedControl *)sender;
     _course_works = segmented.selectedSegmentIndex;
-    if (_course_works == 0) {
-        if (![self checkUserLogin]) {
-            return;
-        }
-
-        [_courseProcess getCourseLookRecord:@"1" didSuccess:^(NSMutableArray *array) {
-            _watchRecord_list = array;
-            [self.baseTableView reloadData];
-        } didFail:^(NSString *error) {
-            
-        }];
-    }else{
-        if (![self checkUserLogin]) {
-            return;
-        }
-
-        [_workProcess getWorksLookRecord:@"1" didSuccess:^(NSMutableArray *array) {
-            _watchRecord_list = array;
-            [self.baseTableView reloadData];
-        } didFail:^(NSString *error) {
-            
-        }];
-    }
+    [[self.baseArray objectAtIndex:_course_works] removeAllObjects];
+    [self.baseTableView reloadData];
+    [self getDatas:_course_works];
 }
 
 #pragma mark UITableViewDelegate
@@ -75,7 +56,7 @@
 
 -(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [_watchRecord_list count];
+    return [[self.baseArray objectAtIndex:_course_works] count];
 }
 
 -(CGFloat) tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
@@ -97,15 +78,17 @@
 {
     static NSString *cellIdentifier = @"WatchRecordIdentifier";
     MWatchRecordCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
-    
-    PLLookCourse *lookCourse = [_watchRecord_list objectAtIndex:indexPath.row];
+    NSMutableArray *arry = [self.baseArray objectAtIndex:_course_works];
+    PLLookCourse *lookCourse = [arry objectAtIndex:indexPath.row];
     cell.object = lookCourse;
     return cell;
 }
 
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    PLLookCourse *lookCourse = [_watchRecord_list objectAtIndex:indexPath.row];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    NSMutableArray *arry = [self.baseArray objectAtIndex:_course_works];
+    PLLookCourse *lookCourse = [arry objectAtIndex:indexPath.row];
     [self performSegueWithIdentifier:@"lookPlayIdentifier" sender:lookCourse];
 }
 
@@ -116,21 +99,66 @@
         MPlayVideoViewController *play = segue.destinationViewController;
         if (_course_works == 0) {
             play.objectModel = lookCourse.courses;
+            play.mPlayVideoType = MPlayVideoTypeCourse;
         }else if (_course_works == 1) {
             play.objectModel = lookCourse.works;
             play.mPlayVideoType = MPlayVideoTypeWorks;
         }
     }
 }
+-(void)getDatas:(NSInteger)index
+{
+     [super startAnimationIndicator];
+    
+    if (index == 0)
+    {
+        [_courseProcess getCourseLookRecord:@"1"
+                                 didSuccess:^(NSMutableArray *array)
+        {
+            NSMutableArray *arr = [self.baseArray objectAtIndex:index];
+            [arr setArray:array];
+            if (array.count<=0)
+            {
+                [self stopAnimationIndicatorLoadText:YYNOTDATATEXT withType:NO];
+            }else
+            {
+                [self stopAnimationIndicatorLoadText:@"加载成功!" withType:YES];
+            }
+            [self.baseTableView reloadData];
+            
+        } didFail:^(NSString *error)
+         {
+             [super indicatorDataAnalysisFailure:1];
+         }];
+        
+    }else{
+        
+        [_workProcess getWorksLookRecord:@"1"
+                              didSuccess:^(NSMutableArray *array)
+         {
+             NSMutableArray *arr = [self.baseArray objectAtIndex:index];
+             [arr setArray:array];
+             if (array.count<=0)
+             {
+                 [self stopAnimationIndicatorLoadText:YYNOTDATATEXT withType:NO];
+             }else
+             {
+                 [self stopAnimationIndicatorLoadText:@"加载成功!" withType:YES];
+             }
+             [self.baseTableView reloadData];
+             
+         } didFail:^(NSString *error)
+         {
+             [super indicatorDataAnalysisFailure:1];
+         }];
+    }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
 }
-*/
+
+#pragma mark- YYAnimationDelegate
+-(void)didReloadData:(YYAnimationIndicator *)animationView
+{
+    [self getDatas:_course_works];
+}
 
 @end

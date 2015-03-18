@@ -8,6 +8,7 @@
 
 #import "MDownloadCompleteController.h"
 #import "PLCourseDownload.h"
+#import "DSMoviePlayerController.h"
 
 @interface MDownloadCompleteController ()
 
@@ -37,6 +38,21 @@
     return [_download_list count];
 }
 
+-(CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 0.1f;
+}
+
+-(CGFloat) tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    return 0.1f;
+}
+
+-(CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 44.0f;
+}
+
 -(UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DownloadIdentifier" forIndexPath:indexPath];
@@ -48,6 +64,21 @@
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    PLCourseDownload *courseDownload = [_download_list objectAtIndex:indexPath.row];
+    DSMoviePlayerController *moviePlayer = [[DSMoviePlayerController alloc] init];
+    moviePlayer.isScreen = NO;
+//    moviePlayer.delegate = self;
+    [moviePlayer clickScreenAction:nil];
+    [self.view addSubview:moviePlayer.view];
+    [moviePlayer setScalingMode:MPMovieScalingModeAspectFit];
+    [moviePlayer addConstraintSupview:self.view];
+    
+    NSURL *url = [[NSURL alloc] initFileURLWithPath:courseDownload.downloadPath];
+//    NSURL *url = [[NSURL alloc] initwith :courseDownload.downloadPath];
+    [moviePlayer setContentURL:url];
+    [moviePlayer setRepeatMode:MPMovieRepeatModeOne];
+    [moviePlayer setMovieSourceType:MPMovieSourceTypeFile];
+    [moviePlayer play];
 }
 
 /*

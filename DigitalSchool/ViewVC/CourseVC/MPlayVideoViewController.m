@@ -134,11 +134,11 @@ MBottomViewDelegate,MMenuViewDelegate,MDiscussNotesCellDelegate>
     NSString *path = [[NSBundle mainBundle] pathForResource:@"课程2" ofType:@"mp4"];
     url = [[NSURL alloc] initFileURLWithPath:path];
     
-    //    url = [NSURL URLWithString:@"http://edu.360fis.com/edu/js/js1.mp4"];
+//    url = [NSURL URLWithString:@"http://edu.360fis.com/edu/xsyy/xsyy2.mp4"];
     [_moviePlayer setContentURL:url];
     [_moviePlayer setRepeatMode:MPMovieRepeatModeOne];
     //    [_moviePlayer setMovieSourceType:MPMovieSourceTypeStreaming];
-    [_moviePlayer setMovieSourceType:MPMovieSourceTypeFile];
+    [_moviePlayer setMovieSourceType:MPMovieSourceTypeStreaming];
     [_moviePlayer play];
     
     
@@ -425,13 +425,14 @@ MBottomViewDelegate,MMenuViewDelegate,MDiscussNotesCellDelegate>
             if (self.mPlayVideoType == MPlayVideoTypeCourse)
             {
                 PLCourse *course = self.objectModel;
-                text = course.courseIntroduction;
+                text = course.courseContent;
                 
             }else
             {
                 PLWorks *work = self.objectModel;
                 text = work.workIntro;
             }
+     NSLog(@"text%@",text);
             CGSize maxSize = [MTool boundingRectWithSizeWithText:text
                                                          MaxSize:CGSizeMake(302, 10000)
                                                         textFont:[UIFont systemFontOfSize:14]];
@@ -720,15 +721,18 @@ MBottomViewDelegate,MMenuViewDelegate,MDiscussNotesCellDelegate>
 //                //作品
 //            }
             
-            NSMutableArray *array = [datas objectAtIndex:1];
-            [array insertObject:object atIndex:0];
-            [self.menuView reloadTableView:1];
-            
+//            NSMutableArray *array = [datas objectAtIndex:1];
+//            [array insertObject:object atIndex:0];
+//            [self.menuView reloadTableView:1];
+     
         }else if ([title isEqualToString:MNoteTitle])
         {
             //记笔记
             
-        }
+        }else if ([title isEqualToString:MReplyCommentTitle])
+               {
+                //回复讨论
+               }
     }
 }
 

@@ -12,8 +12,12 @@
 #import "PLNavsProcess.h"
 #import "PLNavs.h"
 
-@interface MNavigationVC ()
+#import "YYAnimationIndicator.h"
 
+@interface MNavigationVC ()<YYAnimationDelegate>
+{
+    YYAnimationIndicator *yyAnimation;
+}
 @end
 
 @implementation MNavigationVC
@@ -23,15 +27,13 @@
     
     _navsProcess = [[PLNavsProcess alloc] init];
     
-    [_navsProcess getNavsList:^(NSMutableArray *array) {
-        _navs_list = array;
-        
-        [self.collection reloadData];
-    } didFail:^(NSString *error) {
-        
-    }];
+    CGRect animationR = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+    yyAnimation = [[YYAnimationIndicator alloc]initWithFrame:animationR];
+    yyAnimation.delegate = self;
+    [yyAnimation setLoadText:@"正在加载中..."];
+    [self.view addSubview:yyAnimation];
     
-//    _titleArray = @[@"名师课程",@"直播课程",@"校园电视台",@"专题",@"活动专区",@"教育咨询",@"获奖作品",@"微课程"];
+    [self getNavDatas];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -84,15 +86,46 @@
 }
 
 #pragma mark - Navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-    
-    if ([segue.identifier isEqualToString:@"MNavDetailsIdentifier"]) {
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"MNavDetailsIdentifier"])
+    {
         NSIndexPath *indexPath = (NSIndexPath *)sender;
         MNavigationDetailsViewController *navDetails = segue.destinationViewController;
         navDetails.navs = [_navs_list objectAtIndex:indexPath.row];
     }
+}
+
+#pragma mark- 
+-(void)getNavDatas
+{
+    if (_navs_list.count<=0) {
+        [yyAnimation startAnimation];
+    }
+    [_navsProcess getNavsList:^(NSMutableArray *array)
+     {
+        _navs_list = array;
+        if (_navs_list.count<=0)
+        {
+            [yyAnimation stopAnimationWithLoadText:@"暂无相关数据,点击屏幕重现加载!" withType:NO loadType:MLoadTypeFail];
+            
+        }else
+        {
+            [yyAnimation stopAnimationWithLoadText:@"" withType:YES];
+        }
+        
+        [self.collection reloadData];
+        
+    } didFail:^(NSString *error)
+     {
+         [yyAnimation stopAnimationWithLoadText:YYFailReloadText withType:NO loadType:MLoadTypeFail];
+    }];
+}
+
+#pragma mark- YYAnimationDelegate
+-(void)didReloadData:(YYAnimationIndicator *)animationView
+{
+    [self getNavDatas];
 }
 
 @end
